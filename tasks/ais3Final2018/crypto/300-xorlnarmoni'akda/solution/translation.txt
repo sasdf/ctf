@@ -1,0 +1,202 @@
+------------------------------------------------------------
+ Translation
+------------------------------------------------------------
+
+.========================================.
+| Xace fua eno el lex jat fesela.        |
+| La kinunsaresen rironen ernlarnkael'i  |
+| lius, cene niurnen asti'e laozia.      |
+| Pa, liaxo vileti's moni'akda'i         |
+| kalzanenon cerkmern...                 |
+|                            -- parconal |
+'========================================'
+
+.========================================.
+| Welcome to the authentication system.  |
+| We use public key cryptography to      |
+| build a secure communication channel.  |
+| However, a traitor has changed the     |
+| prime recently...                      |
+|                               -- admin |
+'========================================'
+
+----------------------------------------------------
+        ferlk: parconal
+ferlk (lasti): parconalasti
+arlemaxicedir: 2484952329849
+     jokrante: parconal@la.jaten.fesela.lpa
+  kerzofantas: farvil{C3n3_c0's_1inep4rin3'i_1kurf?}
+----------------------------------------------------
+----------------------------------------------------
+           name: admin
+name (vocative): admin
+   phone number: 2484952329849
+          email: admin@the.authentication.system.lpa
+       password: flag{Can you speak lineparine?}
+----------------------------------------------------
+
+-----------------------------------------------------------------------
+        ferlk: enforle
+ferlk (lasti): enforlesti
+arlemaxicedir: 9732489573490
+     jokrante: enforle@la.jaten.fesela.lpa
+  kerzofantas: farvil{Ers vynut. Pa, deliu parconal'd farvil'i movenf.}
+-----------------------------------------------------------------------
+--------------------------------------------------------------------
+           name: guest
+name (vocative): guest
+   phone number: 9732489573490
+          email: guest@the.authentication.system.lpa
+       password: flag{Very good. But you should get admin's flag.}
+--------------------------------------------------------------------
+
+farvil{farkayl'xy aders}
+flag{clientside's fake flag}
+
+Co'd aloajerlerm es harmie?
+What's your name?
+
+Dupysn liuser.
+User not found.
+
+Salarua, parconalasti. Fqa es co'd farvil.
+Hello, admin. Here's your flag.
+
+Fqa es nystuj.
+This is salt.
+
+Fqa es Mi'd TER.
+This is my A.
+
+Co'd KER es harmie?
+What's your B?
+
+Nixepakda.
+Invalid number.
+
+Shrlo fqiu nuno'c stiesain.
+Solve this challenge.
+
+Stiesainao es harmie?
+What's your answer?
+
+Nixejatarakrapt.
+Invalid MAC.
+
+Nixestiesainao.
+Invalid answer.
+
+
+------------------------------------------------------------
+ Dictionary
+------------------------------------------------------------
+
+xorln                    (adj)  strange
+moni'akda                (noun) prime
+xorlnarmoni'akda         (noun) strange prime
+
+nuno                     (noun) problem
+
+farkasyken               (adj)  operating
+fesela                   (noun) system
+
+fanxensor                (noun) random number
+
+achkarj                  (verb) convert
+lyjotaleiju              (noun) string, text
+pakda                    (noun) number
+
+yerskersken              (adj)  advanced
+ernlarlen                (adj)  encryption
+foiium                   (noun) standard
+
+riron                    (noun) key
+jujolen                  (adj)  derivation
+tasniau                  (noun) function
+
+niurnen                  (adj)  safe, secure
+terken                   (adj)  sum, hash(?)
+litarleyl                (noun) algorithm
+
+la64dir                  (adj)  base64
+akraptesyl               (noun) encoder
+farcesyl                 (noun) decoder
+
+eiumo                    (noun) mixture
+
+anxantaqadir             (adj)  base16, hex
+
+fometiˈozazze            (noun) personal profile
+
+ferlk                    (noun) name
+kerzofantas              (noun) password
+arlemaxicedir            (noun) phone number
+jokrante                 (noun) mail address
+farvil                   (noun) flag
+viestiest                (noun) secret
+lpa                      (noun) CLA language code of lineparine
+
+la acirlanaˈd krantjlvil (noun) database
+
+parconal                 (noun) admin
+parconalasti             (noun) admin [vocative case]
+
+cene                     (aux)  can
+co                       (pro)  you
+lineparine               (noun) lineparine language
+lkurf                    (verb) speak
+
+farkayl'xy               (adj)  client's
+aders                    (noun) fake
+
+enforle                  (noun) guest
+enforlesti               (noun) guest [vocative case]
+
+Ers                      (verb) e + es, be verb.
+vynut                    (adj)  good
+pa                       (conj) but
+deliu                    (aux)  should
+parconal'd               (pro)  admin's
+movenf                   (verb) pick, capture
+
+slahurfaes               (verb) input
+
+ernlarnkaes              (verb) encrypt
+acirlan                  (noun) data
+jat                      (verb) authenticate
+jatarakrapt              (noun) message authentication code
+ieselen                  (adj)  blank, padding
+akraptesaxm              (noun) encrypter
+akrapteso                (noun) encrypted data
+
+nacisan                  (adj)  reversed
+nacisanˈernlarnkaes      (verb) decrypt
+nix                      (adj)  wrong
+
+falvix                   (verb) connect
+nystuj                   (noun) salt
+akraptesoven             (adj)  encoded, encrypted
+ladir                    (noun) base, generator
+ter                      (noun) a, first letter
+ker                      (noun) b, second letter
+fqa                      (pro)  this
+es                       (verb) is
+mi'd                     (pro)  my
+co'd                     (pro)  your
+harmie                   (prep) what
+celatis                  (verb) share
+celatiseriron            (noun) shared key
+
+irxe                     (adj)  temporary
+irxepakda                (noun) nonce
+shrlo                    (aux)  command, force
+fqiu                     (pro)  this
+stiesain                 (verb) answer
+stiesainao               (verb) answer
+
+aloajerlerm              (noun) name
+liuser                   (noun) user
+dupysn                   (adj)  absent
+lasti                    (noun) vocative case
+falvit                   (noun) boundary
+salarua                  (int)  hello

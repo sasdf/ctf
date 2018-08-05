@@ -1,0 +1,3 @@
+[submodule "tasks/ais3Final2018/rev/100-SecDES/source/crypto-algorithms"]
+	path = tasks/ais3Final2018/rev/100-SecDES/source/crypto-algorithms
+	url = https://github.com/B-Con/crypto-algorithms.git
