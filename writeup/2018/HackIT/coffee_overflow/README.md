@@ -58,7 +58,7 @@ they are not distinguishable.
 Those spaces in utf8 is `E2 80 8x`,
 so I replaced them with `_x_` to create unique, distinguishable and legal identifier names.
 Jar is actually a zip file, you have to unzip to modify the files in it.
-Here's my script to walk through all the files and change their filename and content.
+Here's my [script](rename.py) to walk through all the files and change their filename and content.
 Great, after packing it back to jar and opening with bytecode viewer,
 we produce some bytecodes that is readable.
 
@@ -131,6 +131,7 @@ Looks like how obfuscator works.
 After digging into Radon's source code, I found that `9ef1...` looks like
 [Normal String Encryption](https://github.com/ItzSomebody/Radon/blob/0.8.2/src/main/java/me/itzsomebody/radon/templates/NormalStringEncryption.java)
 based on the functions they called.
+The source code is obfuscated, [Here's](radonMethods) the code after cleaning up.
 
 The encryption is actually single char xor.
 I'm too lazy to calculate the key,
@@ -176,7 +177,7 @@ there are some filename contains `InvokeDynamic`.
 It seems to be [Heavy Invoke Dynamic](https://github.com/ItzSomebody/Radon/blob/0.8.2/src/main/java/me/itzsomebody/radon/templates/HeavyInvokeDynamic.java) based on the switch statment they use.
 
 It encrypt className with single char xor using 4382, memberName using 3940, and descriptor using 5739.
-Here's the script to put the correct function name in its comment.
+Here's the [script](invokeSolver.py) to put the correct function name in its comment.
 Now, previous snippet about the print looks like:
 ```
 64: invokedynamic #45,  0             //  InvokeDynamic #1: java.lang.System/out:java.io.PrintStream
@@ -198,7 +199,7 @@ There are many bytecode have following pattern:
 50: ixor
 ```
 The answer is 24. That's how radon obfuscate integer constants.
-Here's the script calculate the result and put in its comment.
+Here's the [script](processXor.py) calculate the result and put in its comment.
 Now, it looks like:
 ```
 34: aload_0
@@ -370,7 +371,7 @@ public class _2__5__4__e__4__4__9__5__7__1_ extends Object {
     }
 }
 ```
-After compiling our code, substitute spaces for `_x_` back,
+After compiling our code, substitute spaces for `_x_` back (See [this script](renameBack.py))
 and it will call the function I want.
 Now, I can start debugging my decryption algorithm,
 or simply call the library to decrypt the flag.
