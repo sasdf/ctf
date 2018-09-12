@@ -45,6 +45,7 @@ Searching for a deobfuscator for Radon but didn't found anything.
 
 Ok, let's try some other decompilers like `CFR`, `Luyten(Procyon)` ...
 And none of them worked.
+
 How about disassembler?
 `Bytecode Viewer` seems works,
 at least it shows some bytecode.
@@ -58,7 +59,9 @@ they are not distinguishable.
 Those spaces in utf8 is `E2 80 8x`,
 so I replaced them with `_x_` to create unique, distinguishable and legal identifier names.
 Jar is actually a zip file, you have to unzip to modify the files in it.
+
 Here's my [script](rename.py) to walk through all the files and change their filename and content.
+
 Great, after packing it back to jar and opening with bytecode viewer,
 we produce some bytecodes that is readable.
 
@@ -74,6 +77,7 @@ It specify where the entry point is.
 I can find the file named `96cd.../796f....class` in the jar,
 but it's not in my bytecode viewer.
 Drag the classfile into bytecode viewer gives me `java.lang.IllegalArgumentException`.
+
 What's going wrong??
 
 
@@ -97,7 +101,7 @@ java.lang.IllegalStateException: !_!b__a__2__2__4__8__b__4__5__6_
 What is a valid signature?
 I found some CFG in [JVM doc](https://docs.oracle.com/javase/specs/jvms/se10/html/jvms-4.html#jvms-4.7.9.1)
 about the signature.
-And `Lxxx;` is a valid signature.
+And `Lxxx;` seems to be a valid signature.
 I replace the signature using hex editor, and now `javap` can disassemble it!!!
 
 Bytecode viewer still crashed,
@@ -120,10 +124,11 @@ After looking around the bytecode, I found a interesting part at the beginning.
 ```
 I can't find `37de...` appears in other places,
 but let's ignore it now.
+
 Hmm, `PrintStream`... It seems going to output something.
 `8186...` is a function at the bottom,
 which takes a index and return a garbled string in its string table.
-And I found that in every place `8186...` is called,
+Also, in every place `8186...` is called,
 the return string are always passed into `d7b5.../9ef1...` and return another string.
 
 A string table and a function decrypt it?
@@ -131,7 +136,7 @@ Looks like how obfuscator works.
 After digging into Radon's source code, I found that `9ef1...` looks like
 [Normal String Encryption](https://github.com/ItzSomebody/Radon/blob/0.8.2/src/main/java/me/itzsomebody/radon/templates/NormalStringEncryption.java)
 based on the functions they called.
-The source code is obfuscated, [Here's](radonMethods) the code after cleaning up.
+Their source code is obfuscated, [Here's](radonMethods) the code after cleaning up.
 
 The encryption is actually single char xor.
 I'm too lazy to calculate the key,
@@ -177,7 +182,9 @@ there are some filename contains `InvokeDynamic`.
 It seems to be [Heavy Invoke Dynamic](https://github.com/ItzSomebody/Radon/blob/0.8.2/src/main/java/me/itzsomebody/radon/templates/HeavyInvokeDynamic.java) based on the switch statment they use.
 
 It encrypt className with single char xor using 4382, memberName using 3940, and descriptor using 5739.
+
 Here's the [script](invokeSolver.py) to put the correct function name in its comment.
+
 Now, previous snippet about the print looks like:
 ```
 64: invokedynamic #45,  0             //  InvokeDynamic #1: java.lang.System/out:java.io.PrintStream
@@ -198,7 +205,7 @@ There are many bytecode have following pattern:
 48: ldc           #35                 // int 814620819
 50: ixor
 ```
-The answer is 24. That's how radon obfuscate integer constants.
+The answer is 24, that's how radon obfuscate integer constants.
 Here's the [script](processXor.py) calculate the result and put in its comment.
 Now, it looks like:
 ```
@@ -217,7 +224,9 @@ Great, I can understand the bytecode now: It check that the first argument shoul
 
 
 ## Human decompiler
-It's time to spent 8hr reading the bytecodes :) Here's some tips to read them:
+We have all the pieces now. It's time to spent 8hr reading the bytecodes :)
+
+Here's some tips to read them:
 
 #### Where to read?
 Most of file/function is not used in the program due to the nature of java.
@@ -264,7 +273,7 @@ It's actually `jmp 837`.
 It may be a if-else clause or a while/for loop, depending on the jumping direction.
 
 #### Store
-Store commands (`istore`, `iastore`, `bastore`) are also a great boundary too.
+Store commands (`istore`, `iastore`, `bastore`) are also great boundaries too.
 Psuedo code of each fragments will looks like `reg5 = a * b(4) + 1`
 
 
@@ -298,12 +307,12 @@ public class MainPackage.MainClass extends java.lang.Object {
                 return
         print("win")
 ```
-Hey bro, its not EDE mode...
+Hey bro, its NOT EDE mode...
 In 3DES, EDE mode is `Enc(Dec(Enc(msg, k1), k2), k3)` which makes the key 3 times longer.
-And then I double checked the bytecode, but didn't found any mistake.
+I double checked the bytecode, but didn't found any mistake.
 
 I wrote a script to use PyCrypto's IDEA Cipher to decrypt the flag, but failed.
-And then I checked the bytecode third time, but still didn't found any mistake.
+I checked the bytecode third time, but still didn't found any mistake.
 The nightmare begins now.
 I thought the author may modified the algorithm,
 so I spent another 4 hours recovering all the details of its IDEA algorithm.
@@ -319,7 +328,7 @@ I've tried some debuggers:
 * Bytecode Viewer can't open some of the classfiles
 * Some debugger is too fat that I want to avoid. (e.g. plugin of eclipse)
 
-So I go with a different approach: write another java program to call the functions in it.
+So I go with a different approach: write another java program to import the classfile.
 Unicode are legal identifiers in java (you may need to compile with `javac -encoding utf8`).
 When I tried to compile this code:
 ```java
