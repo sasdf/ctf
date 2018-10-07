@@ -7,10 +7,10 @@ oblivious transfer - 1 solve - 500 pts
 3 hours  
 Solved 1 hour after the ctf end :(
 
-# Server
+## Behavior
 The server use paillier cryptosystem,
 we can provide `c` and publickey `n`,
-then the server return a encrypted flag using following formula.
+then the server computes a encrypted flag using following formula.
 ```
 x0 = rand(sizeof(flag))
 x1 = x0 ^ flag
@@ -18,7 +18,7 @@ r0, r1 = rand(n), rand(n)
 c0 = (enc(1) * c^(n-1))^x0 * c^r0
 c1 = (enc(1) * c^(n-1))^r1 * c^x1
 ```
-and then return `c0, c1` to us.
+and returns `c0, c1` to us.
 
 # Solution
 ## TL;DR
@@ -53,7 +53,7 @@ To get `x0`, simply calculate the remainder over q:
 d0 = x0 - q * (x0 - r0) = x0 mod q
 ```
 `x1` is more complicated.
-Recall that `q = 2p+1`, we can rewrite the formula as:
+Recall that `q = 2p+1`, we can derive following formulas:
 ```
 let r1 = p * k + (r1 mod p)
 
