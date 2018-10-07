@@ -12,7 +12,7 @@ The server use paillier cryptosystem,
 we can provide `c` and publickey `n`,
 then the server return a encrypted flag using following formula.
 ```
-x0 = rand(flag)
+x0 = rand(sizeof(flag))
 x1 = x0 ^ flag
 r0, r1 = rand(n), rand(n)
 c0 = (enc(1) * c^(n-1))^x0 * c^r0
@@ -29,7 +29,7 @@ and then return `c0, c1` to us.
 5. `x1 = dec(c1) % q`
 
 In paillier, multiplication in ciphertext is addition in plaintext,
-and exponential in ciphertext is multiplication in plaintext.
+and power in ciphertext is multiplication in plaintext.
 So the decryption result will be:
 ```
 let c = enc(z)
@@ -56,7 +56,9 @@ d0 = x0 - q * (x0 - r0) = x0 mod q
 Recall that `q = 2p+1`, we can rewrite the formula as:
 ```
 let r1 = p * k + (r1 mod p)
-d1 = r1 - q * (p * k + (r1 mod p) - x1) mod p*q
+
+d1 = r1 - q * (r1 - x1) mod p*q
+   = r1 - q * (p * k + (r1 mod p) - x1) mod p*q
    = r1 - p * q * k - q * ((r1 mod p) - x1) mod p*q
    = r1 - q * ((r1 mod p) - x1) mod p*q
    = r1 - (2p + 1) * ((r1 mod p) - x1) mod p*q

@@ -17,7 +17,7 @@ Mostly for solving the turing machine rather than reversing.
 3. Implement a efficient version.
 
 The task gives a Makefile which contains a lot of long function.
-Here's a slightly [beautified version](Makefile).
+Here's a slightly a [beautified version](Makefile).
 One of our team member (@Bookgin) tells me that we can use
 ```
 $(if $(shell echo $(3) 1>&2),,)
@@ -26,10 +26,11 @@ to inspect variables.
 
 That Makefile code is not very readable,
 so I [reimplement](rev0.py) each function using python.
-And here's [better version](rev.py) after cleanup.
-The code is actually simulating a turing machine.
-And use the content on the tape when it halt to calculate the flag.
-We also use `x` to represent `+` and `.` to represent `-` for better visualization effect.
+And here's a [better version](rev.py) after cleanup.
+(Note: we use `x` to represent `+` and `.` to represent `-` for better visualization effect)
+
+The code is actually simulating a turing machine,
+and it use the content on the tape when it halt to calculate the flag.
 The state graph looks like:
 ```
               .-.
@@ -47,6 +48,8 @@ The state graph looks like:
 If you run the cleanup-ed script,
 You can see some pattern like this
 ```
+          Notice this line ---.
+                              V
  977 D ........xx.x.x.x.x.x.x...x.x.x.x.x.x.x.x.x.x.x.x.x..x.....
  978 D .........x.x.x.x.x.x.x...x.x.x.x.x.x.x.x.x.x.x.x.x..x.....
  979 E .......x.x.x.x.x.x.x.x...x.x.x.x.x.x.x.x.x.x.x.x.x..x.....
@@ -112,8 +115,9 @@ You can see some pattern like this
 It keeps pushing waves from left to right.
 `EF` loop will change alternating sequence `.x` into all `xx`,
 and state `E` will detect consecutive `..`,
-and push it to the right four symbols.
+and push it to the right.
 `BDDE` loop will change `xx` prefix back to `.x` sequence.
+
 When it reach the left boundary,
 it will add a new symbol, like this:
 ```
@@ -166,7 +170,8 @@ it will add a new symbol, like this:
 ```
 When those two line collapsed,
 the behavior depends on the pattern at the end.
-here's an example.
+
+Here's an example.
 ```
  642 E ....xxxxxxxxxx.x.x.x.x.x.x.x.x...x..x........
  643 F ....xxxxxxxxxxxx.x.x.x.x.x.x.x...x..x........
@@ -239,10 +244,10 @@ here's an example.
 
 Each push has complexity O(n^2),
 where n is current size of tape.
-and the size grows exponentially O((5/4)^t).
+The size grows exponentially with complexity O((5/4)^t).
 It will take too much time and space to simulate it.
 What we need is to store current length,
-and we can calculate the length and position when the wave arrive left boundary using:
+then we can calculate the length and position when the wave arrive left boundary using:
 ```
 pos = -(length % 4)
 length += length // 4
