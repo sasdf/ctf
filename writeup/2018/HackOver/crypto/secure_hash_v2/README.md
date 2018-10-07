@@ -24,7 +24,7 @@ It store the credential using:
 ```
 sha512(sha512(name) + password)
 ```
-As far as I know, no collision attack available on this digest method.
+As far as I know, no collision attack is available on this kind of digest method.
 But the server has some interesting code when it search for hash:
 ```C++
 auth_result lookup_keyvalue(const std::string& name, const std::string& password) {
@@ -52,6 +52,6 @@ auth_result lookup_keyvalue(const std::string& name, const std::string& password
 ...
 ```
 We can login when it reach the limit of iterations,
-Search for 1000 credentials with same bucket number as `root, pwd`.
+Search for 1000 credentials with same bucket number as `root, pwd`,
 register them and login with `root, pwd` to get the flag.
 Here's the [code](dos.cpp).
