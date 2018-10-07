@@ -12,7 +12,7 @@ Mostly for solving the turing machine rather than reversing.
 
 # Solution
 ## TL;DR
-1. Extract the turing machine descriptor from the code.
+1. Extract the turing machine configuration from the code.
 2. Observe the behavior of it.
 3. Implement a efficient version.
 
@@ -168,7 +168,7 @@ it will add a new symbol, like this:
  645 F ....xxxxxxxxxxxxxx.x.x.x.x.x.x...x..x........
  646 E ....xxxxxxxxxxxxxx.x.x.x.x.x.x...x..x........
 ```
-When those two line collapsed,
+When those two lines collapsed,
 the behavior depends on the pattern at the end.
 
 Here's an example.
@@ -253,7 +253,7 @@ pos = -(length % 4)
 length += length // 4
 ```
 
-The behavior when two lines collapse doesn't depends on the length in the middle.
+The behavior when two lines collapse doesn't depends on the length but the pattern.
 So we can simulate the behavior with only 12 `x` in the middle,
 get the difference of length,
 and add the difference back to current length.
