@@ -7,8 +7,8 @@ For trying different bypass methods
 
 # Solution
 The cookie is a json object which has a key `flair` storing the selected ID.
-One of my team-mate(@shw) told me that there's SQL injection in item `flair`.
-There's a WAF to filter injection payload.
+One of my team-mate(@shw) told me that there's SQL injection in the value of `flair`.
+There's also a WAF to filter injection payload.
 To bypass it, I use:
 ```
 ' or #\n [payload]

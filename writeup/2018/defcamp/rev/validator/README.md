@@ -80,7 +80,7 @@ mov     [rsp+0E8h+var_E0], rax           ; func = rax = &main__Z
 call    runtime_newproc
 ```
 It forms a chain of goroutine.
-Proc i will have one channel between Proc i-1 and another channel to Proc i+1.
+Proc i will have a channel between Proc i-1 and another channel to Proc i+1.
 
 For the argument 2, `k = (input[i] ^ 0x542138[i]) % 11`:
 ```
@@ -96,7 +96,7 @@ For the argument 2, `k = (input[i] ^ 0x542138[i]) % 11`:
 .noptrdata:0000000000542141                 db 0DFh
 .noptrdata:0000000000542142                 db  14h
 ```
-and keys is a array of structures in 0x553C60 (total 11 * 0x58 bytes long).
+and keys is a array of structures in 0x553C60 (totally 11 * 0x58 bytes long).
 ```
 .data:0000000000553C60 qword_553C60    dq 0                    ; DATA XREF: .data:off_54FC50↑o
 .data:0000000000553C68                 dq offset unk_5426E0
@@ -112,7 +112,7 @@ and keys is a array of structures in 0x553C60 (total 11 * 0x58 bytes long).
 ...
 ```
 
-Then it create a result channel and create two other process with different functions:
+Then it creates a result channel and creates two other process with different functions:
 ```C++
 lastChan = __channels[v9 - 1];
 runtime_makechan(j, _inputLen, v15, &unk_49B440, off_54FC50, qword_54FC58, &unk_49B440, 1uLL);
@@ -138,9 +138,9 @@ and waits for the result and output it.
 
 
 ## Timeout and hash checker
-procTimeout send 2 to the result channel after 1 second,
-and hashChecker send 0 if the data from the last channel is correct, otherwise send 1.
-You can nop procTimeout to avoid the program exiting while debugging.
+procTimeout send 2 to the result channel after 1 second.
+hashChecker send 0 if the data from the last channel is correct, otherwise send 1.
+You could nop procTimeout to avoid the program exiting while debugging.
 ```C++
 __int64 __fastcall main___4(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, __int64 a7) {
   if ( &retaddr <= *(__readfsqword(0xFFFFFFF8) + 16) )
@@ -264,7 +264,7 @@ Index 10
 
 
 ## Order of the chain
-The Index is the position is keys array,
+The Index is the position in keys' array,
 not the position in the chain.
 The position in the chain is determine by the first 11 bytes of the input data.
 Reading the above constrains carefully,
@@ -272,9 +272,9 @@ You can find that data[0:5] is only constrained by Index 0,
 and only index 8 will modify it.
 
 Now we assume 0 runs before 8,
-so we know the first 5 bytes are `83 21 43 63 25 b1`,
+so we know the first 5 bytes are `83 21 43 63 25`,
 xor with our index key we extracted in the first section `83 23 42 69 23 b2 0e 28 97 df 14`.
-And we got the first 5 indices, `0, 2, 1, 10, 6, 3`.
+And we got the first 5 indices, `0, 2, 1, 10, 6`.
 
 Great! 0 is the first goroutine, so we know the first 19 bytes.
 and the order is `0, 2, 1, 10, 6, 3, 8, 4, 7, 5, 9`
@@ -286,7 +286,8 @@ If you assume 8 runs before 0, you won't get a reasonable result.
 Now emulate the chain and recover the input,
 If you feed it to the program, 
 It will tell you `this not quite lead to the flag`,
-which is the output when all hashChecker receive data but doesn't has correct hash.
+which is the output when whole transformer chain success,
+but the data hashChecker received doesn't has correct hash.
 
 When I debug the program,
 I found that the hashChecker receive
