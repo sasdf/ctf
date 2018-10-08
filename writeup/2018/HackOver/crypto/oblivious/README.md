@@ -75,3 +75,50 @@ Now xor those two integer to get the flag.
 # Additional Notes
 Here's the [solution](https://gist.github.com/qr4/9c2cebc7af7b68908716e516fc5fbfa2) from admin.
 It is stronger than my solution which doesn't need the assumption of safe prime on private key.
+Here's a prove about how it works:
+```
+Using extended gcd to get X, Y, such that:
+pX + qY = gcd(p, q) = 1
+
+Using the equation above,
+we have following equation about multiplicative inverse:
+(1 / pX) * pX = 1 = pX + qY
+(1 / pX) = (pX + qY) / pX
+         = 1 + qY / pX
+
+(1 / qY) * qY = 1 = pX + qY
+(1 / qY) = (pX + qY) / qY
+         = 1 + pX / qY
+
+Select c = enc(a), where
+a = pX =  mod pq
+
+So that:
+d0 = dec(c0)
+   = x0 - a * (x0 - r0) mod pq
+   = x0 - pX * (x0 - r0) mod pq
+   : {under modulo p}
+   = x0 - pX * (x0 - r0) mod p
+   = x0 mod p
+
+However the script calculate x0 using:
+x0 = d0 / (qY) mod p
+which is also true.
+
+d0 / qY = x0 / qY mod p
+        = x0 * (1 + pX / qY) mod p
+        = x0 mod p
+
+
+d1 is a more complicated:
+d1 = dec(c1)
+   = r1 - a * (r1 - x1) mod pq
+   = r1 - pX * (r1 - x1) mod pq
+
+d1 / pX = r1 / pX - r1 + x1 mod pq
+        = r1 * (1 + qY / pX) - r1 + x1 mod pq
+        : {under modulo q}
+        = r1 * (1 + qY / pX) - r1 + x1 mod q
+        = r1 - r1 + x1 mod q
+        = x1 mod q
+```
