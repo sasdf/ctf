@@ -265,3 +265,5 @@ the turing machine ends with length `2537699363594175843066` and has `2537699363
 # Additional Notes
 Admin says that the turing machine is Busy Beaver on
 [this page](https://web.archive.org/web/20140717022943/http://www.drb.insel.de/~heiner/BB/macro.html).
+
+And here's the [un-obfuscated code](https://gist.github.com/lava/34ff5a1fa28503904aff0e147cebf566) from admin.
