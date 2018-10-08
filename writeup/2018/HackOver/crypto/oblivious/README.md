@@ -75,7 +75,7 @@ Now xor those two integer to get the flag.
 # Additional Notes
 Here's the [solution](https://gist.github.com/qr4/9c2cebc7af7b68908716e516fc5fbfa2) from admin.
 It is stronger than my solution which doesn't need the assumption of safe prime on private key.
-Here's a prove about how it works:
+Here's a proof about how it works:
 ```
 Using extended gcd to get X, Y, such that:
 pX + qY = gcd(p, q) = 1
