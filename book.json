@@ -2,6 +2,8 @@
     "plugins": [
         "katex@git://github.com/sasdf/plugin-katex.git",
         "disqus",
+        "prism",
+        "-highlight",
         "html-minifier",
         "writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"
     ],
@@ -12,6 +14,14 @@
         },
         "disqus": {
             "shortName": "sasdfwriteup"
+        },
+        "prism": {
+            "css": ["prismjs/themes/prism-tomorrow.css"],
+            "lang": {
+                "C": "c",
+                "C++": "cpp",
+                "asm": "nasm"
+            }
         },
         "html-minifier": {
             "removeEmptyElements": false
