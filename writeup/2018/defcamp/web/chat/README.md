@@ -1,5 +1,21 @@
-# Task Info
-chat - 44 solves - 211 pts
+{% writeupHeader %}
+
+{% name %}
+chat
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+crypto
+
+{% points %}
+211
+
+{% solves %}
+44
+
+{% endwriteupHeader %}
 
 > We received a new gig.
 > Our goal is to review this application written in nodejs and see if we can get the flag from this system.

@@ -1,5 +1,22 @@
-# Task Info
-memsome - 67 solves - 110 pts
+{% writeupHeader %}
+
+{% name %}
+memsome
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+rev
+
+{% points %}
+110
+
+{% solves %}
+67
+
+{% endwriteupHeader %}
+
 > I can not find my license file. Can you help me?
 
 ## Time
@@ -13,5 +30,5 @@ memsome - 67 solves - 110 pts
 A tip for reversing c++ binary is to ignore anything you don't understand to preserve sanity.
 The binary read the input for a file, apply ROT13 to it, and compare the hash of each byte.
 The hash function is `base64 . md5hex . md5hex`
-To recover the flag, just [bruteforce](solve.py) it.
+To recover the flag, just [bruteforce]([_files/solve.py]) it.
 

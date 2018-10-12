@@ -1,0 +1,7 @@
+.wpHeaderContainer{
+    width: 100%;
+    text-align: center;
+}
+.wpHeaderContainer span{
+    margin: 2em;
+}

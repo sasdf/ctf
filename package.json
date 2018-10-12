@@ -1,0 +1,9 @@
+{
+  "name": "gitbook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}

@@ -1,5 +1,22 @@
-# Task Info
-flagmaker - 2 solves - 500 pts
+{% writeupHeader %}
+
+{% name %}
+flagmaker
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+rev
+
+{% points %}
+500
+
+{% solves %}
+2
+
+{% endwriteupHeader %}
+
 > Solving CTF challenges often involves a lot of work,
 > which is very unfair to lazy competitors.
 > To even things out,
@@ -17,7 +34,7 @@ Mostly for solving the turing machine rather than reversing.
 3. Implement a efficient version.
 
 The task gives a Makefile which contains a lot of long function.
-Here's a slightly a [beautified version](Makefile).
+Here's a slightly a [beautified version]([_files/Makefile]).
 One of our team member (@Bookgin) tells me that we can use
 ```
 $(if $(shell echo $(3) 1>&2),,)
@@ -25,8 +42,8 @@ $(if $(shell echo $(3) 1>&2),,)
 to inspect variables.
 
 That Makefile code is not very readable,
-so I [reimplement](rev0.py) each function using python.
-And here's a [better version](rev.py) after cleanup.
+so I [reimplement]([_files/rev0.py]) each function using python.
+And here's a [better version]([_files/rev.py]) after cleanup.
 (Note: we use `x` to represent `+` and `.` to represent `-` for better visualization effect)
 
 The code is actually simulating a turing machine,
@@ -258,7 +275,7 @@ So we can simulate the behavior with only 12 `x` in the middle,
 get the difference of length,
 and add the difference back to current length.
 
-Here's the [solver](solve.py),
+Here's the [solver]([_files/solve.py]),
 the turing machine ends with length `2537699363594175843066` and has `2537699363594175843064` `x` symbols on the tape.
 
 

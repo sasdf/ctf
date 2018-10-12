@@ -1,5 +1,22 @@
-# Task Info
-Voices - 28 solves - 281 pts
+{% writeupHeader %}
+
+{% name %}
+voices
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+misc
+
+{% points %}
+281
+
+{% solves %}
+28
+
+{% endwriteupHeader %}
+
 > Listen. Can you hear the voices? They are there. Somehow.
 
 ## Time
@@ -9,4 +26,4 @@ Voices - 28 solves - 281 pts
 There are two tracks of signals on its spectrum.
 There are totally 70 bits.
 Extract them, zip, and convert to bytes to get the flag.
-Here's the [solver](extract.py).
+Here's the [solver]([_files/extract.py]).

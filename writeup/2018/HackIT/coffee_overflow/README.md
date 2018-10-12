@@ -1,6 +1,23 @@
-# Task Info
-coffee_overflow - rev 1000 - 1 solve  
-Our mobile developer has severe coffee overflow, and lost password to his own app. Please help him to recover.  
+{% writeupHeader %}
+
+{% name %}
+coffee_overflow
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+rev
+
+{% points %}
+1000
+
+{% solves %}
+1
+
+{% endwriteupHeader %}
+
+> Our mobile developer has severe coffee overflow, and lost password to his own app. Please help him to recover.  
 
 ## Hints
 Do you have any idea how to ede?  
@@ -60,7 +77,7 @@ Those spaces in utf8 is `E2 80 8x`,
 so I replaced them with `_x_` to create unique, distinguishable and legal identifier names.
 Jar is actually a zip file, you have to unzip to modify the files in it.
 
-Here's my [script](rename.py) to walk through all the files and change their filename and content.
+Here's my [script]([_files/rename.py]) to walk through all the files and change their filename and content.
 
 Great, after packing it back to jar and opening with bytecode viewer,
 we produce some bytecodes that is readable.
@@ -136,7 +153,7 @@ Looks like how obfuscator works.
 After digging into Radon's source code, I found that `9ef1...` looks like
 [Normal String Encryption](https://github.com/ItzSomebody/Radon/blob/0.8.2/src/main/java/me/itzsomebody/radon/templates/NormalStringEncryption.java)
 based on the functions they called.
-Their source code is obfuscated, [Here's](radonMethods) the code after cleaning up.
+Their source code is obfuscated, [Here's]([_files/radonMethods]) the code after cleaning up.
 
 The encryption is actually single char xor.
 I'm too lazy to calculate the key,
@@ -183,7 +200,7 @@ It seems to be [Heavy Invoke Dynamic](https://github.com/ItzSomebody/Radon/blob/
 
 It encrypt className with single char xor using 4382, memberName using 3940, and descriptor using 5739.
 
-Here's the [script](invokeSolver.py) to put the correct function name in its comment.
+Here's the [script]([_files/invokeSolver.py]) to put the correct function name in its comment.
 
 Now, previous snippet about the print looks like:
 ```
@@ -206,7 +223,7 @@ There are many bytecode have following pattern:
 50: ixor
 ```
 The answer is 24, that's how radon obfuscate integer constants.
-Here's the [script](processXor.py) calculate the result and put in its comment.
+Here's the [script]([_files/processXor.py]) calculate the result and put in its comment.
 Now, it looks like:
 ```
 34: aload_0
@@ -380,7 +397,7 @@ public class _2__5__4__e__4__4__9__5__7__1_ extends Object {
     }
 }
 ```
-After compiling our code, substitute spaces for `_x_` back (See [this script](renameBack.py))
+After compiling our code, substitute spaces for `_x_` back (See [this script]([_files/renameBack.py]))
 and it will call the function I want.
 Now, I can start debugging my decryption algorithm,
 or simply call the library to decrypt the flag.

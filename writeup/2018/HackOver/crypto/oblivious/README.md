@@ -1,5 +1,25 @@
-# Task Info
-oblivious transfer - 1 solve - 500 pts
+{% writeupHeader %}
+
+{% name %}
+oblivious transfer
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% level %}
+hard
+
+{% category %}
+crypto
+
+{% points %}
+500
+
+{% solves %}
+1
+
+{% endwriteupHeader %}
+
 > We do not do parties, we do multi-parties!
 > One of the most important ingredients for these is (next to mate) oblivious transfers.
 
@@ -9,66 +29,75 @@ Solved 1 hour after the ctf end :(
 
 ## Behavior
 The server use paillier cryptosystem,
-we can provide `c` and publickey `n`,
+we can provide generator $$c$$ and publickey $$n$$,
 then the server computes a encrypted flag using following formula.
-```
-x0 = rand(sizeof(flag))
-x1 = x0 ^ flag
-r0, r1 = rand(n), rand(n)
-c0 = (enc(1) * c^(n-1))^x0 * c^r0
-c1 = (enc(1) * c^(n-1))^r1 * c^x1
-```
-and returns `c0, c1` to us.
+$$
+\begin{aligned}
+x_0 &= \text{rand}(\text{sizeof}(\text{flag}))\\
+x_1 &= x_0 ^ \text{flag}\\
+r_0, r_1 &= \text{rand}(n), \text{rand}(n)\\
+c_0 &= \left(\text{enc}(1) \times c^{(n-1)}\right)^{x_0} \times c^{r_0}\\
+c_1 &= \left(\text{enc}(1) \times c^{(n-1)}\right)^{r_1} \times c^{x_1}\\
+\end{aligned}
+$$
+and returns ciphertext $$c_0, c_1$$ to us.
 
 # Solution
 ## TL;DR
-1. Generate a safe prime `q = 2p + 1`
-2. Use p * q as public key
-3. Send enc(q) as c
-4. `x0 = dec(c0) % p`
-5. `x1 = dec(c1) % q`
+1. Generate a safe prime $$q = 2p + 1$$
+2. Use $$n = pq$$ as public key
+3. Send $$\text{enc}(q)$$ as $$c$$
+4. $$x_0 = \text{dec}(c_0) \ \mod\ p$$
+5. $$x_1 = \text{dec}(c_1) \ \mod\ q$$
 
 In paillier, multiplication in ciphertext is addition in plaintext,
 and power in ciphertext is multiplication in plaintext.
 So the decryption result will be:
-```
-let c = enc(z)
-d0 = x0 - z * (x0 - r0) mod n
-d1 = r1 - z * (r1 - x1) mod n
-```
+$$
+\begin{aligned}
+c   &\coloneqq \text{enc}(z) \\
+d_0 &= x_0 - z (x_0 - r_0)\ \mod\ n \\
+d_1 &= r_1 - z (r_1 - x_1)\ \mod\ n \\
+\end{aligned}
+$$
 
-To solve this task, I use a safe prime as `c` and private key, formally:
-```
-let q = 2p + 1, where p, q are both prime
-let n = p * q
-let c = enc(q)
-```
+To solve this task, I use a safe prime as $$c$$ and private key, formally:
+$$
+\begin{aligned}
+q &\coloneqq 2p + 1\quad\text{where p, q are both prime} \\
+n &\coloneqq p q \\
+c &\coloneqq enc(q) \\ \\
+\end{aligned}
+$$
 After decryption, we'll have:
-```
-d0 = x0 - q * (x0 - r0) mod p*q
-d1 = r1 - q * (r1 - x1) mod p*q
-```
-To get `x0`, simply calculate the remainder over q:
-```
-d0 = x0 - q * (x0 - r0) = x0 mod q
-```
-`x1` is more complicated.
-Recall that `q = 2p+1`, we can derive following formulas:
-```
-let r1 = p * k + (r1 mod p)
+$$
+\begin{aligned}
+d_0 &= x_0 - q (x_0 - r_0)\ \mod\ pq \\
+d_1 &= r_1 - q (r_1 - x_1)\ \mod\ pq \\
+\end{aligned}
+$$
+To get $$x_0$$, simply calculate the remainder over $$q$$:
+$$
+d_0 = x_0 - q (x_0 - r_0) = x_0\ \mod\ q
+$$
 
-d1 = r1 - q * (r1 - x1) mod p*q
-   = r1 - q * (p * k + (r1 mod p) - x1) mod p*q
-   = r1 - p * q * k - q * ((r1 mod p) - x1) mod p*q
-   = r1 - q * ((r1 mod p) - x1) mod p*q
-   = r1 - (2p + 1) * ((r1 mod p) - x1) mod p*q
-
-Under modulo p
-d1 = r1 - (2p + 1) * ((r1 mod p) - x1) mod p
-   = r1 - 1 * ((r1 mod p) - x1) mod p
-   = r1 - (r1 mod p) + x1 mod p
-   = x1 mod p
-```
+$$x_1$$ is more complicated.
+Recall that $$q = 2p+1$$, we can derive following formulas:
+$$
+\begin{aligned}
+r_1 &\coloneqq p k + (r_1\mod\ p) \\
+d_1 &= r_1 - q (r_1 - x_1)\ \mod\ pq \\
+    &= r_1 - q (p k + (r_1\mod\ p) - x_1)\ \mod\ pq \\
+    &= r_1 - p q k - q ((r_1\mod\ p) - x_1)\ \mod\ pq \\
+    &= r_1 - q ((r_1\mod\ p) - x_1)\ \mod\ pq \\
+    &= r_1 - (2p + 1) ((r_1\mod\ p) - x_1)\ \mod\ pq \\
+    &:\ \text{\{Under modulo p\}} \\
+    &= r_1 - (2p + 1) ((r_1\mod\ p) - x_1)\ \mod\ p \\
+    &= r_1 - 1 ((r_1\mod\ p) - x_1)\ \mod\ p \\
+    &= r_1 - (r_1\mod\ p) + x_1\ \mod\ p \\
+    &= x_1\ \mod\ p \\
+\end{aligned}
+$$
 
 Now xor those two integer to get the flag.
 
@@ -76,49 +105,68 @@ Now xor those two integer to get the flag.
 Here's the [solution](https://gist.github.com/qr4/9c2cebc7af7b68908716e516fc5fbfa2) from admin.
 It is stronger than my solution which doesn't need the assumption of safe prime on private key.
 Here's a proof about how it works:
-```
+
 Using extended gcd to get X, Y, such that:
-pX + qY = gcd(p, q) = 1
+$$
+pX + qY = \text{gcd}(p, q) = 1
+$$
 
 Using the equation above,
 we have following equation about multiplicative inverse:
-(1 / pX) * pX = 1 = pX + qY
-(1 / pX) = (pX + qY) / pX
-         = 1 + qY / pX
+$$
+\begin{aligned}
+&\frac{1}{pX} \times pX = 1 = pX + qY \\
+\Rightarrow\ &\frac{1}{pX} = \frac{pX + qY}{pX} = 1 + \frac{qY}{pX} \\
+ \\
+&\frac{1}{qY} \times qY = 1 = pX + qY \\
+\Rightarrow\ &\frac{1}{qY} = \frac{pX + qY}{qY} = 1 + \frac{pX}{qY} \\
+\end{aligned}
+$$
 
-(1 / qY) * qY = 1 = pX + qY
-(1 / qY) = (pX + qY) / qY
-         = 1 + pX / qY
-
-Select c = enc(a), where
-a = pX =  mod pq
+Select $$c = \text{enc}(\alpha)$$, where
+$$
+\alpha = pX \mod pq
+$$
 
 So that:
-d0 = dec(c0)
-   = x0 - a * (x0 - r0) mod pq
-   = x0 - pX * (x0 - r0) mod pq
-   : {under modulo p}
-   = x0 - pX * (x0 - r0) mod p
-   = x0 mod p
+$$
+\begin{aligned}
+d_0 &= \text{dec}(c_0) \\
+    &= x_0 - \alpha (x_0 - r_0) \mod pq \\
+    &= x_0 - pX (x_0 - r_0) \mod pq \\
+    &:\ \text{\{under modulo p\}} \\
+    &= x_0 - pX (x_0 - r_0) \mod p \\
+    &= x_0 \mod p \\
+\end{aligned}
+$$
 
-However the script calculate x0 using:
-x0 = d0 / (qY) mod p
+However the script calculate $$x_0$$ using:
+$$
+x_0 \coloneqq \frac{d_0}{qY} \mod p
+$$
 which is also true.
 
-d0 / qY = x0 / qY mod p
-        = x0 * (1 + pX / qY) mod p
-        = x0 mod p
+$$
+\begin{aligned}
+\frac{d_0}{qY} &= \frac{x_0}{qY} \mod p \\
+               &= x_0 (1 + \frac{pX}{qY}) \mod p \\
+               &= x_0 \mod p \\
+\end{aligned}
+$$
 
 
-d1 is a more complicated:
-d1 = dec(c1)
-   = r1 - a * (r1 - x1) mod pq
-   = r1 - pX * (r1 - x1) mod pq
-
-d1 / pX = r1 / pX - r1 + x1 mod pq
-        = r1 * (1 + qY / pX) - r1 + x1 mod pq
-        : {under modulo q}
-        = r1 * (1 + qY / pX) - r1 + x1 mod q
-        = r1 - r1 + x1 mod q
-        = x1 mod q
-```
+We can calculate $$x_1$$ from $$d_1$$ in the similar way:
+$$
+\begin{aligned}
+d_1 &= \text{dec}(c_1) \\
+    &= r_1 - \alpha (r_1 - x_1) \mod pq \\
+    &= r_1 - pX (r_1 - x_1) \mod pq \\
+ \\
+\frac{d_1}{pX} &= \frac{r_1}{pX} - r_1 + x_1 \mod pq \\
+               &= r_1 (1 + \frac{qY}{pX}) - r_1 + x_1 \mod pq \\
+               &:\ \text{\{under modulo q\}} \\
+               &= r_1 (1 + \frac{qY}{pX}) - r_1 + x_1 \mod q \\
+               &= r_1 - r_1 + x_1 \mod q \\
+               &= x_1 \mod q \\
+\end{aligned}
+$$

@@ -1,5 +1,22 @@
-# Task Info
-secops - 20 solves - 316 pts
+{% writeupHeader %}
+
+{% name %}
+secops
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+web
+
+{% points %}
+316
+
+{% solves %}
+20
+
+{% endwriteupHeader %}
+
 
 ## Time
 3 hours  

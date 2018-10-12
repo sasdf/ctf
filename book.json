@@ -1,0 +1,16 @@
+{
+    "plugins": [
+        "katex@git://github.com/sasdf/plugin-katex.git",
+        "disqus",
+        "writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"
+    ],
+    "pluginsConfig": {
+        "writeup-utils": {
+            "filePrefix": "https://github.com/sasdf/ctf-tasks-writeup/blob/master",
+            "repoPrefix": "https://github.com/sasdf/ctf-tasks-writeup/blob/master"
+        },
+        "disqus": {
+            "shortName": "sasdfwriteup"
+        }
+    }
+}

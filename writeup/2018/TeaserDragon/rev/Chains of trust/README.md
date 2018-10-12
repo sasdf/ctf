@@ -1,5 +1,22 @@
-# Task Info
-Chains of trust - rev 391 - 10 solves
+{% writeupHeader %}
+
+{% name %}
+Chains of trust
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+rev
+
+{% points %}
+391
+
+{% solves %}
+10
+
+{% endwriteupHeader %}
+
 > Yet another reverse engineering challenge.
 
 
@@ -61,12 +78,12 @@ By intercepting the traffic using wireshark,
 I found that this program won't send our input to the server.
 The server must send some code for checking the flag.
 
-I wrote a [mitm proxy](proxy.py) to block those shellcodes.
+I wrote a [mitm proxy]([_files/proxy.py]) to block those shellcodes.
 The main UI will show up when you send 22nd shellcode,
 and print `No luck.` when you send 85th shellcode.
 
 Those shellcode are encrypted and there's a decryptor at the beginning.
-I use a [runner](runner.c) to run them, trace it with `gdb`,
+I use a [runner]([_files/runner.c]) to run them, trace it with `gdb`,
 and use `gcore` command to dump the shellcode after decrypted.
 
 
@@ -104,13 +121,13 @@ void __fastcall hash(uint16 inp, char* out) {
 }
 ```
 It read a 16bit integer from another thread and check to a hardcoded target.
-Since it is only 16bit, [bruteforce](target.py) the result won't take too much time.
+Since it is only 16bit, [bruteforce]([_files/target.py]) the result won't take too much time.
 The result looks like `[0x46ca, 0x4187, 0x5582...]`,
 which doesn't look like ascii.
 
 ## Debugging
 To attach gdb on the process, We need to skip shellcodes for anti-debugging.
-I disable ASLR, record the traffic with [record.py](record.py) and replay it with [replay.py](replay.py).
+I disable ASLR, record the traffic with [record.py]([_files/record.py]) and replay it with [replay.py]([_files/replay.py]).
 Run the binary with strace, now we can just throw away all anti-debugging chunks when replaying.
 
 The checker got `[18685]*8 + [13927, ...] + [5548]*8 + [16696]*8` when input are all `a`.
@@ -140,6 +157,6 @@ load:00007FFFF7FEE5CD                 mov     rax, 0E7h
 load:00007FFFF7FEE5D4                 mov     rdi, 0
 load:00007FFFF7FEE5DB                 syscall                 ; LINUX -
 ```
-Then just [bruteforce](brute.py) it byte-by-byte to recover the flag.
+Then just [bruteforce]([_files/brute.py]) it byte-by-byte to recover the flag.
 I just solve it 6 minutes before second blood.
 Thanks god that I implemented the bruteforcer with multiprocessing :)

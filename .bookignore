@@ -1,0 +1,6 @@
+_files
+package.json
+build.sh
+.bookignore
+.gitignore
+yarn.lock

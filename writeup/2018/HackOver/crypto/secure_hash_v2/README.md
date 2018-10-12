@@ -1,5 +1,22 @@
-# Task Info
-secure_hash v2 - 10 solves - 488 pts
+{% writeupHeader %}
+
+{% name %}
+secure_hash v2
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+crypto
+
+{% points %}
+488
+
+{% solves %}
+10
+
+{% endwriteupHeader %}
+
 > It has come to our attention that the released version of our
 > SecureHash class was in fact not completely secure.
 > We're deeply sorry about that,
@@ -7,6 +24,7 @@ secure_hash v2 - 10 solves - 488 pts
 > times we now proudly present SecureHash v2.
 > It features twice as much security as before,
 > and is now certified to be absolutely free of bugs.
+> 
 > Update: the binary was compiled with g++ and libstdc++, 64bit
 
 ## Time
@@ -54,4 +72,4 @@ auth_result lookup_keyvalue(const std::string& name, const std::string& password
 We can login when it reach the limit of iterations,
 Search for 1000 credentials with same bucket number as `root, pwd`,
 register them and login with `root, pwd` to get the flag.
-Here's the [code](dos.cpp).
+Here's the [code]([_files/dos.cpp]).

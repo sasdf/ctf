@@ -1,5 +1,22 @@
-# Task Info
-validator - 8 solves - 369 pts
+{% writeupHeader %}
+
+{% name %}
+validator
+
+{% links %}
+[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+
+{% category %}
+rev
+
+{% points %}
+369
+
+{% solves %}
+8
+
+{% endwriteupHeader %}
+
 > Like any good admin, we don't store the flag, we validate that it can be generated.
 
 ## Time
