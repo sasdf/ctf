@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: mama
+category: crypto
+points: 100
+solves: 0
+---
 
-{% name %}
-mama
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-crypto
-
-{% points %}
-100
-
-{% solves %}
-0
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > It is well known that finding a key given plaintext and ciphertext pair is very hard in modern cipher.
 > But you have to recover my key to get the flag for this challenge (┛◉Д◉)┛彡┻━┻  ☜（ﾟ∀ﾟ☜）☆ﾟ.*･｡ﾟ

@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: secure_hash v2
+category: crypto
+points: 488
+solves: 10
+---
 
-{% name %}
-secure_hash v2
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-crypto
-
-{% points %}
-488
-
-{% solves %}
-10
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > It has come to our attention that the released version of our
 > SecureHash class was in fact not completely secure.

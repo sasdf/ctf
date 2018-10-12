@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: Chains of trust
+category: rev
+points: 391
+solves: 10
+---
 
-{% name %}
-Chains of trust
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-391
-
-{% solves %}
-10
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Yet another reverse engineering challenge.
 

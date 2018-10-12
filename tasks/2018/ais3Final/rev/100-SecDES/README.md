@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: SecDES
+category: rev
+points: 100
+solves: 0
+---
 
-{% name %}
-SecDES
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-100
-
-{% solves %}
-0
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > We designed a SecDES algorithm, a secure DES variant.
 > It's time to make DES great again!!!

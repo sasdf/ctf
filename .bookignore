@@ -1,4 +1,5 @@
 _files
+docs
 package.json
 build.sh
 .bookignore

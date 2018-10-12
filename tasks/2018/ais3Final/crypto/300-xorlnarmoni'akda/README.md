@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: xorlnarmoni'akda
+category: crypto
+points: 300
+solves: 0
+---
 
-{% name %}
-xorlnarmoni'akda
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-300
-
-{% solves %}
-0
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Xace fua eno el lex jat fesela.
 > La kinunsaresen rironen ernlarnkael'i lius,

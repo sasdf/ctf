@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: secureSub
+category: crypto
+points: 200
+solves: 0
+---
 
-{% name %}
-secureSub
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-crypto
-
-{% points %}
-200
-
-{% solves %}
-0
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Even a one-year-old baby can solve substitution cipher challenge with quipquip.
 > So I made a secure version of substitution cipher that babies can't break it.

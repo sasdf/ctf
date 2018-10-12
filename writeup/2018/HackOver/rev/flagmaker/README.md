@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: flagmaker
+category: rev
+points: 500
+solves: 2
+---
 
-{% name %}
-flagmaker
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-500
-
-{% solves %}
-2
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Solving CTF challenges often involves a lot of work,
 > which is very unfair to lazy competitors.

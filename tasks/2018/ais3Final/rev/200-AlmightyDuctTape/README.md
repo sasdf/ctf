@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: Almighty Duct Tape
+category: rev
+points: 200
+solves: 0
+---
 
-{% name %}
-Almighty Duct Tape
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-200
-
-{% solves %}
-0
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Dear challenger,
 > 

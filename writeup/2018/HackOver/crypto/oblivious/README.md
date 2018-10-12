@@ -1,24 +1,13 @@
-{% writeupHeader %}
+---
+name: oblivious transfer
+category: crypto
+points: 500
+solves: 1
+---
 
-{% name %}
-oblivious transfer
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% level %}
-hard
-
-{% category %}
-crypto
-
-{% points %}
-500
-
-{% solves %}
-1
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > We do not do parties, we do multi-parties!
 > One of the most important ingredients for these is (next to mate) oblivious transfers.

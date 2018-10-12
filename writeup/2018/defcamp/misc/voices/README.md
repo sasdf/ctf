@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: voices
+category: misc
+points: 281
+solves: 28
+---
 
-{% name %}
-voices
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-misc
-
-{% points %}
-281
-
-{% solves %}
-28
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Listen. Can you hear the voices? They are there. Somehow.
 

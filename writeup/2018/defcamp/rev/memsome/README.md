@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: memsome
+category: rev
+points: 110
+solves: 67
+---
 
-{% name %}
-memsome
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-110
-
-{% solves %}
-67
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > I can not find my license file. Can you help me?
 

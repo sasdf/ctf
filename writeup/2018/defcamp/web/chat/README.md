@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: chat
+category: web
+points: 211
+solves: 44
+---
 
-{% name %}
-chat
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-crypto
-
-{% points %}
-211
-
-{% solves %}
-44
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > We received a new gig.
 > Our goal is to review this application written in nodejs and see if we can get the flag from this system.

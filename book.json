@@ -2,6 +2,7 @@
     "plugins": [
         "katex@git://github.com/sasdf/plugin-katex.git",
         "disqus",
+        "html-minifier",
         "writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"
     ],
     "pluginsConfig": {
@@ -11,6 +12,9 @@
         },
         "disqus": {
             "shortName": "sasdfwriteup"
+        },
+        "html-minifier": {
+            "removeEmptyElements": false
         }
     }
 }

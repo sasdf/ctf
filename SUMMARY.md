@@ -27,7 +27,7 @@
 ### 2018
 * AIS3 Final
     * [crypto - mama](tasks/2018/ais3Final/crypto/100-mama/README.md)
-    * [crypto - xorlnarmoni'akda](tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/README.md)
     * [crypto - secureSub](tasks/2018/ais3Final/crypto/200-secureSub/README.md)
+    * [crypto - xorlnarmoni'akda](tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/README.md)
     * [rev - SecDES](tasks/2018/ais3Final/rev/100-SecDES/README.md)
     * [rev - Almighty Duct Tape](tasks/2018/ais3Final/rev/200-AlmightyDuctTape/README.md)

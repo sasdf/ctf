@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: secops
+category: web
+points: 316
+solves: 20
+---
 
-{% name %}
-secops
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-web
-
-{% points %}
-316
-
-{% solves %}
-20
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 
 ## Time

@@ -1,21 +1,13 @@
-{% writeupHeader %}
+---
+name: coffee_overflow
+category: rev
+points: 1000
+solves: 1
+---
 
-{% name %}
-coffee_overflow
-
-{% links %}
-[Rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
-
-{% category %}
-rev
-
-{% points %}
-1000
-
-{% solves %}
-1
-
-{% endwriteupHeader %}
+{% ignore %}
+[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+{% endignore %}
 
 > Our mobile developer has severe coffee overflow, and lost password to his own app. Please help him to recover.  
 
