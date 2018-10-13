@@ -3,5 +3,28 @@
     text-align: center;
 }
 .wpHeaderContainer span{
-    margin: 2em;
+    margin: 0em;
+    display: block;
+}
+
+@media screen and (min-width: 480px) {
+    .wpHeaderContainer span{
+        margin: 0.5em;
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 512px) {
+    .wpHeaderContainer span{
+        margin: 1em;
+        display: inline-block;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .wpHeaderContainer span{
+        margin: 2em;
+        display: inline-block;
+    }
 }
