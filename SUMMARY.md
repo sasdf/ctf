@@ -5,6 +5,11 @@
 ## Writeups
 
 ### 2018
+* Hack.lu
+    * [crypto - Escape the Grid](writeup/2018/Hack.lu/crypto/escape/README.md)
+    * [crypto - Relations](writeup/2018/Hack.lu/crypto/relation/README.md)
+    * [crypto - LFSR StreamCipher](writeup/2018/Hack.lu/crypto/lfsr/README.md)
+        * [task description](writeup/2018/Hack.lu/crypto/lfsr/task.md)
 * Hackover
     * [crypto - oblivious](writeup/2018/HackOver/crypto/oblivious/README.md)
     * [crypto - secure_hash_v2](writeup/2018/HackOver/crypto/secure_hash_v2/README.md)
