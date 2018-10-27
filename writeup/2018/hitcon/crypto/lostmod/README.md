@@ -37,7 +37,7 @@ Unfortunately, we know nothing about $$n, p, q, g$$.
 We can calculate $$m\ \mod n$$ by encrypting it and then decrypting,
 If $$m < n$$, we get the last byte of $m$.
 However, if $$m \ge n$$, we get the last byte of $$m\ \mod n$$.
-We can leak $$n$$ bit-by-bit by select $$2^b$$ as $$m$$.
+We can leak $$n$$ bit-by-bit by selecting $$2^b$$ as $$m$$.
 Moreover, the return value is $$-n \ \mod 256$$ if $$m \ge n$$,
 which means we have 16 operations left for leaking 16 bytes of flag.
 
