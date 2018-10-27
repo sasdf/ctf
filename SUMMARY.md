@@ -5,6 +5,9 @@
 ## Writeups
 
 ### 2018
+* HITCON
+    * [crypto - Lost Modulus](writeup/2018/hitcon/crypto/lostmod/README.md)
+    * [crypwn - Secret Note](writeup/2018/hitcon/crypto/secret/README.md)
 * Hack.lu
     * [crypto - Escape the Grid](writeup/2018/Hack.lu/crypto/escape/README.md)
     * [crypto - Relations](writeup/2018/Hack.lu/crypto/relation/README.md)
