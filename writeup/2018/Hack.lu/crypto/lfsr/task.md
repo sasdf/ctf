@@ -70,8 +70,6 @@ First 1001 Output Key-Bits (LSB = 0th output, MSB = 1000th output):
 But now we are stuck and need your help. Find the secret seed of the stream cipher so that we can decrypt the remaining game code and get our friend out of the jam.
 
 # Announcements for LFSR StreamCipher
-(Published on 2018-10-18 00:14:00)
-
 Thanks to a real friend of us, we found some more info about this strange LFSR. Its somewhat wiredly clocked:
 ```
 new_x0 = old_x1
@@ -89,13 +87,3 @@ And these output bits were also wrong. The right ones for seed 0x1 are (without 
 0000000000000000000000000000000000000100000000000000
 00000000000000000000000000000000000000000000000001
 ```
-
-(Published on 2018-10-17 16:38:52)
-
-To avoid guesswork and confusion: The first 512 output bits of the LFSR seeded with 0x1 (lsb) without filtering in the same format as in the challenge are:
-```
-0x48400000000000014840000148400000000000000000000000
-0000000000000100000000000000010000000100000000000000
-00000000000000000000000001
-```
-
