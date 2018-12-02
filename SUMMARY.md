@@ -5,6 +5,9 @@
 ## Writeups
 
 ### 2018
+* Pwn2Win
+    * [cryrev - Back To Bletchley Park](writeup/2018/pwn2win/rev/back_to_bletchley_park/README.md)
+    * [crypto - GCM](writeup/2018/pwn2win/crypto/GCM/README.md)
 * HITCON
     * [crypto - Lost Modulus](writeup/2018/hitcon/crypto/lostmod/README.md)
     * [crypwn - Secret Note](writeup/2018/hitcon/crypto/secret/README.md)

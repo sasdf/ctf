@@ -1,0 +1,6 @@
+gate sqgate_3873 c,s,a
+{
+  ccx s,c,a;
+  cx a,c;
+  cx c,s;
+}
