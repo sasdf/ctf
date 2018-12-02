@@ -9,8 +9,8 @@
     ],
     "pluginsConfig": {
         "writeup-utils": {
-            "filePrefix": "https://github.com/sasdf/ctf-tasks-writeup/blob/master",
-            "repoPrefix": "https://github.com/sasdf/ctf-tasks-writeup/blob/master"
+            "filePrefix": "https://github.com/sasdf/ctf/blob/master",
+            "repoPrefix": "https://github.com/sasdf/ctf/blob/master"
         },
         "disqus": {
             "shortName": "sasdfwriteup"
