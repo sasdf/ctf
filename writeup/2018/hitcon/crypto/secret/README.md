@@ -6,7 +6,7 @@ solves: 9
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > UPDATE: Running on Ubuntu 18.04

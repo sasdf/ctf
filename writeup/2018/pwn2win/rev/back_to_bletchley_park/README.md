@@ -6,7 +6,7 @@ solves: 1
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > We have gone quantum.

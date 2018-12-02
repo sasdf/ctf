@@ -6,7 +6,7 @@ solves: 42
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > I lost my modulus. Can you find it for me?

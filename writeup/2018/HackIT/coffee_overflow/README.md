@@ -6,7 +6,7 @@ solves: 1
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > Our mobile developer has severe coffee overflow, and lost password to his own app. Please help him to recover.  

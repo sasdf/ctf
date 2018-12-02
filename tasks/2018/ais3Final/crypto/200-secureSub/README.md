@@ -6,7 +6,7 @@ solves: 0
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > Even a one-year-old baby can solve substitution cipher challenge with quipquip.

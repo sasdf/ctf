@@ -6,7 +6,7 @@ solves: 0
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > It is well known that finding a key given plaintext and ciphertext pair is very hard in modern cipher.

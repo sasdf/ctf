@@ -6,7 +6,7 @@ solves: 0
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > We designed a SecDES algorithm, a secure DES variant.

@@ -6,7 +6,7 @@ solves: 73
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf-tasks-writeup/)
+[Go to rendered GitBook version](https://sasdf.cf/ctf/)
 {% endignore %}
 
 > Two completely unrelated operations on completely unrelated values, right?
