@@ -173,7 +173,9 @@ We got $$a$$ and $$N$$ now.
 
 
 ## Factorize N
-Opening the webpage `https://qc.pwn2.win/140...565/362...081` as the challenge description said,
+Opening the webpage
+[https://qc.pwn2.win/140...565/362...081]([_files/response.txt])
+as the challenge description said,
 it gave us the period $$r$$ and $$e$$.
 
 According to the algorithm:
