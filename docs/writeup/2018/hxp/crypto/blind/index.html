@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>web - chat · GitBook</title>
+        <title>crypto - blind · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,8 @@
     <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../misc/voices/" />
     
-    
-    <link rel="prev" href="../secops/" />
+    <link rel="prev" href="../oops/" />
     
 
     </head>
@@ -142,9 +140,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../../../hxp/crypto/curve/">
+        <li class="chapter " data-level="3.1.1" data-path="../curve/">
             
-                <a href="../../../hxp/crypto/curve/">
+                <a href="../curve/">
             
                     
                     crypto - curve12833227
@@ -155,9 +153,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../../../hxp/crypto/oops/">
+        <li class="chapter " data-level="3.1.2" data-path="../oops/">
             
-                <a href="../../../hxp/crypto/oops/">
+                <a href="../oops/">
             
                     
                     crypto - oops2
@@ -168,9 +166,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.3" data-path="../../../hxp/crypto/blind/">
+        <li class="chapter active" data-level="3.1.3" data-path="./">
             
-                <a href="../../../hxp/crypto/blind/">
+                <a href="./">
             
                     
                     crypto - blind
@@ -457,9 +455,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.7.1" data-path="../../rev/validator/">
+        <li class="chapter " data-level="3.7.1" data-path="../../../defcamp/rev/validator/">
             
-                <a href="../../rev/validator/">
+                <a href="../../../defcamp/rev/validator/">
             
                     
                     rev - validator
@@ -470,9 +468,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7.2" data-path="../../rev/memsome/">
+        <li class="chapter " data-level="3.7.2" data-path="../../../defcamp/rev/memsome/">
             
-                <a href="../../rev/memsome/">
+                <a href="../../../defcamp/rev/memsome/">
             
                     
                     rev - memsome
@@ -483,9 +481,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7.3" data-path="../secops/">
+        <li class="chapter " data-level="3.7.3" data-path="../../../defcamp/web/secops/">
             
-                <a href="../secops/">
+                <a href="../../../defcamp/web/secops/">
             
                     
                     web - secops
@@ -496,9 +494,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.7.4" data-path="./">
+        <li class="chapter " data-level="3.7.4" data-path="../../../defcamp/web/chat/">
             
-                <a href="./">
+                <a href="../../../defcamp/web/chat/">
             
                     
                     web - chat
@@ -509,9 +507,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7.5" data-path="../../misc/voices/">
+        <li class="chapter " data-level="3.7.5" data-path="../../../defcamp/misc/voices/">
             
-                <a href="../../misc/voices/">
+                <a href="../../../defcamp/misc/voices/">
             
                     
                     misc - voices
@@ -687,7 +685,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../../../.." >web - chat</a>
+        <a href="../../../../.." >crypto - blind</a>
     </h1>
 </div>
 
@@ -703,67 +701,66 @@
                                 <section class="normal markdown-section">
                                 
                                 <div class="wpHeaderContainer">
-                    <h1 id="chat">chat</h1>
+                    <h1 id="blind">blind</h1>
                     <div>
-                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/defcamp/web/chat" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/web-211-green.svg?style=for-the-badge&amp;maxAge=3600" alt="web - 211"></span><span><img src="https://img.shields.io/badge/solves-44-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="44 solves"></span></div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/hxp/crypto/blind" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/crypto-190-green.svg?style=for-the-badge&amp;maxAge=3600" alt="crypto - 190"></span><span><img src="https://img.shields.io/badge/solves-11-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="11 solves"></span></div>
                 </div><p></p>
 <blockquote>
-<p>We received a new gig.
-Our goal is to review this application written in nodejs and see if we can get the flag from this system.
-Are you up for this?</p>
+<p>The deal is simple: I give you an oracle, you give me an oracle in return.</p>
 </blockquote>
 <h2 id="time">Time</h2>
-<p>10 minutes</p>
+<p>4 hours</p>
+<h1 id="behavior">Behavior</h1>
+<p>We have the ciphertext of our target y,
+and the ciphertext of 1.
+We have three operations: add, mul and negate with modulo 0xfffffed83c17.
+The service run these operations on plaintext and return the encrypted result to us.
+Our goal is to decrypt y.</p>
 <h1 id="solution">Solution</h1>
 <h2 id="tldr">TL;DR</h2>
-<ul>
-<li>Inject country field using proto pollution to get RCE.</li>
-</ul>
-<h2 id="vulnerability">Vulnerability</h2>
-<p>When a user join a channel,
-server will broadcast a ascii art created using cowsay.
-The function getAscii has command injection vulnerability.</p>
-<pre class="language-"><code class="lang-javascript">helper<span class="token punctuation">.</span><span class="token function">getAscii</span><span class="token punctuation">(</span><span class="token string">&quot;User &quot;</span> <span class="token operator">+</span> u <span class="token operator">+</span> <span class="token string">&quot; living in &quot;</span> <span class="token operator">+</span> c <span class="token operator">+</span> <span class="token string">&quot; joined channel&quot;</span><span class="token punctuation">)</span>
-<span class="token comment">// ...</span>
-<span class="token punctuation">{</span>
-    getAscii<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> e <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;child_process&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> e<span class="token punctuation">.</span><span class="token function">execSync</span><span class="token punctuation">(</span><span class="token string">&quot;cowsay &apos;&quot;</span> <span class="token operator">+</span> message <span class="token operator">+</span> <span class="token string">&quot;&apos;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<ol>
+<li>Get the order of y in each subgroup.</li>
+<li>Recover the order of y using CRT.</li>
+<li>Calculate y.</li>
+</ol>
+<p>The cardinality of integer mod p is p-1,
+which is <code>2 * 3^2 * 7 * 13^4 * 47 * 103 * 107 * 151</code> in this task.
+We can find the order of y in each subgroup and recover order of y,
+just like what we do in
+<a href="https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm" target="_blank">pohlig-hellman</a>.</p>
+<p>To find a generator, we can use sage:</p>
+<pre class="language-"><code class="lang-python">G <span class="token operator">=</span> IntegerModRing<span class="token punctuation">(</span><span class="token number">0xfffffed83c17</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>G<span class="token punctuation">.</span>multiplicative_generator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 5</span>
 </code></pre>
-<p>Where <code>u</code> is <code>name</code> and <code>c</code> is <code>country</code>.
-They have a WAF for input:</p>
-<pre class="language-"><code class="lang-javascript"><span class="token punctuation">{</span>
-    validUser<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>inp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> block <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;source&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;port&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;font&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;country&quot;</span><span class="token punctuation">,</span>
-                     <span class="token string">&quot;location&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;status&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;lastname&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> inp <span class="token operator">!==</span> <span class="token string">&apos;object&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">var</span> keys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span> inp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span> keys<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            key <span class="token operator">=</span> keys<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-            <span class="token keyword">if</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">var</span> r <span class="token operator">=</span><span class="token regex">/^[a-z0-9]+$/gi</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>inp<span class="token punctuation">.</span>name <span class="token operator">===</span> undefined <span class="token operator">||</span> <span class="token operator">!</span>r<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>inp<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>They use <code>Object.keys</code> to blacklist some fields,
-and use a custom clone function,
-which is vulnerable to proto pollution.</p>
-<p>Register with <code>{&quot;name&quot;:&quot;a&quot;,&quot;__proto__&quot;:{&quot;country&quot;:&quot;&apos;$(cat flag)&apos;&quot;}}</code> to get the flag.</p>
+<p>so our goal is to find <code>o = log_5(y)</code>.</p>
+<p>Take the subgroup of cardinality of <code>7</code> as an example:</p>
+<pre class="language-"><code>Let a = pow(y, (p-1) // 7, p)
+Find i such that
+pow(5, (p-1) // 7, p) = pow(a, i, p)
+which means
+o * i % 7 = 1
+so o % 7 = inv(i, 7)
+</code></pre><p><code>i</code> is in the range of (0, 7),
+it takes at most 7 operations to find <code>i</code>.</p>
+<p>There&apos;s one case that we can&apos;t find such <code>i</code>: <code>a = 1</code>,
+which actually means <code>o % 7 = 0</code>.</p>
+<p>For subgroup 9:</p>
+<pre class="language-"><code>Let o3 = o % 3
+Let a = pow(y, (p-1) // 3, p)
+Let b = pow(y, (p-1) // 9 * inv(o3, 3), p)
+Find i such that
+pow(5, (p-1) // 7, p) = b * pow(a, i + 1, p)
+which means
+o * i % 9 = 1
+so o % 9 = inv(i, 9)
+</code></pre><p>In the case that <code>o % 3 == 0</code>, try again with different y.</p>
+<p>To do the exponentiation efficiently,
+we can calculate it by <a href="Exponentiation_by_squaring">squaring</a>.
+and cache those squares.</p>
+<p>Once we find the order in each subgroups,
+we can calculate <code>o</code> using <a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem" target="_blank">CRT</a>.
+and <code>y = pow(5, o, p)</code>.</p>
+<p>Here&apos;s the <a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/hxp/crypto/blind/_files/solve.py" target="_blank">script</a>.</p>
 
                                 
                                 </section>
@@ -791,14 +788,10 @@ which is vulnerable to proto pollution.</p>
 
             
                 
-                <a href="../secops/" class="navigation navigation-prev " aria-label="Previous page: web - secops">
+                <a href="../oops/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: crypto - oops2">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../../misc/voices/" class="navigation navigation-next " aria-label="Next page: misc - voices">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -807,7 +800,7 @@ which is vulnerable to proto pollution.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"name":"chat","category":"web","points":211,"solves":44,"title":"web - chat","level":"3.7.4","depth":2,"next":{"title":"misc - voices","level":"3.7.5","depth":2,"path":"writeup/2018/defcamp/misc/voices/README.md","ref":"writeup/2018/defcamp/misc/voices/README.md","articles":[]},"previous":{"title":"web - secops","level":"3.7.3","depth":2,"path":"writeup/2018/defcamp/web/secops/README.md","ref":"writeup/2018/defcamp/web/secops/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2018/defcamp/web/chat/README.md","mtime":"2018-12-02T20:01:20.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-09T14:37:49.444Z"},"basePath":"../../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"name":"blind","category":"crypto","points":190,"solves":11,"title":"crypto - blind","level":"3.1.3","depth":2,"next":{"title":"Pwn2Win","level":"3.2","depth":1,"ref":"","articles":[{"title":"cryrev - Back To Bletchley Park","level":"3.2.1","depth":2,"path":"writeup/2018/pwn2win/rev/back_to_bletchley_park/README.md","ref":"writeup/2018/pwn2win/rev/back_to_bletchley_park/README.md","articles":[]},{"title":"crypto - GCM","level":"3.2.2","depth":2,"path":"writeup/2018/pwn2win/crypto/GCM/README.md","ref":"writeup/2018/pwn2win/crypto/GCM/README.md","articles":[]}]},"previous":{"title":"crypto - oops2","level":"3.1.2","depth":2,"path":"writeup/2018/hxp/crypto/oops/README.md","ref":"writeup/2018/hxp/crypto/oops/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2018/hxp/crypto/blind/README.md","mtime":"2018-12-09T14:37:45.122Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-09T14:37:49.444Z"},"basePath":"../../../../..","book":{"language":""}});
         });
     </script>
 </div>

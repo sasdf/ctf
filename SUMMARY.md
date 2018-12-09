@@ -5,6 +5,10 @@
 ## Writeups
 
 ### 2018
+* hxp
+    * [crypto - curve12833227](writeup/2018/hxp/crypto/curve/README.md)
+    * [crypto - oops2](writeup/2018/hxp/crypto/oops/README.md)
+    * [crypto - blind](writeup/2018/hxp/crypto/blind/README.md)
 * Pwn2Win
     * [cryrev - Back To Bletchley Park](writeup/2018/pwn2win/rev/back_to_bletchley_park/README.md)
     * [crypto - GCM](writeup/2018/pwn2win/crypto/GCM/README.md)
