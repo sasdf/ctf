@@ -1,5 +1,5 @@
 """
-Partial solution for blinder from hxpctf2018.
+Solution for blinder from hxpctf2018.
 Idea: Reduce to solving discrete log on an elliptic curve of smooth order
 Currently fails pretty often, so run multiple it times
 
