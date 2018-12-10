@@ -6,6 +6,7 @@
 
 ### 2018
 * hxp
+    * [crypto - blinder](writeup/2018/hxp/crypto/blinder/README.md)
     * [crypto - curve12833227](writeup/2018/hxp/crypto/curve/README.md)
     * [crypto - oops2](writeup/2018/hxp/crypto/oops/README.md)
     * [crypto - blind](writeup/2018/hxp/crypto/blind/README.md)
