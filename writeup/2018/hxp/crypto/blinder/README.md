@@ -154,6 +154,7 @@ we can estimate the cost of each part:
 * `Y = (o / f) P` takes about 2000 operations of each `f`.
 * Comparing `iX` and `Y` takes about 24 operation of each test.
 * Expectation of the needed tests to find `i` is `f / 2`.
+
 We can use the cost for ranking curves when searching.
 Here's the
 [script]([_files/curvesearch.sage])
