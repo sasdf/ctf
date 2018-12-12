@@ -18,10 +18,13 @@ Solved after the CTF ended, with @tjbecker (PPP)
 
 
 # Behavior
-Same as blinder, but the order of GF(p) isn't smooth anymore.
+Same as blind, but the order of GF(p) isn't smooth anymore.
 
 
 # Solution
+
+I found another [solution](../blinder_v2/) which is more efficient.
+
 ## TL;DR
 1. Search a elliptic curve with smooth order
 2. Recover the index of y using Pohlig-hellman.
