@@ -7,6 +7,7 @@
 ### 2019
 * Plaid
     * [crypto - SPlaid Cypress](writeup/2019/plaid/crypto/cypress/README.md)
+    * [rev - big maffs](writeup/2019/plaid/rev/bigmaffs/README.md)
 
 ### 2018
 * hxp

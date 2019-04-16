@@ -1,5 +1,5 @@
 ---
-name: Splaid Cypress
+name: SPlaid Cypress
 category: crypto
 points: 600
 solves: 2
