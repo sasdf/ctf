@@ -28,10 +28,13 @@ The state of the cryptosystem is a splay tree with 256 leaves.
 It encrypts one byte at a time, outputing the path to the leaf of the input byte, and splaying that node.
 
 For example, here's smaller tree:
-![Initial state]([_files/Figure_11.png])
+
+![(Img: Initial state)]({_files/Figure_11.png})
+
 If the input byte is `2e`, it outputs `1011`.
 And (the parent of) that leaf is splay to the root.
-![After]([_files/Figure_12.png])
+
+![(Img: After)]({_files/Figure_12.png})
 
 As you can see, the output of each input byte has different length,
 which is totally a disaster.
@@ -202,13 +205,20 @@ which means there's a leaf at `1001101`, and all nodes on the path are not leave
 To undo the operation,
 we build a tree with that path only,
 connect all other edges to placeholders,
-![Before]([_files/Figure_21.png])
+
+![(Img: Before)]({_files/Figure_21.png})
+
 splay the node,
-![Splay]([_files/Figure_22.png])
+
+![(Img: Splay)]({_files/Figure_22.png})
+
 compare to current state,
-![Old state]([_files/Figure_23.png])
-and fill those placeholders.
-![After]([_files/Figure_24.png])
+
+![(Img: Old state)]({_files/Figure_23.png})
+
+and fill those placeholders before splay.
+
+![(Img: After)]({_files/Figure_24.png})
 
 There are some indicator for incorrect segmentation:
 * Tree structure does not match

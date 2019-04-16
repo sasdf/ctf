@@ -10,6 +10,7 @@
     "pluginsConfig": {
         "writeup-utils": {
             "filePrefix": "https://github.com/sasdf/ctf/blob/master",
+            "rawPrefix": "https://raw.githubusercontent.com/sasdf/ctf/master",
             "repoPrefix": "https://github.com/sasdf/ctf/blob/master"
         },
         "disqus": {
