@@ -4,6 +4,10 @@
 
 ## Writeups
 
+### 2019
+* Plaid
+    * [crypto - SPlaid Cypress](writeup/2019/plaid/crypto/cypress/README.md)
+
 ### 2018
 * hxp
     * [crypto - blinder_v2](writeup/2018/hxp/crypto/blinder_v2/README.md)
