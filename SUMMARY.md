@@ -5,6 +5,15 @@
 ## Writeups
 
 ### 2019
+* Google
+    * [crypto - reality](writeup/2019/google/crypto/reality/README.md)
+    * [crypto - Quantum Key Distribution](writeup/2019/google/crypto/qkd/README.md)
+    * [crypto - Reverse a cellular automata](writeup/2019/google/crypto/cell/README.md)
+    * [hardware - flagrom](writeup/2019/google/hardware/flagrom/README.md)
+    * [hardware - minetest](writeup/2019/google/hardware/minetest/README.md)
+    * [hardware - Remote Control](writeup/2019/google/hardware/remote/README.md)
+    * [web - gLotto](writeup/2019/google/web/glotto/README.md)
+    * [rev - Dialtone](writeup/2019/google/rev/dial/README.md)
 * Plaid
     * [crypto - SPlaid Cypress](writeup/2019/plaid/crypto/cypress/README.md)
     * [rev - big maffs](writeup/2019/plaid/rev/bigmaffs/README.md)
