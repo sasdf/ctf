@@ -16,7 +16,7 @@ solves: 24
 8 hours
 
 Actually, it only tooks me 1.5 hour to solve it after getting into the right direction.  
-I wasted a lot of time guessing the code and poking its PRNG :rage:
+I wasted a lot of time guessing the code and poking its PRNG 😡.
 
 
 # Behavior
