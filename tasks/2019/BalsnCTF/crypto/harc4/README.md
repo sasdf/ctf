@@ -28,6 +28,9 @@ It won't be too surprised that someone already knew how to forge a key for RC4.
 To avoid some participants find an exploit on the lost continent,
 I decided to harden it by adding a suffix to it.
 
+## Fun facts
+* This task is written during the midterm week. I always become super creative on everything except my midterm when midterm is coming.
+
 
 # Solution
 Will be released 72 hours after the end of competition.

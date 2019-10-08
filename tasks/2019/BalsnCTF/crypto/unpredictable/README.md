@@ -36,5 +36,9 @@ I'm noob :(
 There's also a harder version -- smaller randrange, or ultimately one bit randrange, and I still don't know how to solve it.
 
 
+## Fun facts
+* I thought `unpredictable` is the hardest one among those crypto. Apparently, it's not.
+
+
 # Solution
 Will be released 72 hours after the end of competition.

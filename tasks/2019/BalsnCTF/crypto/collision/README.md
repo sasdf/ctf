@@ -26,6 +26,8 @@ I kept some of the features when designing this challenge:
 * Require some bruteforce to recover the input.
 * Salted hash (i.e. pre/postfix).
 
+## Fun facts
+* This is the first solved non-trivial challenge.
 
 # Solution
 Will be released 72 hours after the end of competition.

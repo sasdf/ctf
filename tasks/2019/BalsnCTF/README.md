@@ -18,6 +18,7 @@ solves: 720
 * I wrote a vim challenge after I switched from vim to kakoune.
 * I have totally no idea WTF is this 💩 one year after I wrote vim challenge.
 * `collision` is the first solved non-trivial challenge.
+* `harc4` is written during the midterm week. I always become super creative on everything except my midterm when midterm is coming.
 * I thought `unpredictable` is the hardest one among those crypto. Apparently, it's not.
 * I planned to create a ML task, everything is ready, but the model refused to be trained. (That's what we faces everyday when researching ML).
 

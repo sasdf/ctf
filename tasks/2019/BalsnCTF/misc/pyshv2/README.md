@@ -1,5 +1,5 @@
 ---
-name: pyshv3
+name: pyshv2
 category: misc
 points: 857
 solves: 5
