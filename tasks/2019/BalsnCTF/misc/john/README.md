@@ -31,7 +31,7 @@ I changed the oracle in this task several times,
 and UTF-8 oracle seems to be the most interesting one.
 
 Due to the fact that the packet leak is not pretty stable,
-the flag is hex-encoded to increase the entropy we can got from each successful oracle,
+the flag is hex-encoded to increase the entropy we can got from each successful oracle.
 
 
 # Solution
