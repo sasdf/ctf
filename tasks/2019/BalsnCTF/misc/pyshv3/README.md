@@ -17,7 +17,7 @@ solves: 4
 
 
 # Overview, Concept and Design Criteria
-See [pyshv1](../pyshv1/)
+See [pyshv1](../pyshv1/index.html)
 
 
 # Solution
