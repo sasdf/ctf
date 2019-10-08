@@ -1,9 +1,1294 @@
-<!DOCTYPE HTML><html lang=""><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>rev - Almighty Duct Tape · GitBook</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content=""name="description"><meta content="GitBook 3.2.3"name="generator"><link href="../../../../../gitbook/style.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-search/search.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css"rel="stylesheet"><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../../../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="../100-SecDES/"rel="prev"/></head><body><div class="book"><div class="book-summary"><div role="search"id="book-search-input"><input placeholder="Type to search"type="text"/></div><nav role="navigation"><ul class="summary"><li class="chapter"data-level="1.1"data-path="../../../../../"><a href="../../../../../">Introduction</a></li><li class="header">Writeups</li><li class="header">2019</li><li class="chapter"data-level="3.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="3.1.1"data-path="../../../../../writeup/2019/google/crypto/reality/"><a href="../../../../../writeup/2019/google/crypto/reality/">crypto - reality</a></li><li class="chapter"data-level="3.1.2"data-path="../../../../../writeup/2019/google/crypto/qkd/"><a href="../../../../../writeup/2019/google/crypto/qkd/">crypto - Quantum Key Distribution</a></li><li class="chapter"data-level="3.1.3"data-path="../../../../../writeup/2019/google/crypto/cell/"><a href="../../../../../writeup/2019/google/crypto/cell/">crypto - Reverse a cellular automata</a></li><li class="chapter"data-level="3.1.4"data-path="../../../../../writeup/2019/google/hardware/flagrom/"><a href="../../../../../writeup/2019/google/hardware/flagrom/">hardware - flagrom</a></li><li class="chapter"data-level="3.1.5"data-path="../../../../../writeup/2019/google/hardware/minetest/"><a href="../../../../../writeup/2019/google/hardware/minetest/">hardware - minetest</a></li><li class="chapter"data-level="3.1.6"data-path="../../../../../writeup/2019/google/hardware/remote/"><a href="../../../../../writeup/2019/google/hardware/remote/">hardware - Remote Control</a></li><li class="chapter"data-level="3.1.7"data-path="../../../../../writeup/2019/google/web/glotto/"><a href="../../../../../writeup/2019/google/web/glotto/">web - gLotto</a></li><li class="chapter"data-level="3.1.8"data-path="../../../../../writeup/2019/google/rev/dial/"><a href="../../../../../writeup/2019/google/rev/dial/">rev - Dialtone</a></li></ul></li><li class="chapter"data-level="3.2"><span>Plaid</span><ul class="articles"><li class="chapter"data-level="3.2.1"data-path="../../../../../writeup/2019/plaid/crypto/cypress/"><a href="../../../../../writeup/2019/plaid/crypto/cypress/">crypto - SPlaid Cypress</a></li><li class="chapter"data-level="3.2.2"data-path="../../../../../writeup/2019/plaid/rev/bigmaffs/"><a href="../../../../../writeup/2019/plaid/rev/bigmaffs/">rev - big maffs</a></li></ul></li><li class="header">2018</li><li class="chapter"data-level="4.1"><span>hxp</span><ul class="articles"><li class="chapter"data-level="4.1.1"data-path="../../../../../writeup/2018/hxp/crypto/blinder_v2/"><a href="../../../../../writeup/2018/hxp/crypto/blinder_v2/">crypto - blinder_v2</a></li><li class="chapter"data-level="4.1.2"data-path="../../../../../writeup/2018/hxp/crypto/blinder/"><a href="../../../../../writeup/2018/hxp/crypto/blinder/">crypto - blinder</a></li><li class="chapter"data-level="4.1.3"data-path="../../../../../writeup/2018/hxp/crypto/curve/"><a href="../../../../../writeup/2018/hxp/crypto/curve/">crypto - curve12833227</a></li><li class="chapter"data-level="4.1.4"data-path="../../../../../writeup/2018/hxp/crypto/oops/"><a href="../../../../../writeup/2018/hxp/crypto/oops/">crypto - oops2</a></li><li class="chapter"data-level="4.1.5"data-path="../../../../../writeup/2018/hxp/crypto/blind/"><a href="../../../../../writeup/2018/hxp/crypto/blind/">crypto - blind</a></li></ul></li><li class="chapter"data-level="4.2"><span>Pwn2Win</span><ul class="articles"><li class="chapter"data-level="4.2.1"data-path="../../../../../writeup/2018/pwn2win/rev/back_to_bletchley_park/"><a href="../../../../../writeup/2018/pwn2win/rev/back_to_bletchley_park/">cryrev - Back To Bletchley Park</a></li><li class="chapter"data-level="4.2.2"data-path="../../../../../writeup/2018/pwn2win/crypto/GCM/"><a href="../../../../../writeup/2018/pwn2win/crypto/GCM/">crypto - GCM</a></li></ul></li><li class="chapter"data-level="4.3"><span>HITCON</span><ul class="articles"><li class="chapter"data-level="4.3.1"data-path="../../../../../writeup/2018/hitcon/crypto/lostmod/"><a href="../../../../../writeup/2018/hitcon/crypto/lostmod/">crypto - Lost Modulus</a></li><li class="chapter"data-level="4.3.2"data-path="../../../../../writeup/2018/hitcon/crypto/secret/"><a href="../../../../../writeup/2018/hitcon/crypto/secret/">crypwn - Secret Note</a></li></ul></li><li class="chapter"data-level="4.4"><span>Hack.lu</span><ul class="articles"><li class="chapter"data-level="4.4.1"data-path="../../../../../writeup/2018/Hack.lu/crypto/escape/"><a href="../../../../../writeup/2018/Hack.lu/crypto/escape/">crypto - Escape the Grid</a></li><li class="chapter"data-level="4.4.2"data-path="../../../../../writeup/2018/Hack.lu/crypto/relation/"><a href="../../../../../writeup/2018/Hack.lu/crypto/relation/">crypto - Relations</a></li><li class="chapter"data-level="4.4.3"data-path="../../../../../writeup/2018/Hack.lu/crypto/lfsr/"><a href="../../../../../writeup/2018/Hack.lu/crypto/lfsr/">crypto - LFSR StreamCipher</a><ul class="articles"><li class="chapter"data-level="4.4.3.1"data-path="../../../../../writeup/2018/Hack.lu/crypto/lfsr/task.html"><a href="../../../../../writeup/2018/Hack.lu/crypto/lfsr/task.html">task description</a></li></ul></li></ul></li><li class="chapter"data-level="4.5"><span>Hackover</span><ul class="articles"><li class="chapter"data-level="4.5.1"data-path="../../../../../writeup/2018/HackOver/crypto/oblivious/"><a href="../../../../../writeup/2018/HackOver/crypto/oblivious/">crypto - oblivious</a></li><li class="chapter"data-level="4.5.2"data-path="../../../../../writeup/2018/HackOver/crypto/secure_hash_v2/"><a href="../../../../../writeup/2018/HackOver/crypto/secure_hash_v2/">crypto - secure_hash_v2</a></li><li class="chapter"data-level="4.5.3"data-path="../../../../../writeup/2018/HackOver/rev/flagmaker/"><a href="../../../../../writeup/2018/HackOver/rev/flagmaker/">rev - flagmaker</a></li></ul></li><li class="chapter"data-level="4.6"><span>Teaser Dragon</span><ul class="articles"><li class="chapter"data-level="4.6.1"data-path="../../../../../writeup/2018/TeaserDragon/rev/Chains of trust/"><a href="../../../../../writeup/2018/TeaserDragon/rev/Chains of trust/">rev - Chains of trust</a></li></ul></li><li class="chapter"data-level="4.7"><span>Defcamp</span><ul class="articles"><li class="chapter"data-level="4.7.1"data-path="../../../../../writeup/2018/defcamp/rev/validator/"><a href="../../../../../writeup/2018/defcamp/rev/validator/">rev - validator</a></li><li class="chapter"data-level="4.7.2"data-path="../../../../../writeup/2018/defcamp/rev/memsome/"><a href="../../../../../writeup/2018/defcamp/rev/memsome/">rev - memsome</a></li><li class="chapter"data-level="4.7.3"data-path="../../../../../writeup/2018/defcamp/web/secops/"><a href="../../../../../writeup/2018/defcamp/web/secops/">web - secops</a></li><li class="chapter"data-level="4.7.4"data-path="../../../../../writeup/2018/defcamp/web/chat/"><a href="../../../../../writeup/2018/defcamp/web/chat/">web - chat</a></li><li class="chapter"data-level="4.7.5"data-path="../../../../../writeup/2018/defcamp/misc/voices/"><a href="../../../../../writeup/2018/defcamp/misc/voices/">misc - voices</a></li></ul></li><li class="chapter"data-level="4.8"><span>HackIT</span><ul class="articles"><li class="chapter"data-level="4.8.1"data-path="../../../../../writeup/2018/HackIT/coffee_overflow/"><a href="../../../../../writeup/2018/HackIT/coffee_overflow/">rev - coffee_overflow</a></li></ul></li><li class="header">My Tasks</li><li class="header">2018</li><li class="chapter"data-level="6.1"><span>AIS3 Final</span><ul class="articles"><li class="chapter"data-level="6.1.1"data-path="../../crypto/100-mama/"><a href="../../crypto/100-mama/">crypto - mama</a></li><li class="chapter"data-level="6.1.2"data-path="../../crypto/200-secureSub/"><a href="../../crypto/200-secureSub/">crypto - secureSub</a></li><li class="chapter"data-level="6.1.3"data-path="../../crypto/300-xorlnarmoni'akda/"><a href="../../crypto/300-xorlnarmoni'akda/">crypto - xorlnarmoni'akda</a></li><li class="chapter"data-level="6.1.4"data-path="../100-SecDES/"><a href="../100-SecDES/">rev - SecDES</a></li><li class="chapter active"data-level="6.1.5"data-path="./"><a href="./">rev - Almighty Duct Tape</a></li></ul></li><li class="divider"></li><li><a href="https://www.gitbook.com"target="blank"class="gitbook-link">Published with GitBook</a></li></ul></nav></div><div class="book-body"><div class="body-inner"><div class="book-header"role="navigation"><h1><i class="fa fa-circle-o-notch fa-spin"></i> <a href="../../../../..">rev - Almighty Duct Tape</a></h1></div><div class="page-wrapper"role="main"tabindex="-1"><div class="page-inner"><div id="book-search-results"><div class="search-noresults"><section class="markdown-section normal"><div class="wpHeaderContainer"><h1 id="almighty-duct-tape">Almighty Duct Tape</h1><div><span><a href="https://github.com/sasdf/ctf/blob/master/tasks/2018/ais3Final/rev/200-AlmightyDuctTape"target="_blank"><img alt="Attachments"src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github"></a></span><span><img alt="rev - 200"src="https://img.shields.io/badge/rev-200-green.svg?style=for-the-badge&amp;maxAge=3600"></span><span><img alt="0 solves"src="https://img.shields.io/badge/solves-0-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600"></span></div></div><p></p><blockquote><p>Dear challenger,</p><p>Thank you for choosing Unreliable Parcel Service. We&apos;re glad to be of service to you.</p><p>Your package has been arrived. Pick it up from <a href="http://downloadlink"target="_blank">here</a>. However, we are sorry to inform you that your package got broken in transit. One of our courier accidentally dropped your package to the ground. Unluckily, your flag checker was shattered into hundreds of fragments.</p><p>We made our best efforts to repair it, seriously. We collected all the fragments in your parcel and tried to bond them with almighty duct tape. It looks a little bit weird, but it seems to be working.</p><p>Sorry for your inconvience.</p><p>WrOck-It RaOph<br>Chief of Destruction Service<br>+1-337-331-337<br>laughAtYou@unreliable-parcel-service.onion</p></blockquote><h3 id="hints">Hints</h3><ul><li>The only obfuscation applied is shattering.</li><li>If you have never heared of TEA (Tiny Encryption Algorithm), I suggest googling it after you defeat our obfuscation. There&apos;s a modified TEA variant in the program.</li></ul><h1 id="overview-concept-and-design-criteria">Overview, Concept and Design Criteria</h1><p>In this challenge, I shuffled all the opcodes and use jmp to connect them with original execution order.</p><p>I was thinking that it won&apos;t be too difficult to design such challenge. However, the strength of HexRay decompiler was beyond my expectations. If you just jump directly to next opcode, IDA can decompile it with about 30% of chance. I hardened the jump gadget in several attempts to make it completely unrecognizable to IDA. For more details of jump gadget, see the appendix of Obfuscation at the bottom.</p><p>The underlying encryption algorithm is <a href="https://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm"target="_blank">TEA</a>, where I changed the delta magic constants to one of sha256&apos;s initial state. (Hope that didn&apos;t make you thought it was sha256 xD.)</p><p>The program will encrypt the flag in CBC mode. In CBC mode, if you slightly modify the plaintext, only the block you modified and blocks after it will be changed. In order to introduce avalanche effect, I decided to encrypt the data with CBC mode for multiple rounds. As the result, whole ciphertext will change dramatically even if you just increase a single character.</p><p>Although I failed to solve it directly with angr, z3 seems to be able to solve TEA(16 iteration variant). In order to totally eliminate the chances of being solved by symbolic execution, I substitute the result of TEA using SBox from AES. Symbolic execution hates array indexing :) (Again, hope that didn&apos;t make you thought it was AES xD.)</p><h1 id="solution">Solution</h1><h2 id="tldr">TL;DR</h2><ul><li>Solution1: Reassemble the binary in normal order.</li><li>Solution2: Remove junk code and believe IDA can understand it.</li></ul><h2 id="detect-fragments">Detect Fragments</h2><p>Fortunately, the pattern of the jump gadget can be easily detected. You can find each gadget by searching absolute move of r15 (<code>\x49\xc7\xc7</code>), and find the address of next fragment in lea before it.</p><p>You can also find each fragments using symbol table, each fragment is tagged with <code>L_{xxx}_GLUE{id}</code>, where id actually means its original position.</p><h2 id="a-easier-but-weaker-method----directly-jump-to-next-fragment">A Easier but Weaker Method -- Directly Jump to Next Fragment</h2><p>As I mentioned in overview, IDA can understand the code if you replace all jump gadgets with direct jump. Fix the address by subtracting 42 from it, and patch lea to nop and jmp.</p><p>Now IDA can decomplied the program for you, If you think those local variables looks bad, you can change the type of <code>a1 @ rbp</code> to a custom structure to create a variable for each local variable.</p><p>You can find the implementation of this method in <code>directJmp.py</code>.</p><h2 id="a-harder-but-better-method----reassemble-the-binary">A Harder but Better Method -- Reassemble the Binary</h2><p>This was the original intended solution before I start implementing the challenge.</p><p>Sort the fragments by execution order and it becomes a normal reversing challenge. There are some instructions reference relative to rip, so you need to relocate the offset when you moving it.</p><p>To make IDA decompile correctly, you also need to fix symbol table (.symtab section). IDA will refuse to create a function if there are labels inside functions. You can simply strip the binary to remove whole symbol table. Or you can relocate function symbols, and remove GLUE tags by pointing to some invalid address such as NULL.</p><p>You can find the implementation of this method in <code>reassemble.py</code>. The code using <code>capstone</code> for disassembling, <code>keystone</code> for assembling, and <code>pyelftools</code> for parsing ELF.</p><p>There are also many other tools that can help you modify binary such as <code>miasm</code>.</p><h1 id="other-possible-solving-ideas">Other Possible Solving Ideas</h1><p>There some solutions I didn&apos;t test, but I think those may work:</p><h2 id="execution-trace">Execution trace</h2><p>Recorded all opcode executed and filter the jump gadget. One disadvantage is that you need to analyze the program at assembly level. There are a lot of reversing writeup of other challenge using this technique.</p><h2 id="dynamically-debugging">Dynamically debugging</h2><p>There are about 300 shattered fragments, and there&apos;s no crazily complex x86 instructions. It may be possible to set a access breakpoint on the memory of flag, observe the difference, and derive the operation applied on it.</p><h1 id="see-also">See also</h1><p>If you are interesting in this topic, take a look at <a href="https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html"target="_blank">this great article</a> about deobfuscation of ollvm. It has a much stronger protection on jmp destination using fake control flows, and they remove it by symbolic execution.</p><p>Thanks Inndy for telling me about ollvm.</p><h1 id="appendix---obfuscation">Appendix - Obfuscation</h1><p>Here are the some result of my several attempts to confuse the decompiler.</p><h3 id="naive-jump">Naive jump</h3><p>Directly jmup to next opcode.</p><p>IDA can recognize all the function chunks with high probabilities. It may skipped some chunks if there are too many chunks.</p><h3 id="indirect-jump">Indirect jump</h3><p>These gadgets has similar effect:</p><ul><li><code>lea r15, addr; jmp r15</code></li><li><code>lea r15, addr + 42; lea r15, [r15 - 42]; jmp r15</code></li><li><code>lea r15, addr + 42; mov jmpaddr, r15; mov r14, jmpaddr; lea r15, [r14 - 42]; jmp r15</code></li><li>Save the destination address in a register or memory, and jump to a shared gadget that performs actual jump.</li></ul><p>The indirect jump make IDA failed to decompile the whole function. Instead, it thinks each chunks as a function. Also, it can recognize the correct destination address even if you add a constant to it. For example, it will create code looks like this for each chunk.</p><pre class="language-"><code class="lang-C">a <span class="token operator">+</span><span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// The opcode for this chunk</span>
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>rev - Almighty Duct Tape · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../100-SecDES/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../../">
+            
+                <a href="../../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Writeups</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../../../writeup/2019/google/crypto/reality/">
+            
+                <a href="../../../../../writeup/2019/google/crypto/reality/">
+            
+                    
+                    crypto - reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../../../writeup/2019/google/crypto/qkd/">
+            
+                <a href="../../../../../writeup/2019/google/crypto/qkd/">
+            
+                    
+                    crypto - Quantum Key Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../../../writeup/2019/google/crypto/cell/">
+            
+                <a href="../../../../../writeup/2019/google/crypto/cell/">
+            
+                    
+                    crypto - Reverse a cellular automata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../../../writeup/2019/google/hardware/flagrom/">
+            
+                <a href="../../../../../writeup/2019/google/hardware/flagrom/">
+            
+                    
+                    hardware - flagrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../../../../writeup/2019/google/hardware/minetest/">
+            
+                <a href="../../../../../writeup/2019/google/hardware/minetest/">
+            
+                    
+                    hardware - minetest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../../../../writeup/2019/google/hardware/remote/">
+            
+                <a href="../../../../../writeup/2019/google/hardware/remote/">
+            
+                    
+                    hardware - Remote Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../../../../writeup/2019/google/web/glotto/">
+            
+                <a href="../../../../../writeup/2019/google/web/glotto/">
+            
+                    
+                    web - gLotto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../../../../../writeup/2019/google/rev/dial/">
+            
+                <a href="../../../../../writeup/2019/google/rev/dial/">
+            
+                    
+                    rev - Dialtone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    Plaid
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../../../../writeup/2019/plaid/crypto/cypress/">
+            
+                <a href="../../../../../writeup/2019/plaid/crypto/cypress/">
+            
+                    
+                    crypto - SPlaid Cypress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../../../../writeup/2019/plaid/rev/bigmaffs/">
+            
+                <a href="../../../../../writeup/2019/plaid/rev/bigmaffs/">
+            
+                    
+                    rev - big maffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    hxp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../../writeup/2018/hxp/crypto/blinder_v2/">
+            
+                <a href="../../../../../writeup/2018/hxp/crypto/blinder_v2/">
+            
+                    
+                    crypto - blinder_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../../writeup/2018/hxp/crypto/blinder/">
+            
+                <a href="../../../../../writeup/2018/hxp/crypto/blinder/">
+            
+                    
+                    crypto - blinder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../../writeup/2018/hxp/crypto/curve/">
+            
+                <a href="../../../../../writeup/2018/hxp/crypto/curve/">
+            
+                    
+                    crypto - curve12833227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../../writeup/2018/hxp/crypto/oops/">
+            
+                <a href="../../../../../writeup/2018/hxp/crypto/oops/">
+            
+                    
+                    crypto - oops2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../../../writeup/2018/hxp/crypto/blind/">
+            
+                <a href="../../../../../writeup/2018/hxp/crypto/blind/">
+            
+                    
+                    crypto - blind
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    Pwn2Win
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../../../writeup/2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                <a href="../../../../../writeup/2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                    
+                    cryrev - Back To Bletchley Park
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../../../writeup/2018/pwn2win/crypto/GCM/">
+            
+                <a href="../../../../../writeup/2018/pwn2win/crypto/GCM/">
+            
+                    
+                    crypto - GCM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                    HITCON
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../../../../writeup/2018/hitcon/crypto/lostmod/">
+            
+                <a href="../../../../../writeup/2018/hitcon/crypto/lostmod/">
+            
+                    
+                    crypto - Lost Modulus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../../../../../writeup/2018/hitcon/crypto/secret/">
+            
+                <a href="../../../../../writeup/2018/hitcon/crypto/secret/">
+            
+                    
+                    crypwn - Secret Note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    Hack.lu
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../../../../../writeup/2018/Hack.lu/crypto/escape/">
+            
+                <a href="../../../../../writeup/2018/Hack.lu/crypto/escape/">
+            
+                    
+                    crypto - Escape the Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../../../../../writeup/2018/Hack.lu/crypto/relation/">
+            
+                <a href="../../../../../writeup/2018/Hack.lu/crypto/relation/">
+            
+                    
+                    crypto - Relations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../../../../../writeup/2018/Hack.lu/crypto/lfsr/">
+            
+                <a href="../../../../../writeup/2018/Hack.lu/crypto/lfsr/">
+            
+                    
+                    crypto - LFSR StreamCipher
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.3.1" data-path="../../../../../writeup/2018/Hack.lu/crypto/lfsr/task.html">
+            
+                <a href="../../../../../writeup/2018/Hack.lu/crypto/lfsr/task.html">
+            
+                    
+                    task description
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" >
+            
+                <span>
+            
+                    
+                    Hackover
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../../../../writeup/2018/HackOver/crypto/oblivious/">
+            
+                <a href="../../../../../writeup/2018/HackOver/crypto/oblivious/">
+            
+                    
+                    crypto - oblivious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../../../../writeup/2018/HackOver/crypto/secure_hash_v2/">
+            
+                <a href="../../../../../writeup/2018/HackOver/crypto/secure_hash_v2/">
+            
+                    
+                    crypto - secure_hash_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../../../../../writeup/2018/HackOver/rev/flagmaker/">
+            
+                <a href="../../../../../writeup/2018/HackOver/rev/flagmaker/">
+            
+                    
+                    rev - flagmaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" >
+            
+                <span>
+            
+                    
+                    Teaser Dragon
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../../../../../writeup/2018/TeaserDragon/rev/Chains of trust/">
+            
+                <a href="../../../../../writeup/2018/TeaserDragon/rev/Chains of trust/">
+            
+                    
+                    rev - Chains of trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <span>
+            
+                    
+                    Defcamp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../../../../writeup/2018/defcamp/rev/validator/">
+            
+                <a href="../../../../../writeup/2018/defcamp/rev/validator/">
+            
+                    
+                    rev - validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2" data-path="../../../../../writeup/2018/defcamp/rev/memsome/">
+            
+                <a href="../../../../../writeup/2018/defcamp/rev/memsome/">
+            
+                    
+                    rev - memsome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3" data-path="../../../../../writeup/2018/defcamp/web/secops/">
+            
+                <a href="../../../../../writeup/2018/defcamp/web/secops/">
+            
+                    
+                    web - secops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.4" data-path="../../../../../writeup/2018/defcamp/web/chat/">
+            
+                <a href="../../../../../writeup/2018/defcamp/web/chat/">
+            
+                    
+                    web - chat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.5" data-path="../../../../../writeup/2018/defcamp/misc/voices/">
+            
+                <a href="../../../../../writeup/2018/defcamp/misc/voices/">
+            
+                    
+                    misc - voices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" >
+            
+                <span>
+            
+                    
+                    HackIT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="../../../../../writeup/2018/HackIT/coffee_overflow/">
+            
+                <a href="../../../../../writeup/2018/HackIT/coffee_overflow/">
+            
+                    
+                    rev - coffee_overflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">My Tasks</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    AIS3 Final
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../crypto/100-mama/">
+            
+                <a href="../../crypto/100-mama/">
+            
+                    
+                    crypto - mama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../crypto/200-secureSub/">
+            
+                <a href="../../crypto/200-secureSub/">
+            
+                    
+                    crypto - secureSub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../crypto/300-xorlnarmoni'akda/">
+            
+                <a href="../../crypto/300-xorlnarmoni'akda/">
+            
+                    
+                    crypto - xorlnarmoni'akda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../100-SecDES/">
+            
+                <a href="../100-SecDES/">
+            
+                    
+                    rev - SecDES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    rev - Almighty Duct Tape
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../2019/BalsnCTF/">
+            
+                <a href="../../../../2019/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../../../../2019/BalsnCTF/crypto/collision/">
+            
+                <a href="../../../../2019/BalsnCTF/crypto/collision/">
+            
+                    
+                    crypto - collision
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../../../../2019/BalsnCTF/crypto/harc4/">
+            
+                <a href="../../../../2019/BalsnCTF/crypto/harc4/">
+            
+                    
+                    crypto - harc4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../../../../2019/BalsnCTF/crypto/unpredictable/">
+            
+                <a href="../../../../2019/BalsnCTF/crypto/unpredictable/">
+            
+                    
+                    crypto - unpredictable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../../../../2019/BalsnCTF/pwn/securenote/">
+            
+                <a href="../../../../2019/BalsnCTF/pwn/securenote/">
+            
+                    
+                    crypwn - securenote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" data-path="../../../../2019/BalsnCTF/misc/pyshv1/">
+            
+                <a href="../../../../2019/BalsnCTF/misc/pyshv1/">
+            
+                    
+                    misc - pyshv1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.7" data-path="../../../../2019/BalsnCTF/misc/pyshv2/">
+            
+                <a href="../../../../2019/BalsnCTF/misc/pyshv2/">
+            
+                    
+                    misc - pyshv2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8" data-path="../../../../2019/BalsnCTF/misc/pyshv3/">
+            
+                <a href="../../../../2019/BalsnCTF/misc/pyshv3/">
+            
+                    
+                    misc - pyshv3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9" data-path="../../../../2019/BalsnCTF/misc/john/">
+            
+                <a href="../../../../2019/BalsnCTF/misc/john/">
+            
+                    
+                    misc - john
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.10" data-path="../../../../2019/BalsnCTF/rev/plam/">
+            
+                <a href="../../../../2019/BalsnCTF/rev/plam/">
+            
+                    
+                    rev - plam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.11" data-path="../../../../2019/BalsnCTF/rev/vim/">
+            
+                <a href="../../../../2019/BalsnCTF/rev/vim/">
+            
+                    
+                    rev - vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../../.." >rev - Almighty Duct Tape</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="wpHeaderContainer">
+                    <h1 id="almighty-duct-tape">Almighty Duct Tape</h1>
+                    <div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/tasks/2018/ais3Final/rev/200-AlmightyDuctTape" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/rev-200-green.svg?style=for-the-badge&amp;maxAge=3600" alt="rev - 200"></span><span><img src="https://img.shields.io/badge/solves-0-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="0 solves"></span></div>
+                </div><p></p>
+<blockquote>
+<p>Dear challenger,</p>
+<p>Thank you for choosing Unreliable Parcel Service.
+We&apos;re glad to be of service to you.</p>
+<p>Your package has been arrived. Pick it up from <a href="http://downloadlink" target="_blank">here</a>.
+However, we are sorry to inform you that your package got broken in transit.
+One of our courier accidentally dropped your package to the ground.
+Unluckily, your flag checker was shattered into hundreds of fragments.</p>
+<p>We made our best efforts to repair it, seriously.
+We collected all the fragments in your parcel and tried to bond them with almighty duct tape.
+It looks a little bit weird, but it seems to be working.</p>
+<p>Sorry for your inconvience.</p>
+<p>WrOck-It RaOph<br>Chief of Destruction Service<br>+1-337-331-337<br>laughAtYou@unreliable-parcel-service.onion  </p>
+</blockquote>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>The only obfuscation applied is shattering.</li>
+<li>If you have never heared of TEA (Tiny Encryption Algorithm),
+I suggest googling it after you defeat our obfuscation.
+There&apos;s a modified TEA variant in the program.</li>
+</ul>
+<h1 id="overview-concept-and-design-criteria">Overview, Concept and Design Criteria</h1>
+<p>In this challenge,
+I shuffled all the opcodes and use jmp to connect them with original execution order.</p>
+<p>I was thinking that it won&apos;t be too difficult to design such challenge.
+However, the strength of HexRay decompiler was beyond my expectations.
+If you just jump directly to next opcode, IDA can decompile it with about 30% of chance.
+I hardened the jump gadget in several attempts to make it completely unrecognizable to IDA.
+For more details of jump gadget, see the appendix of Obfuscation at the bottom.</p>
+<p>The underlying encryption algorithm is <a href="https://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm" target="_blank">TEA</a>,
+where I changed the delta magic constants to one of sha256&apos;s initial state.
+(Hope that didn&apos;t make you thought it was sha256 xD.)</p>
+<p>The program will encrypt the flag in CBC mode. In CBC mode, if you slightly modify the plaintext,
+only the block you modified and blocks after it will be changed.
+In order to introduce avalanche effect, I decided to encrypt the data with CBC mode for multiple rounds.
+As the result, whole ciphertext will change dramatically even if you just increase a single character.</p>
+<p>Although I failed to solve it directly with angr,
+z3 seems to be able to solve TEA(16 iteration variant).
+In order to totally eliminate the chances of being solved by symbolic execution,
+I substitute the result of TEA using SBox from AES.
+Symbolic execution hates array indexing :)
+(Again, hope that didn&apos;t make you thought it was AES xD.)</p>
+<h1 id="solution">Solution</h1>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Solution1: Reassemble the binary in normal order.</li>
+<li>Solution2: Remove junk code and believe IDA can understand it.</li>
+</ul>
+<h2 id="detect-fragments">Detect Fragments</h2>
+<p>Fortunately, the pattern of the jump gadget can be easily detected.
+You can find each gadget by searching absolute move of r15 (<code>\x49\xc7\xc7</code>),
+and find the address of next fragment in lea before it.</p>
+<p>You can also find each fragments using symbol table,
+each fragment is tagged with <code>L_{xxx}_GLUE{id}</code>,
+where id actually means its original position.</p>
+<h2 id="a-easier-but-weaker-method----directly-jump-to-next-fragment">A Easier but Weaker Method -- Directly Jump to Next Fragment</h2>
+<p>As I mentioned in overview,
+IDA can understand the code if you replace all jump gadgets with direct jump.
+Fix the address by subtracting 42 from it, and patch lea to nop and jmp.</p>
+<p>Now IDA can decomplied the program for you,
+If you think those local variables looks bad,
+you can change the type of <code>a1 @ rbp</code> to a custom structure to create a variable for each local variable.</p>
+<p>You can find the implementation of this method in <code>directJmp.py</code>.</p>
+<h2 id="a-harder-but-better-method----reassemble-the-binary">A Harder but Better Method -- Reassemble the Binary</h2>
+<p>This was the original intended solution before I start implementing the challenge.</p>
+<p>Sort the fragments by execution order and it becomes a normal reversing challenge.
+There are some instructions reference relative to rip,
+so you need to relocate the offset when you moving it.</p>
+<p>To make IDA decompile correctly, you also need to fix symbol table (.symtab section).
+IDA will refuse to create a function if there are labels inside functions.
+You can simply strip the binary to remove whole symbol table.
+Or you can relocate function symbols, and remove GLUE tags by pointing to some invalid address such as NULL.</p>
+<p>You can find the implementation of this method in <code>reassemble.py</code>.
+The code using <code>capstone</code> for disassembling, <code>keystone</code> for assembling,
+and <code>pyelftools</code> for parsing ELF.</p>
+<p>There are also many other tools that can help you modify binary such as <code>miasm</code>.</p>
+<h1 id="other-possible-solving-ideas">Other Possible Solving Ideas</h1>
+<p>There some solutions I didn&apos;t test, but I think those may work:</p>
+<h2 id="execution-trace">Execution trace</h2>
+<p>Recorded all opcode executed and filter the jump gadget.
+One disadvantage is that you need to analyze the program at assembly level.
+There are a lot of reversing writeup of other challenge using this technique.</p>
+<h2 id="dynamically-debugging">Dynamically debugging</h2>
+<p>There are about 300 shattered fragments,
+and there&apos;s no crazily complex x86 instructions.
+It may be possible to set a access breakpoint on the memory of flag,
+observe the difference, and derive the operation applied on it.</p>
+<h1 id="see-also">See also</h1>
+<p>If you are interesting in this topic,
+take a look at
+<a href="https://blog.quarkslab.com/deobfuscation-recovering-an-ollvm-protected-program.html" target="_blank">this great article</a>
+about deobfuscation of ollvm.
+It has a much stronger protection on jmp destination using fake control flows,
+and they remove it by symbolic execution.</p>
+<p>Thanks Inndy for telling me about ollvm.</p>
+<h1 id="appendix---obfuscation">Appendix - Obfuscation</h1>
+<p>Here are the some result of my several attempts to confuse the decompiler.</p>
+<h3 id="naive-jump">Naive jump</h3>
+<p>Directly jmup to next opcode.</p>
+<p>IDA can recognize all the function chunks with high probabilities.
+It may skipped some chunks if there are too many chunks.</p>
+<h3 id="indirect-jump">Indirect jump</h3>
+<p>These gadgets has similar effect:</p>
+<ul>
+<li><code>lea r15, addr; jmp r15</code></li>
+<li><code>lea r15, addr + 42; lea r15, [r15 - 42]; jmp r15</code></li>
+<li><code>lea r15, addr + 42; mov jmpaddr, r15; mov r14, jmpaddr; lea r15, [r14 - 42]; jmp r15</code></li>
+<li>Save the destination address in a register or memory, and jump to a shared gadget that performs actual jump.</li>
+</ul>
+<p>The indirect jump make IDA failed to decompile the whole function.
+Instead, it thinks each chunks as a function.
+Also, it can recognize the correct destination address even if you add a constant to it.
+For example, it will create code looks like this for each chunk.</p>
+<pre class="language-"><code class="lang-C">a <span class="token operator">+=</span> b<span class="token punctuation">;</span> <span class="token comment">// The opcode for this chunk</span>
 jmpaddr <span class="token operator">=</span> sub_xxxx <span class="token operator">+</span> <span class="token number">42</span><span class="token punctuation">;</span>
 v3 <span class="token operator">=</span> sub_xxxx<span class="token punctuation">;</span>
 <span class="token function">JUMPOUT</span><span class="token punctuation">(</span>__CS__<span class="token punctuation">,</span> v3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><p>For the last variant, I thought the shared gadget should be decompiled as a seperated function. In fact, it expanded inline into each decomplied function. It has same result as above example.</p><h3 id="recursive-indirect">Recursive indirect</h3><p>In order to make the jump gadget to be decompiled as a seperated function, I constructed it as a recursive function, which cannot be expanded. The gadget swaps two variable A, B, and jump to A. Passing (A, B) = (destination, gadget) actually performs <code>jmp gadget; jmp gadget; jmp dest</code>. With this gadget, IDA failed to detect correct destination address. It will produce some code like this:</p><pre class="language-"><code class="lang-C">a <span class="token operator">+</span><span class="token operator">=</span> b<span class="token punctuation">;</span> <span class="token comment">// The opcode for this chunk</span>
+</code></pre>
+<p>For the last variant, I thought the shared gadget should be decompiled as a seperated function.
+In fact, it expanded inline into each decomplied function. It has same result as above example.</p>
+<h3 id="recursive-indirect">Recursive indirect</h3>
+<p>In order to make the jump gadget to be decompiled as a seperated function,
+I constructed it as a recursive function, which cannot be expanded.
+The gadget swaps two variable A, B, and jump to A.
+Passing (A, B) = (destination, gadget) actually performs <code>jmp gadget; jmp gadget; jmp dest</code>.
+With this gadget, IDA failed to detect correct destination address.
+It will produce some code like this:</p>
+<pre class="language-"><code class="lang-C">a <span class="token operator">+=</span> b<span class="token punctuation">;</span> <span class="token comment">// The opcode for this chunk</span>
 jmpaddr1 <span class="token operator">=</span> <span class="token operator">&amp;</span>loc_xxxx <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// We are actually refering to loc_xxoo + 42</span>
 jmpaddr2 <span class="token operator">=</span> <span class="token operator">&amp;</span>loc_oooo <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// Actually loc_oxox + 42, which is the jump gadget.</span>
 <span class="token function">JUMPOUT</span><span class="token punctuation">(</span>__CS__<span class="token punctuation">,</span> loc_oxox<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><p>However, objdump can resolve destination address correctly because it is an unstripped binary.</p></section></div><div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1></div></div></div></div></div></div><a href="../100-SecDES/"class="navigation navigation-prev navigation-unique"aria-label="Previous page: rev - SecDES"><i class="fa fa-angle-left"></i></a></div><script>var gitbook=gitbook||[];gitbook.push(function(){gitbook.page.hasChanged({page:{name:"Almighty Duct Tape",category:"rev",points:200,solves:0,title:"rev - Almighty Duct Tape",level:"6.1.5",depth:2,previous:{title:"rev - SecDES",level:"6.1.4",depth:2,path:"tasks/2018/ais3Final/rev/100-SecDES/README.md",ref:"tasks/2018/ais3Final/rev/100-SecDES/README.md",articles:[]},dir:"ltr"},config:{gitbook:"*",theme:"default",variables:{},plugins:["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],pluginsConfig:{prism:{css:["prismjs/themes/prism-tomorrow.css"],lang:{C:"c","C++":"cpp",asm:"nasm"}},disqus:{useIdentifier:!1,shortName:"sasdfwriteup"},search:{},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!1,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},lunr:{maxIndexSize:1e6,ignoreSpecialCharacters:!1},katex:{},fontsettings:{theme:"white",family:"sans",size:2},sharing:{facebook:!0,twitter:!0,google:!1,weibo:!1,instapaper:!1,vk:!1,all:["facebook","google","twitter","weibo","instapaper"]},"theme-default":{styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"},showLevel:!1},"writeup-utils":{filePrefix:"https://github.com/sasdf/ctf/blob/master",repoPrefix:"https://github.com/sasdf/ctf/blob/master",rawPrefix:"https://raw.githubusercontent.com/sasdf/ctf/master"}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"}},file:{path:"tasks/2018/ais3Final/rev/200-AlmightyDuctTape/README.md",mtime:"2018-12-02T20:01:28.000Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2019-06-27T06:24:43.238Z"},basePath:"../../../../..",book:{language:""}})})</script></div><script src="../../../../../gitbook/gitbook.js"></script><script src="../../../../../gitbook/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search-engine.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script><script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script><script src="../../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script></body></html>
+</code></pre>
+<p>However, objdump can resolve destination address correctly because it is an unstripped binary.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../100-SecDES/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: rev - SecDES">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"name":"Almighty Duct Tape","category":"rev","points":200,"solves":0,"title":"rev - Almighty Duct Tape","level":"6.1.5","depth":2,"next":{"title":"Balsn CTF","level":"7.1","depth":1,"ref":"","articles":[{"title":"Overview","level":"7.1.1","depth":2,"path":"tasks/2019/BalsnCTF/README.md","ref":"tasks/2019/BalsnCTF/README.md","articles":[]},{"title":"crypto - collision","level":"7.1.2","depth":2,"path":"tasks/2019/BalsnCTF/crypto/collision/README.md","ref":"tasks/2019/BalsnCTF/crypto/collision/README.md","articles":[]},{"title":"crypto - harc4","level":"7.1.3","depth":2,"path":"tasks/2019/BalsnCTF/crypto/harc4/README.md","ref":"tasks/2019/BalsnCTF/crypto/harc4/README.md","articles":[]},{"title":"crypto - unpredictable","level":"7.1.4","depth":2,"path":"tasks/2019/BalsnCTF/crypto/unpredictable/README.md","ref":"tasks/2019/BalsnCTF/crypto/unpredictable/README.md","articles":[]},{"title":"crypwn - securenote","level":"7.1.5","depth":2,"path":"tasks/2019/BalsnCTF/pwn/securenote/README.md","ref":"tasks/2019/BalsnCTF/pwn/securenote/README.md","articles":[]},{"title":"misc - pyshv1","level":"7.1.6","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv1/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv1/README.md","articles":[]},{"title":"misc - pyshv2","level":"7.1.7","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv2/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv2/README.md","articles":[]},{"title":"misc - pyshv3","level":"7.1.8","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv3/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv3/README.md","articles":[]},{"title":"misc - john","level":"7.1.9","depth":2,"path":"tasks/2019/BalsnCTF/misc/john/README.md","ref":"tasks/2019/BalsnCTF/misc/john/README.md","articles":[]},{"title":"rev - plam","level":"7.1.10","depth":2,"path":"tasks/2019/BalsnCTF/rev/plam/README.md","ref":"tasks/2019/BalsnCTF/rev/plam/README.md","articles":[]},{"title":"rev - vim","level":"7.1.11","depth":2,"path":"tasks/2019/BalsnCTF/rev/vim/README.md","ref":"tasks/2019/BalsnCTF/rev/vim/README.md","articles":[]}]},"previous":{"title":"rev - SecDES","level":"6.1.4","depth":2,"path":"tasks/2018/ais3Final/rev/100-SecDES/README.md","ref":"tasks/2018/ais3Final/rev/100-SecDES/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2018/ais3Final/rev/200-AlmightyDuctTape/README.md","mtime":"2019-10-08T01:36:22.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-08T10:47:55.213Z"},"basePath":"../../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

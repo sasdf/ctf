@@ -1,0 +1,15 @@
+service pyshv2
+{
+        disable = no
+        type = UNLISTED
+        wait = no
+        server = /home/pyshv2/run.sh
+        socket_type = stream
+        protocol = tcp
+        user = pyshv2
+        port = 9000
+        flags = REUSE
+        per_source = 5
+        rlimit_cpu = 3
+        nice = 18
+}

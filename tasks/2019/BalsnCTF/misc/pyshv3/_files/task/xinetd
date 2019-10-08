@@ -1,0 +1,15 @@
+service pyshv3
+{
+        disable = no
+        type = UNLISTED
+        wait = no
+        server = /home/pyshv3/run.sh
+        socket_type = stream
+        protocol = tcp
+        user = pyshv3
+        port = 9000
+        flags = REUSE
+        per_source = 5
+        rlimit_cpu = 3
+        nice = 18
+}

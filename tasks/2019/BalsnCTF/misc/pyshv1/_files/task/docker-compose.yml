@@ -1,0 +1,6 @@
+pyshv1:
+    build: ./
+    ports:
+        - "5421:9000"
+    expose:
+        - "9000"

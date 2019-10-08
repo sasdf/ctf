@@ -1,0 +1,6 @@
+collision:
+    build: ./
+    ports:
+        - "5451:9000"
+    expose:
+        - "9000"

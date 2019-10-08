@@ -1,0 +1,6 @@
+john:
+    build: ./
+    ports:
+        - "5452:9000"
+    expose:
+        - "9000"

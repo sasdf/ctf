@@ -1,0 +1,6 @@
+securenote:
+    build: ./
+    ports:
+        - "5454:9000"
+    expose:
+        - "9000"

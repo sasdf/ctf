@@ -1,50 +1,1168 @@
-<!DOCTYPE HTML><html lang=""><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>crypto - SPlaid Cypress · GitBook</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content=""name="description"><meta content="GitBook 3.2.3"name="generator"><link href="../../../../../gitbook/style.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-search/search.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css"rel="stylesheet"><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../../../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="../../rev/bigmaffs/"rel="next"/></head><body><div class="book"><div class="book-summary"><div role="search"id="book-search-input"><input placeholder="Type to search"type="text"/></div><nav role="navigation"><ul class="summary"><li class="chapter"data-level="1.1"data-path="../../../../../"><a href="../../../../../">Introduction</a></li><li class="header">Writeups</li><li class="header">2019</li><li class="chapter"data-level="3.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="3.1.1"data-path="../../../google/crypto/reality/"><a href="../../../google/crypto/reality/">crypto - reality</a></li><li class="chapter"data-level="3.1.2"data-path="../../../google/crypto/qkd/"><a href="../../../google/crypto/qkd/">crypto - Quantum Key Distribution</a></li><li class="chapter"data-level="3.1.3"data-path="../../../google/crypto/cell/"><a href="../../../google/crypto/cell/">crypto - Reverse a cellular automata</a></li><li class="chapter"data-level="3.1.4"data-path="../../../google/hardware/flagrom/"><a href="../../../google/hardware/flagrom/">hardware - flagrom</a></li><li class="chapter"data-level="3.1.5"data-path="../../../google/hardware/minetest/"><a href="../../../google/hardware/minetest/">hardware - minetest</a></li><li class="chapter"data-level="3.1.6"data-path="../../../google/hardware/remote/"><a href="../../../google/hardware/remote/">hardware - Remote Control</a></li><li class="chapter"data-level="3.1.7"data-path="../../../google/web/glotto/"><a href="../../../google/web/glotto/">web - gLotto</a></li><li class="chapter"data-level="3.1.8"data-path="../../../google/rev/dial/"><a href="../../../google/rev/dial/">rev - Dialtone</a></li></ul></li><li class="chapter"data-level="3.2"><span>Plaid</span><ul class="articles"><li class="chapter active"data-level="3.2.1"data-path="./"><a href="./">crypto - SPlaid Cypress</a></li><li class="chapter"data-level="3.2.2"data-path="../../rev/bigmaffs/"><a href="../../rev/bigmaffs/">rev - big maffs</a></li></ul></li><li class="header">2018</li><li class="chapter"data-level="4.1"><span>hxp</span><ul class="articles"><li class="chapter"data-level="4.1.1"data-path="../../../../2018/hxp/crypto/blinder_v2/"><a href="../../../../2018/hxp/crypto/blinder_v2/">crypto - blinder_v2</a></li><li class="chapter"data-level="4.1.2"data-path="../../../../2018/hxp/crypto/blinder/"><a href="../../../../2018/hxp/crypto/blinder/">crypto - blinder</a></li><li class="chapter"data-level="4.1.3"data-path="../../../../2018/hxp/crypto/curve/"><a href="../../../../2018/hxp/crypto/curve/">crypto - curve12833227</a></li><li class="chapter"data-level="4.1.4"data-path="../../../../2018/hxp/crypto/oops/"><a href="../../../../2018/hxp/crypto/oops/">crypto - oops2</a></li><li class="chapter"data-level="4.1.5"data-path="../../../../2018/hxp/crypto/blind/"><a href="../../../../2018/hxp/crypto/blind/">crypto - blind</a></li></ul></li><li class="chapter"data-level="4.2"><span>Pwn2Win</span><ul class="articles"><li class="chapter"data-level="4.2.1"data-path="../../../../2018/pwn2win/rev/back_to_bletchley_park/"><a href="../../../../2018/pwn2win/rev/back_to_bletchley_park/">cryrev - Back To Bletchley Park</a></li><li class="chapter"data-level="4.2.2"data-path="../../../../2018/pwn2win/crypto/GCM/"><a href="../../../../2018/pwn2win/crypto/GCM/">crypto - GCM</a></li></ul></li><li class="chapter"data-level="4.3"><span>HITCON</span><ul class="articles"><li class="chapter"data-level="4.3.1"data-path="../../../../2018/hitcon/crypto/lostmod/"><a href="../../../../2018/hitcon/crypto/lostmod/">crypto - Lost Modulus</a></li><li class="chapter"data-level="4.3.2"data-path="../../../../2018/hitcon/crypto/secret/"><a href="../../../../2018/hitcon/crypto/secret/">crypwn - Secret Note</a></li></ul></li><li class="chapter"data-level="4.4"><span>Hack.lu</span><ul class="articles"><li class="chapter"data-level="4.4.1"data-path="../../../../2018/Hack.lu/crypto/escape/"><a href="../../../../2018/Hack.lu/crypto/escape/">crypto - Escape the Grid</a></li><li class="chapter"data-level="4.4.2"data-path="../../../../2018/Hack.lu/crypto/relation/"><a href="../../../../2018/Hack.lu/crypto/relation/">crypto - Relations</a></li><li class="chapter"data-level="4.4.3"data-path="../../../../2018/Hack.lu/crypto/lfsr/"><a href="../../../../2018/Hack.lu/crypto/lfsr/">crypto - LFSR StreamCipher</a><ul class="articles"><li class="chapter"data-level="4.4.3.1"data-path="../../../../2018/Hack.lu/crypto/lfsr/task.html"><a href="../../../../2018/Hack.lu/crypto/lfsr/task.html">task description</a></li></ul></li></ul></li><li class="chapter"data-level="4.5"><span>Hackover</span><ul class="articles"><li class="chapter"data-level="4.5.1"data-path="../../../../2018/HackOver/crypto/oblivious/"><a href="../../../../2018/HackOver/crypto/oblivious/">crypto - oblivious</a></li><li class="chapter"data-level="4.5.2"data-path="../../../../2018/HackOver/crypto/secure_hash_v2/"><a href="../../../../2018/HackOver/crypto/secure_hash_v2/">crypto - secure_hash_v2</a></li><li class="chapter"data-level="4.5.3"data-path="../../../../2018/HackOver/rev/flagmaker/"><a href="../../../../2018/HackOver/rev/flagmaker/">rev - flagmaker</a></li></ul></li><li class="chapter"data-level="4.6"><span>Teaser Dragon</span><ul class="articles"><li class="chapter"data-level="4.6.1"data-path="../../../../2018/TeaserDragon/rev/Chains of trust/"><a href="../../../../2018/TeaserDragon/rev/Chains of trust/">rev - Chains of trust</a></li></ul></li><li class="chapter"data-level="4.7"><span>Defcamp</span><ul class="articles"><li class="chapter"data-level="4.7.1"data-path="../../../../2018/defcamp/rev/validator/"><a href="../../../../2018/defcamp/rev/validator/">rev - validator</a></li><li class="chapter"data-level="4.7.2"data-path="../../../../2018/defcamp/rev/memsome/"><a href="../../../../2018/defcamp/rev/memsome/">rev - memsome</a></li><li class="chapter"data-level="4.7.3"data-path="../../../../2018/defcamp/web/secops/"><a href="../../../../2018/defcamp/web/secops/">web - secops</a></li><li class="chapter"data-level="4.7.4"data-path="../../../../2018/defcamp/web/chat/"><a href="../../../../2018/defcamp/web/chat/">web - chat</a></li><li class="chapter"data-level="4.7.5"data-path="../../../../2018/defcamp/misc/voices/"><a href="../../../../2018/defcamp/misc/voices/">misc - voices</a></li></ul></li><li class="chapter"data-level="4.8"><span>HackIT</span><ul class="articles"><li class="chapter"data-level="4.8.1"data-path="../../../../2018/HackIT/coffee_overflow/"><a href="../../../../2018/HackIT/coffee_overflow/">rev - coffee_overflow</a></li></ul></li><li class="header">My Tasks</li><li class="header">2018</li><li class="chapter"data-level="6.1"><span>AIS3 Final</span><ul class="articles"><li class="chapter"data-level="6.1.1"data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/"><a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">crypto - mama</a></li><li class="chapter"data-level="6.1.2"data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/"><a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">crypto - secureSub</a></li><li class="chapter"data-level="6.1.3"data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/"><a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">crypto - xorlnarmoni'akda</a></li><li class="chapter"data-level="6.1.4"data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/"><a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">rev - SecDES</a></li><li class="chapter"data-level="6.1.5"data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/"><a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">rev - Almighty Duct Tape</a></li></ul></li><li class="divider"></li><li><a href="https://www.gitbook.com"target="blank"class="gitbook-link">Published with GitBook</a></li></ul></nav></div><div class="book-body"><div class="body-inner"><div class="book-header"role="navigation"><h1><i class="fa fa-circle-o-notch fa-spin"></i> <a href="../../../../..">crypto - SPlaid Cypress</a></h1></div><div class="page-wrapper"role="main"tabindex="-1"><div class="page-inner"><div id="book-search-results"><div class="search-noresults"><section class="markdown-section normal"><div class="wpHeaderContainer"><h1 id="splaid-cypress">SPlaid Cypress</h1><div><span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress"target="_blank"><img alt="Attachments"src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github"></a></span><span><img alt="crypto - 600"src="https://img.shields.io/badge/crypto-600-green.svg?style=for-the-badge&amp;maxAge=3600"></span><span><img alt="2 solves"src="https://img.shields.io/badge/solves-2-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600"></span></div></div><p></p><blockquote><p>I came up with this carbon-neutral cryptosystem and hid my secrets in the forest. Can you help them find their way out?</p></blockquote><h2 id="time">Time</h2><p>24 hours</p><h1 id="behavior">Behavior</h1><p>In this challenge, we have a encrypted zip and we know the middle of its plaintext.</p><p>It use a splay tree based cryptosystem from <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.1924&amp;rep=rep1&amp;type=pdf"target="_blank">APPLICATION OF SPLAY TREES TO DATA COMPRESSION</a>.</p><p>In short, The state of the cryptosystem is a splay tree with 256 leaves. It encrypts one byte at a time, outputing the path to the leaf of the input byte, and splaying that node.</p><p>For example, here&apos;s smaller tree:</p><p><img alt="(Img: Initial state)"src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_11.png"></p><p>If the input byte is <code>2e</code>, it outputs <code>1011</code>. And (the parent of) that leaf is splay to the root.</p><p><img alt="(Img: After)"src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_12.png"></p><p>As you can see, the output of each input byte has different length, which is totally a disaster.</p><h1 id="solution">Solution</h1><h2 id="tldr">TL;DR</h2><ol><li>Find those known plaintext.</li><li>Count the mean and variance of output bit length at each position.</li><li>Reconstruct the splay tree from the end.</li><li>Recover central directory file header.</li><li>Reconstruct local file header based on central directory file header.</li><li>Reconstruct the initial splay tree.</li><li>Decrypt the zip and enjoy the flag.</li></ol><h2 id="known-plaintext-and-statistics">Known plaintext and statistics</h2><p>The zip (i.e. plaintext) is generated using:</p><pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -s -o danny.jpg <span class="token string">&apos;https://www.csd.cs.cmu.edu/sites/.../public/danny-polaroid.jpg&apos;</span>
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>crypto - SPlaid Cypress · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../rev/bigmaffs/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../../">
+            
+                <a href="../../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Writeups</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../google/crypto/reality/">
+            
+                <a href="../../../google/crypto/reality/">
+            
+                    
+                    crypto - reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../google/crypto/qkd/">
+            
+                <a href="../../../google/crypto/qkd/">
+            
+                    
+                    crypto - Quantum Key Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../google/crypto/cell/">
+            
+                <a href="../../../google/crypto/cell/">
+            
+                    
+                    crypto - Reverse a cellular automata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../google/hardware/flagrom/">
+            
+                <a href="../../../google/hardware/flagrom/">
+            
+                    
+                    hardware - flagrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../../google/hardware/minetest/">
+            
+                <a href="../../../google/hardware/minetest/">
+            
+                    
+                    hardware - minetest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../../google/hardware/remote/">
+            
+                <a href="../../../google/hardware/remote/">
+            
+                    
+                    hardware - Remote Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../../google/web/glotto/">
+            
+                <a href="../../../google/web/glotto/">
+            
+                    
+                    web - gLotto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../../../google/rev/dial/">
+            
+                <a href="../../../google/rev/dial/">
+            
+                    
+                    rev - Dialtone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    Plaid
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    crypto - SPlaid Cypress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../rev/bigmaffs/">
+            
+                <a href="../../rev/bigmaffs/">
+            
+                    
+                    rev - big maffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    hxp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../2018/hxp/crypto/blinder_v2/">
+            
+                <a href="../../../../2018/hxp/crypto/blinder_v2/">
+            
+                    
+                    crypto - blinder_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../2018/hxp/crypto/blinder/">
+            
+                <a href="../../../../2018/hxp/crypto/blinder/">
+            
+                    
+                    crypto - blinder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../2018/hxp/crypto/curve/">
+            
+                <a href="../../../../2018/hxp/crypto/curve/">
+            
+                    
+                    crypto - curve12833227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../2018/hxp/crypto/oops/">
+            
+                <a href="../../../../2018/hxp/crypto/oops/">
+            
+                    
+                    crypto - oops2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../../2018/hxp/crypto/blind/">
+            
+                <a href="../../../../2018/hxp/crypto/blind/">
+            
+                    
+                    crypto - blind
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    Pwn2Win
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../../2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                <a href="../../../../2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                    
+                    cryrev - Back To Bletchley Park
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../../2018/pwn2win/crypto/GCM/">
+            
+                <a href="../../../../2018/pwn2win/crypto/GCM/">
+            
+                    
+                    crypto - GCM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                    HITCON
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../../../2018/hitcon/crypto/lostmod/">
+            
+                <a href="../../../../2018/hitcon/crypto/lostmod/">
+            
+                    
+                    crypto - Lost Modulus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../../../../2018/hitcon/crypto/secret/">
+            
+                <a href="../../../../2018/hitcon/crypto/secret/">
+            
+                    
+                    crypwn - Secret Note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    Hack.lu
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../../../../2018/Hack.lu/crypto/escape/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/escape/">
+            
+                    
+                    crypto - Escape the Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../../../../2018/Hack.lu/crypto/relation/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/relation/">
+            
+                    
+                    crypto - Relations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../../../../2018/Hack.lu/crypto/lfsr/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/lfsr/">
+            
+                    
+                    crypto - LFSR StreamCipher
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.3.1" data-path="../../../../2018/Hack.lu/crypto/lfsr/task.html">
+            
+                <a href="../../../../2018/Hack.lu/crypto/lfsr/task.html">
+            
+                    
+                    task description
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" >
+            
+                <span>
+            
+                    
+                    Hackover
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../../../2018/HackOver/crypto/oblivious/">
+            
+                <a href="../../../../2018/HackOver/crypto/oblivious/">
+            
+                    
+                    crypto - oblivious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../../../2018/HackOver/crypto/secure_hash_v2/">
+            
+                <a href="../../../../2018/HackOver/crypto/secure_hash_v2/">
+            
+                    
+                    crypto - secure_hash_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../../../../2018/HackOver/rev/flagmaker/">
+            
+                <a href="../../../../2018/HackOver/rev/flagmaker/">
+            
+                    
+                    rev - flagmaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" >
+            
+                <span>
+            
+                    
+                    Teaser Dragon
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../../../../2018/TeaserDragon/rev/Chains of trust/">
+            
+                <a href="../../../../2018/TeaserDragon/rev/Chains of trust/">
+            
+                    
+                    rev - Chains of trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <span>
+            
+                    
+                    Defcamp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../../../2018/defcamp/rev/validator/">
+            
+                <a href="../../../../2018/defcamp/rev/validator/">
+            
+                    
+                    rev - validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2" data-path="../../../../2018/defcamp/rev/memsome/">
+            
+                <a href="../../../../2018/defcamp/rev/memsome/">
+            
+                    
+                    rev - memsome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3" data-path="../../../../2018/defcamp/web/secops/">
+            
+                <a href="../../../../2018/defcamp/web/secops/">
+            
+                    
+                    web - secops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.4" data-path="../../../../2018/defcamp/web/chat/">
+            
+                <a href="../../../../2018/defcamp/web/chat/">
+            
+                    
+                    web - chat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.5" data-path="../../../../2018/defcamp/misc/voices/">
+            
+                <a href="../../../../2018/defcamp/misc/voices/">
+            
+                    
+                    misc - voices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" >
+            
+                <span>
+            
+                    
+                    HackIT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="../../../../2018/HackIT/coffee_overflow/">
+            
+                <a href="../../../../2018/HackIT/coffee_overflow/">
+            
+                    
+                    rev - coffee_overflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">My Tasks</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    AIS3 Final
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                    
+                    crypto - mama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                    
+                    crypto - secureSub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                    
+                    crypto - xorlnarmoni'akda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                    
+                    rev - SecDES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                    
+                    rev - Almighty Duct Tape
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../../tasks/2019/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                    
+                    crypto - collision
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                    
+                    crypto - harc4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                    
+                    crypto - unpredictable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                    
+                    crypwn - securenote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                    
+                    misc - pyshv1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.7" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                    
+                    misc - pyshv2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                    
+                    misc - pyshv3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9" data-path="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                    
+                    misc - john
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.10" data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                    
+                    rev - plam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.11" data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                    
+                    rev - vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../../.." >crypto - SPlaid Cypress</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="wpHeaderContainer">
+                    <h1 id="splaid-cypress">SPlaid Cypress</h1>
+                    <div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/crypto-600-green.svg?style=for-the-badge&amp;maxAge=3600" alt="crypto - 600"></span><span><img src="https://img.shields.io/badge/solves-2-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="2 solves"></span></div>
+                </div><p></p>
+<blockquote>
+<p>I came up with this carbon-neutral cryptosystem and hid my secrets in the forest.
+Can you help them find their way out?</p>
+</blockquote>
+<h2 id="time">Time</h2>
+<p>24 hours</p>
+<h1 id="behavior">Behavior</h1>
+<p>In this challenge, we have a encrypted zip and we know the middle of its plaintext.</p>
+<p>It use a splay tree based cryptosystem from 
+<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.1924&amp;rep=rep1&amp;type=pdf" target="_blank">APPLICATION OF SPLAY TREES TO DATA COMPRESSION</a>.</p>
+<p>In short,
+The state of the cryptosystem is a splay tree with 256 leaves.
+It encrypts one byte at a time, outputing the path to the leaf of the input byte, and splaying that node.</p>
+<p>For example, here&apos;s smaller tree:</p>
+<p><img src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_11.png" alt="(Img: Initial state)"></p>
+<p>If the input byte is <code>2e</code>, it outputs <code>1011</code>.
+And (the parent of) that leaf is splay to the root.</p>
+<p><img src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_12.png" alt="(Img: After)"></p>
+<p>As you can see, the output of each input byte has different length,
+which is totally a disaster.</p>
+<h1 id="solution">Solution</h1>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li>Find those known plaintext.</li>
+<li>Count the mean and variance of output bit length at each position.</li>
+<li>Reconstruct the splay tree from the end.</li>
+<li>Recover central directory file header.</li>
+<li>Reconstruct local file header based on central directory file header.</li>
+<li>Reconstruct the initial splay tree.</li>
+<li>Decrypt the zip and enjoy the flag.</li>
+</ol>
+<h2 id="known-plaintext-and-statistics">Known plaintext and statistics</h2>
+<p>The zip (i.e. plaintext) is generated using:</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -s -o danny.jpg <span class="token string">&apos;https://www.csd.cs.cmu.edu/sites/.../public/danny-polaroid.jpg&apos;</span>
 <span class="token function">zip</span> secrets.zip flag-cypress.txt danny.jpg
-</code></pre><p>Here&apos;s the diff of two zip files generated from different flag:</p><pre class="language-"><code class="lang-diff"><span class="token coord">1,9c1,9</span>
-<span class="token deleted">&lt; 00000000: 2e2e 2e2e 2e2e 2e2e 2e50 4b03 040a 0000  .........PK.....</span>
-<span class="token deleted">&lt; 00000010: 0000 0070 bb7f 4e5b 586b 5a33 0000 0033  ...p..N[XkZ3...3</span>
-<span class="token deleted">&lt; 00000020: 0000 0010 001c 0066 6c61 672d 6379 7072  .......flag-cypr</span>
-<span class="token deleted">&lt; 00000030: 6573 732e 7478 7455 5409 0003 63dc a05c  ess.txtUT...c..\</span>
-<span class="token deleted">&lt; 00000040: 84dc a05c 7578 0b00 0104 e803 0000 04e8  ...\ux..........</span>
-<span class="token deleted">&lt; 00000050: 0300 0050 4354 467b 7765 6c6c 5f69 745f  ...PCTF{well_it_</span>
-<span class="token deleted">&lt; 00000060: 6973 6e74 5f6d 616e 795f 706f 696e 7473  isnt_many_points</span>
-<span class="token deleted">&lt; 00000070: 5f77 6861 745f 6469 645f 796f 755f 6578  _what_did_you_ex</span>
-<span class="token deleted">&lt; 00000080: 7065 6374 7d0a 504b 0304 1400 0000 0800  pect}.PK........</span>
-<span class="token coord">---</span>
-<span class="token inserted">&gt; 00000000: 504b 0304 0a00 0000 0000 acbb 7f4e 7284  PK...........Nr.</span>
-<span class="token inserted">&gt; 00000010: da2e 3c00 0000 3c00 0000 1000 1c00 666c  ..&lt;...&lt;.......fl</span>
-<span class="token inserted">&gt; 00000020: 6167 2d63 7970 7265 7373 2e74 7874 5554  ag-cypress.txtUT</span>
-<span class="token inserted">&gt; 00000030: 0900 03d3 dca0 5cd7 dca0 5c75 780b 0001  ......\...\ux...</span>
-<span class="token inserted">&gt; 00000040: 04e8 0300 0004 e803 0000 5043 5446 7b68  ..........PCTF{h</span>
-<span class="token inserted">&gt; 00000050: 6d6d 5f73 6f5f 796f 755f 7765 7265 5f41  mm_so_you_were_A</span>
-<span class="token inserted">&gt; 00000060: 626c 655f 325f 6730 6c66 5f69 745f 646f  ble_2_g0lf_it_do</span>
-<span class="token inserted">&gt; 00000070: 776e 3f5f 4865 7265 5f68 6176 655f 615f  wn?_Here_have_a_</span>
-<span class="token inserted">&gt; 00000080: 666c 6167 7d0a 504b 0304 1400 0000 0800  flag}.PK........</span>
-<span class="token coord">12c12</span>
-<span class="token deleted">&lt; 000000b0: 0003 a8dc a05c a8dc a05c 7578 0b00 0104  .....\...\ux....</span>
-<span class="token coord">---</span>
-<span class="token inserted">&gt; 000000b0: 0003 a8dc a05c b1dc a05c 7578 0b00 0104  .....\...\ux....</span>
-<span class="token coord">541,542c541,542</span>
-<span class="token deleted">&lt; 000021c0: 030a 0000 0000 0070 bb7f 4e5b 586b 5a33  .......p..N[XkZ3</span>
-<span class="token deleted">&lt; 000021d0: 0000 0033 0000 0010 0018 0000 0000 0001  ...3............</span>
-<span class="token coord">---</span>
-<span class="token inserted">&gt; 000021c0: 030a 0000 0000 00ac bb7f 4e72 84da 2e3c  ..........Nr...&lt;</span>
-<span class="token inserted">&gt; 000021d0: 0000 003c 0000 0010 0018 0000 0000 0001  ...&lt;............</span>
-<span class="token coord">544c544</span>
-<span class="token deleted">&lt; 000021f0: 7072 6573 732e 7478 7455 5405 0003 63dc  press.txtUT...c.</span>
-<span class="token coord">---</span>
-<span class="token inserted">&gt; 000021f0: 7072 6573 732e 7478 7455 5405 0003 d3dc  press.txtUT.....</span>
-<span class="token coord">548c548</span>
-<span class="token deleted">&lt; 00002230: 0000 0000 0000 0000 00b4 817d 0000 0064  ...........}...d</span>
-<span class="token coord">---</span>
-<span class="token inserted">&gt; 00002230: 0000 0000 0000 0000 00b4 8186 0000 0064  ...............d</span>
-<span class="token coord">552c552</span>
-<span class="token deleted">&lt; 00002270: b221 0000 0000                           .!....</span>
-<span class="token coord">---</span>
-<span class="token inserted">&gt; 00002270: bb21 0000 0000                           .!....</span>
-</code></pre><p>The file looks almost the same, which means we could possibly mount known-plaintext attack.</p><p>So how about the ciphertext?</p><pre class="language-"><code>11000010011011100111111100011011011010011111100100010111011100100011110001011000
+</code></pre>
+<p>Here&apos;s the diff of two zip files generated from different flag:</p>
+<pre class="language-"><code class="lang-diff"><span class="token coord">1,9c1,9</span>
+<span class="token deleted-arrow deleted">&lt; 00000000: 2e2e 2e2e 2e2e 2e2e 2e50 4b03 040a 0000  .........PK.....
+&lt; 00000010: 0000 0070 bb7f 4e5b 586b 5a33 0000 0033  ...p..N[XkZ3...3
+&lt; 00000020: 0000 0010 001c 0066 6c61 672d 6379 7072  .......flag-cypr
+&lt; 00000030: 6573 732e 7478 7455 5409 0003 63dc a05c  ess.txtUT...c..\
+&lt; 00000040: 84dc a05c 7578 0b00 0104 e803 0000 04e8  ...\ux..........
+&lt; 00000050: 0300 0050 4354 467b 7765 6c6c 5f69 745f  ...PCTF{well_it_
+&lt; 00000060: 6973 6e74 5f6d 616e 795f 706f 696e 7473  isnt_many_points
+&lt; 00000070: 5f77 6861 745f 6469 645f 796f 755f 6578  _what_did_you_ex
+&lt; 00000080: 7065 6374 7d0a 504b 0304 1400 0000 0800  pect}.PK........
+</span><span class="token coord">---</span>
+<span class="token inserted-arrow inserted">&gt; 00000000: 504b 0304 0a00 0000 0000 acbb 7f4e 7284  PK...........Nr.
+&gt; 00000010: da2e 3c00 0000 3c00 0000 1000 1c00 666c  ..&lt;...&lt;.......fl
+&gt; 00000020: 6167 2d63 7970 7265 7373 2e74 7874 5554  ag-cypress.txtUT
+&gt; 00000030: 0900 03d3 dca0 5cd7 dca0 5c75 780b 0001  ......\...\ux...
+&gt; 00000040: 04e8 0300 0004 e803 0000 5043 5446 7b68  ..........PCTF{h
+&gt; 00000050: 6d6d 5f73 6f5f 796f 755f 7765 7265 5f41  mm_so_you_were_A
+&gt; 00000060: 626c 655f 325f 6730 6c66 5f69 745f 646f  ble_2_g0lf_it_do
+&gt; 00000070: 776e 3f5f 4865 7265 5f68 6176 655f 615f  wn?_Here_have_a_
+&gt; 00000080: 666c 6167 7d0a 504b 0304 1400 0000 0800  flag}.PK........
+</span><span class="token coord">12c12</span>
+<span class="token deleted-arrow deleted">&lt; 000000b0: 0003 a8dc a05c a8dc a05c 7578 0b00 0104  .....\...\ux....
+</span><span class="token coord">---</span>
+<span class="token inserted-arrow inserted">&gt; 000000b0: 0003 a8dc a05c b1dc a05c 7578 0b00 0104  .....\...\ux....
+</span><span class="token coord">541,542c541,542</span>
+<span class="token deleted-arrow deleted">&lt; 000021c0: 030a 0000 0000 0070 bb7f 4e5b 586b 5a33  .......p..N[XkZ3
+&lt; 000021d0: 0000 0033 0000 0010 0018 0000 0000 0001  ...3............
+</span><span class="token coord">---</span>
+<span class="token inserted-arrow inserted">&gt; 000021c0: 030a 0000 0000 00ac bb7f 4e72 84da 2e3c  ..........Nr...&lt;
+&gt; 000021d0: 0000 003c 0000 0010 0018 0000 0000 0001  ...&lt;............
+</span><span class="token coord">544c544</span>
+<span class="token deleted-arrow deleted">&lt; 000021f0: 7072 6573 732e 7478 7455 5405 0003 63dc  press.txtUT...c.
+</span><span class="token coord">---</span>
+<span class="token inserted-arrow inserted">&gt; 000021f0: 7072 6573 732e 7478 7455 5405 0003 d3dc  press.txtUT.....
+</span><span class="token coord">548c548</span>
+<span class="token deleted-arrow deleted">&lt; 00002230: 0000 0000 0000 0000 00b4 817d 0000 0064  ...........}...d
+</span><span class="token coord">---</span>
+<span class="token inserted-arrow inserted">&gt; 00002230: 0000 0000 0000 0000 00b4 8186 0000 0064  ...............d
+</span><span class="token coord">552c552</span>
+<span class="token deleted-arrow deleted">&lt; 00002270: b221 0000 0000                           .!....
+</span><span class="token coord">---</span>
+<span class="token inserted-arrow inserted">&gt; 00002270: bb21 0000 0000                           .!....
+</span></code></pre>
+<p>The file looks almost the same,
+which means we could possibly mount known-plaintext attack.</p>
+<p>So how about the ciphertext?</p>
+<pre class="language-"><code>11000010011011100111111100011011011010011111100100010111011100100011110001011000
 11010010001010100001111111000101011010111001000110001110111100011101010111011000
-</code></pre><p>Some pattern in the string matches, but they aren&apos;t aligned well.</p><p>If we <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/gen1.py"target="_blank">segment those bits</a>:</p><pre class="language-"><code>P  C1                 C2                 C3                   C4
+</code></pre><p>Some pattern in the string matches, but they aren&apos;t aligned well.</p>
+<p>If we <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/gen1.py" target="_blank">segment those bits</a>:</p>
+<pre class="language-"><code>P  C1                 C2                 C3                   C4
 03 1001000            100011010          10010000010          100011
 00 1000111            1001011            100011               10100
 00 0                  0                  0                    0
@@ -75,7 +1193,11 @@ xx 100000110110110    1000011000101      1001001001100        1000111000010
 00 0                  0                  0                    0
 00 0                  0                  0                    0
 00 0                  0                  0                    0
-</code></pre><p>Cool, There is a large bias on the output bit length at each position.</p><p>Moreover, those short ones are almost the same. In fact, those <code>0</code> and <code>11</code> are all the same across all the files we generated.</p><p>If we look at the part of compressed image, where the input has larger entropy:</p><pre class="language-"><code>P  C1                       C2                    C3                      C4
+</code></pre><p>Cool, There is a large bias on the output bit length at each position.</p>
+<p>Moreover, those short ones are almost the same.
+In fact, those <code>0</code> and <code>11</code> are all the same across all the files we generated.</p>
+<p>If we look at the part of compressed image, where the input has larger entropy:</p>
+<pre class="language-"><code>P  C1                       C2                    C3                      C4
 21 100101010010             10001010              1000110110              10011001111
 47 10011001110001101        10010000110010        100010000               1000011010110011
 68 1001001111               1001010111100100      100101000111010011100   1000010011
@@ -106,7 +1228,63 @@ f6 10000001100              1001011010010         10000011111001          100111
 48 100111111010101          10001110111110        10001000011011000       1001100011100011000
 23 100010011111101          1001011101101         10000101100111          10000010101
 1d 1000101111101            100011010011100000    1001100011101101001     10001110000
-</code></pre><p>The variance become larger, but it seems still has some bias on the output length. Average standard deviation is 2.4 between 400 aligned samples, and 3.6 between shuffled samples.</p><p>Another thing we can notice is that those bits has <code>100</code> or <code>101</code> prefix. Because the splay operation lift the previous byte to the root, it becomes <code>0</code>, and the second previous bytes becomes <code>11</code>, Other bytes should starts with <code>100</code> or <code>101</code>. This gives us a great boundary for generating possible segmentations.</p><h2 id="reconstruct-the-tree">Reconstruct the tree</h2><p>Now, assuming we have the segmentation, how can we reconstruct the splay tree?</p><p>If the input is <code>ff</code> and the output is <code>1001101</code>, which means there&apos;s a leaf at <code>1001101</code>, and all nodes on the path are not leaves. To undo the operation, we build a tree with that path only, connect all other edges to placeholders,</p><p><img alt="(Img: Before)"src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_21.png"></p><p>splay the node,</p><p><img alt="(Img: Splay)"src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_22.png"></p><p>compare to current state,</p><p><img alt="(Img: Old state)"src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_23.png"></p><p>and fill those placeholders before splay.</p><p><img alt="(Img: After)"src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_24.png"></p><p>There are some indicator for incorrect segmentation:</p><ul><li>Tree structure does not match</li><li>Type of node does not match (i.e. internal nodes v.s. leaves)</li><li>Tag of leaf does not match</li><li>Duplicated tag of different leaf</li><li>The ciphertext <code>0</code> and <code>11</code> does not match, which is independent of key.</li></ul><p>We can just use dfs to find a valid segmentation.</p><h2 id="speedup-the-searching-progress">Speedup the searching progress</h2><p>When generate the possible segmentation, we only consider segmentation length in range <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>mean</mtext><mo>&#xB1;</mo><mn>4</mn><mo>&#xD7;</mo><mtext>std</mtext></mrow><annotation encoding="application/x-tex">\text{mean} \pm 4 \times \text{std}</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.66666em;vertical-align:-.08333em"></span><span class="mord text"><span class="mord">mean</span></span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">&#xB1;</span><span class="mspace"style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut"style="height:.72777em;vertical-align:-.08333em"></span><span class="mord">4</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">&#xD7;</span><span class="mspace"style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut"style="height:.69444em;vertical-align:0"></span><span class="mord text"><span class="mord">std</span></span></span></span></span></span> and ordered by the error.</p><p>This trick speedup the searching process a lot, from hours to 3 minutes, even with unoptimized python script.</p><p>However, not all segmentation length are inside 4 std. We increase the range to 10 std after reconstructing 200 nodes. Since half of the tree is reconstructed, the searching depth of a negative guess is pretty shallow, so the increment doesn&apos;t hurt the performance too much.</p><p>We also pre-generate a set of ciphertext sequences shorter than 8 with random plaintext, it turns out there are only 50 possible sequences rather than 255.</p><p>For longer sequence, we check it has <code>100</code> or <code>101</code> prefix.</p><p>Than&apos;s all about the solution&apos;s algorithm. Here&apos;s the <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/rec.py"target="_blank">code</a> if you want to take a look.</p><p>Now, We are ready to get the flag, really?</p><h2 id="distribution-of-target-plaintext">Distribution of target plaintext</h2><p>Using the algorithm described above, we are able to reconstruct the tree of the zip files we generated. However, it failed on the target ciphertext.</p><p>The zip files we generated are different from the secret zip. After re-checking the provided script, We found something interesting:</p><pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -s -o danny.jpg <span class="token string">&apos;https://www.csd.cs.cmu.edu/sites/.../public/danny-polaroid.jpg&apos;</span>
+</code></pre><p>The variance become larger, but it seems still has some bias on the output length.
+Average standard deviation is 2.4 between 400 aligned samples, and 3.6 between shuffled samples.</p>
+<p>Another thing we can notice is that those bits has <code>100</code> or <code>101</code> prefix.
+Because the splay operation lift the previous byte to the root,
+it becomes <code>0</code>,
+and the second previous bytes becomes <code>11</code>,
+Other bytes should starts with <code>100</code> or <code>101</code>.
+This gives us a great boundary for generating possible segmentations.</p>
+<h2 id="reconstruct-the-tree">Reconstruct the tree</h2>
+<p>Now, assuming we have the segmentation, how can we reconstruct the splay tree?</p>
+<p>If the input is <code>ff</code> and the output is <code>1001101</code>,
+which means there&apos;s a leaf at <code>1001101</code>, and all nodes on the path are not leaves.
+To undo the operation,
+we build a tree with that path only,
+connect all other edges to placeholders,</p>
+<p><img src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_21.png" alt="(Img: Before)"></p>
+<p>splay the node,</p>
+<p><img src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_22.png" alt="(Img: Splay)"></p>
+<p>compare to current state,</p>
+<p><img src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_23.png" alt="(Img: Old state)"></p>
+<p>and fill those placeholders before splay.</p>
+<p><img src="https://raw.githubusercontent.com/sasdf/ctf/master/writeup/2019/plaid/crypto/cypress/_files/Figure_24.png" alt="(Img: After)"></p>
+<p>There are some indicator for incorrect segmentation:</p>
+<ul>
+<li>Tree structure does not match</li>
+<li>Type of node does not match (i.e. internal nodes v.s. leaves)</li>
+<li>Tag of leaf does not match</li>
+<li>Duplicated tag of different leaf</li>
+<li>The ciphertext <code>0</code> and <code>11</code> does not match, which is independent of key.</li>
+</ul>
+<p>We can just use dfs to find a valid segmentation.</p>
+<h2 id="speedup-the-searching-progress">Speedup the searching progress</h2>
+<p>When generate the possible segmentation,
+we only consider segmentation length in range 
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>mean</mtext><mo>&#xB1;</mo><mn>4</mn><mo>&#xD7;</mo><mtext>std</mtext></mrow><annotation encoding="application/x-tex">
+\text{mean} \pm 4 \times \text{std}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">mean</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#xB1;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#xD7;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">std</span></span></span></span></span></span>
+and ordered by the error.</p>
+<p>This trick speedup the searching process a lot,
+from hours to 3 minutes, even with unoptimized python script.</p>
+<p>However, not all segmentation length are inside 4 std.
+We increase the range to 10 std after reconstructing 200 nodes.
+Since half of the tree is reconstructed,
+the searching depth of a negative guess is pretty shallow,
+so the increment doesn&apos;t hurt the performance too much.</p>
+<p>We also pre-generate a set of ciphertext sequences shorter than 8 with random plaintext,
+it turns out there are only 50 possible sequences rather than 255.</p>
+<p>For longer sequence, we check it has <code>100</code> or <code>101</code> prefix.</p>
+<p>Than&apos;s all about the solution&apos;s algorithm.
+Here&apos;s the <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/rec.py" target="_blank">code</a> if you want to take a look.</p>
+<p>Now, We are ready to get the flag, really?</p>
+<h2 id="distribution-of-target-plaintext">Distribution of target plaintext</h2>
+<p>Using the algorithm described above, we are able to reconstruct the tree of the zip files we generated.
+However, it failed on the target ciphertext.</p>
+<p>The zip files we generated are different from the secret zip.
+After re-checking the provided script, We found something interesting:</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -s -o danny.jpg <span class="token string">&apos;https://www.csd.cs.cmu.edu/sites/.../public/danny-polaroid.jpg&apos;</span>
 
 <span class="token function">zip</span> secrets.zip flag-cypress.txt danny.jpg
 ./splaid-cypress -e secrets.zip -o secrets.zip.enc -p <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> key-cypress.txt<span class="token variable">)</span></span>&quot;</span>
@@ -114,7 +1292,16 @@ f6 10000001100              1001011010010         10000011111001          100111
 <span class="token function">rm</span> -f splaid-cypress.zip
 <span class="token function">zip</span> splaid-cypress.zip secrets.zip.enc splaid-cypress.sh libsplaid.so.1 splaid-cypress
 <span class="token function">rm</span> -f secrets.zip secrets.zip.enc danny.jpg
-</code></pre><p>It seems that the task&apos;s zip itself is generated from the same environment.</p><p>Let&apos;s talk about the zip format. Generally, zip file looks like this: <img alt="zip"src="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/ZIP-64_Internal_Layout.svg"> (Image from wikipedia) There are Local file header following its data for each file, and a Central directory containing multiple Central directory file header and a End of central directory record (EOCD).</p><p>The central directory of task&apos;s zip looks like:</p><pre class="language-"><code>Signature:                            504b 0102 (Central directory)
+</code></pre>
+<p>It seems that the task&apos;s zip itself is generated from the same environment.</p>
+<p>Let&apos;s talk about the zip format.
+Generally, zip file looks like this:
+<img src="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/ZIP-64_Internal_Layout.svg" alt="zip">
+(Image from wikipedia)
+There are Local file header following its data for each file,
+and a Central directory containing multiple Central directory file header and a End of central directory record (EOCD).</p>
+<p>The central directory of task&apos;s zip looks like:</p>
+<pre class="language-"><code>Signature:                            504b 0102 (Central directory)
 Version:                              1e03
 Min version:                          0a00
 Flag:                                 0000
@@ -149,7 +1336,17 @@ Extra field:
     GID:               00 0000 00
 File comment:
     None
-</code></pre><p>So the version of the zip is <code>1e03</code>, default file permission is <code>a481</code>, and the uid/gid is <code>0</code>.</p><p>With these information, we <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/gen2.py"target="_blank">generate</a> ciphertext of random time, crc, and size to calculate those statistics info again.</p><p>This time, it reconstruct the tree of known plaintext part successfully. However, it still can&apos;t reconstruct the flag part.</p><h2 id="leading-part-of-the-plaintext">Leading part of the plaintext</h2><p>Let&apos;s take a look of the best (i.e. longest) plaintext our algorithm recover:</p><pre class="language-"><code>00000000: 3131 310a 310a 3131 310a 0a15 15c9 31c9  111.1.111.....1.
+</code></pre><p>So the version of the zip is <code>1e03</code>,
+default file permission is <code>a481</code>,
+and the uid/gid is <code>0</code>.</p>
+<p>With these information,
+we <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/gen2.py" target="_blank">generate</a> ciphertext of random time, crc,
+and size to calculate those statistics info again.</p>
+<p>This time, it reconstruct the tree of known plaintext part successfully.
+However, it still can&apos;t reconstruct the flag part.</p>
+<h2 id="leading-part-of-the-plaintext">Leading part of the plaintext</h2>
+<p>Let&apos;s take a look of the best (i.e. longest) plaintext our algorithm recover:</p>
+<pre class="language-"><code>00000000: 3131 310a 310a 3131 310a 0a15 15c9 31c9  111.1.111.....1.
 00000010: 0a31 0a0a 3010 3030 3080 8080 3030 3080  .1..0.000...000.
 00000020: 8030 1004 c0de 8f58 2de4 e07e 2058 5bf8  .0.....X-..~ X[.
 00000030: 024d 4cc0 b888 b920 41fc bb38 ed4c c33c  .ML.... A..8.L.&lt;
@@ -159,7 +1356,8 @@ File comment:
 00000070: 0908 09f0 164b 4ef9 f209 41f2 2009 09b7  .....KN...A. ...
 00000080: 2109 0900 1c00 6461 6e6e 792e 6a70 6755  !.....danny.jpgU
 00000090: 5409 0003 24e4 605c 24e4 605c 7578 0b00  T...$.`\$.`\ux..
-</code></pre><p>It recover <code>danny.jpg</code>, which is the local file header of danny.</p><pre class="language-"><code>Signature:          504b 0304 (Local file header)
+</code></pre><p>It recover <code>danny.jpg</code>, which is the local file header of danny.</p>
+<pre class="language-"><code>Signature:          504b 0304 (Local file header)
 Flag:               (Missing)
 Min version:        1409
 Compression method: 0809
@@ -187,4 +1385,99 @@ Extra field:
     UID:               0000 0000
     Size of GID:       04
     GID:               0000 0000
-</code></pre><p>Some <code>00</code> decoded as <code>09</code> incorrectly, and the flag field disappeared.</p><p>In fact, we know what those information should be. Most of them are in the central directory, and we have already recovered them. The compressed size of the flag is also in central directory, and it&apos;s 79 bytes. Again, we <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/gen3.py"target="_blank">regenerate</a> the known plaintext, the statistics info, and run again.</p><p>There are some bugs in our code on the boundary condition, it does not terminate correctly.</p><p>But when we take the longest plaintext, remove the leading junk, it decompressed successfully. Great, 600 points after 24 hours with hundreds lines of code.</p><p>It was my first time breaking a cryptosystem without any help from existing paper, Thanks PPP for such a nice and interesting challenge :)</p></section></div><div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1></div></div></div></div></div></div><a href="../../rev/bigmaffs/"class="navigation navigation-next navigation-unique"aria-label="Next page: rev - big maffs"><i class="fa fa-angle-right"></i></a></div><script>var gitbook=gitbook||[];gitbook.push(function(){gitbook.page.hasChanged({page:{name:"SPlaid Cypress",category:"crypto",points:600,solves:2,title:"crypto - SPlaid Cypress",level:"3.2.1",depth:2,next:{title:"rev - big maffs",level:"3.2.2",depth:2,path:"writeup/2019/plaid/rev/bigmaffs/README.md",ref:"writeup/2019/plaid/rev/bigmaffs/README.md",articles:[]},previous:{title:"Plaid",level:"3.2",depth:1,ref:"",articles:[{title:"crypto - SPlaid Cypress",level:"3.2.1",depth:2,path:"writeup/2019/plaid/crypto/cypress/README.md",ref:"writeup/2019/plaid/crypto/cypress/README.md",articles:[]},{title:"rev - big maffs",level:"3.2.2",depth:2,path:"writeup/2019/plaid/rev/bigmaffs/README.md",ref:"writeup/2019/plaid/rev/bigmaffs/README.md",articles:[]}]},dir:"ltr"},config:{gitbook:"*",theme:"default",variables:{},plugins:["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],pluginsConfig:{prism:{css:["prismjs/themes/prism-tomorrow.css"],lang:{C:"c","C++":"cpp",asm:"nasm"}},disqus:{useIdentifier:!1,shortName:"sasdfwriteup"},search:{},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!1,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},lunr:{maxIndexSize:1e6,ignoreSpecialCharacters:!1},katex:{},fontsettings:{theme:"white",family:"sans",size:2},sharing:{facebook:!0,twitter:!0,google:!1,weibo:!1,instapaper:!1,vk:!1,all:["facebook","google","twitter","weibo","instapaper"]},"theme-default":{styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"},showLevel:!1},"writeup-utils":{filePrefix:"https://github.com/sasdf/ctf/blob/master",repoPrefix:"https://github.com/sasdf/ctf/blob/master",rawPrefix:"https://raw.githubusercontent.com/sasdf/ctf/master"}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"}},file:{path:"writeup/2019/plaid/crypto/cypress/README.md",mtime:"2019-04-16T18:45:59.628Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2019-06-27T06:24:43.238Z"},basePath:"../../../../..",book:{language:""}})})</script></div><script src="../../../../../gitbook/gitbook.js"></script><script src="../../../../../gitbook/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search-engine.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script><script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script><script src="../../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script></body></html>
+</code></pre><p>Some <code>00</code> decoded as <code>09</code> incorrectly,
+and the flag field disappeared.</p>
+<p>In fact, we know what those information should be.
+Most of them are in the central directory,
+and we have already recovered them.
+The compressed size of the flag is also in central directory, and it&apos;s 79 bytes.
+Again, we <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/plaid/crypto/cypress/_files/gen3.py" target="_blank">regenerate</a> the known plaintext, the statistics info, and run again.</p>
+<p>There are some bugs in our code on the boundary condition, it does not terminate correctly.</p>
+<p>But when we take the longest plaintext, remove the leading junk, it decompressed successfully.
+Great, 600 points after 24 hours with hundreds lines of code.</p>
+<p>It was my first time breaking a cryptosystem without any help from existing paper,
+Thanks PPP for such a nice and interesting challenge :)</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../../rev/bigmaffs/" class="navigation navigation-next navigation-unique" aria-label="Next page: rev - big maffs">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"name":"SPlaid Cypress","category":"crypto","points":600,"solves":2,"title":"crypto - SPlaid Cypress","level":"3.2.1","depth":2,"next":{"title":"rev - big maffs","level":"3.2.2","depth":2,"path":"writeup/2019/plaid/rev/bigmaffs/README.md","ref":"writeup/2019/plaid/rev/bigmaffs/README.md","articles":[]},"previous":{"title":"Plaid","level":"3.2","depth":1,"ref":"","articles":[{"title":"crypto - SPlaid Cypress","level":"3.2.1","depth":2,"path":"writeup/2019/plaid/crypto/cypress/README.md","ref":"writeup/2019/plaid/crypto/cypress/README.md","articles":[]},{"title":"rev - big maffs","level":"3.2.2","depth":2,"path":"writeup/2019/plaid/rev/bigmaffs/README.md","ref":"writeup/2019/plaid/rev/bigmaffs/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2019/plaid/crypto/cypress/README.md","mtime":"2019-10-08T01:36:22.440Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-08T10:47:55.213Z"},"basePath":"../../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

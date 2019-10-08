@@ -1,0 +1,6 @@
+harc4:
+    build: ./
+    ports:
+        - "5450:9000"
+    expose:
+        - "9000"

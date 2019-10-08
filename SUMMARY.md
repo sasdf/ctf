@@ -62,3 +62,18 @@
     * [crypto - xorlnarmoni'akda](tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/README.md)
     * [rev - SecDES](tasks/2018/ais3Final/rev/100-SecDES/README.md)
     * [rev - Almighty Duct Tape](tasks/2018/ais3Final/rev/200-AlmightyDuctTape/README.md)
+
+### 2019
+* Balsn CTF
+    * [Overview](tasks/2019/BalsnCTF/README.md)
+    * [crypto - collision](tasks/2019/BalsnCTF/crypto/collision/README.md)
+    * [crypto - harc4](tasks/2019/BalsnCTF/crypto/harc4/README.md)
+    * [crypto - unpredictable](tasks/2019/BalsnCTF/crypto/unpredictable/README.md)
+    * [crypwn - securenote](tasks/2019/BalsnCTF/pwn/securenote/README.md)
+    * [misc - pyshv1](tasks/2019/BalsnCTF/misc/pyshv1/README.md)
+    * [misc - pyshv2](tasks/2019/BalsnCTF/misc/pyshv2/README.md)
+    * [misc - pyshv3](tasks/2019/BalsnCTF/misc/pyshv3/README.md)
+    * [misc - john](tasks/2019/BalsnCTF/misc/john/README.md)
+    * [rev - plam](tasks/2019/BalsnCTF/rev/plam/README.md)
+    * [rev - vim](tasks/2019/BalsnCTF/rev/vim/README.md)
+
