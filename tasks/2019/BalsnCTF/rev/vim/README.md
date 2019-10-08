@@ -18,7 +18,7 @@ This is one of them.
 
 ## Design criteria
 When writing a reverse challenge,
-it's not too hard to create a huge amount of :poop: which is impossible to solve,
+it's not too hard to create a huge amount of 💩 which is impossible to solve,
 and I want to avoid that.
 
 To make the code reasonable,
