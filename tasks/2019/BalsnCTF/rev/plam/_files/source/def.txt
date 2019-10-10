@@ -1,0 +1,49 @@
+# Boolean
+T = λx.λy.x
+F = λx.λy.y
+
+# Pair -- tuple
+P = λx.λy.λf . f x y
+
+# Tree node -- triple
+N = λv.λr.λl.λf . f v r l
+
+# Shift
+S = λn.λt.λs.λc . c n (P t s)
+
+# Reduce
+R = λn.λt.λs.λc . c (N n t (s T)) (s F)
+
+A = S F
+B = S T
+C = R F
+D = R T
+
+# Unpack1 -- unpack level 1
+V = λi.λv.λr.λl.λc . (i r l) (c v)
+
+# Unpack2 -- unpack level 2
+W = λj.λv.λw.λr.λl.λc . c v w (j r l)
+
+# Unpack -- unpack two entries from tree
+U = λi.λj.λl.λc . l (V i) (W j) c
+
+
+# process -- calculate binary function
+# process = \i r x v w l c . (xor i v) ( c r (xor x w) l ) ( c (and r x) w l )
+G = (λi. (λr. (λx. (λv. (λw. (λl. (λc. ((((i ((v F) T)) v) (((c r) ((x ((w F) T)) w)) l)) (((c ((r x) F)) w) l)))))))))
+
+# run -- execute single step in tree
+H = λf.λr.λx.λl.λi.λj . U i j l (G i r x) f
+
+# Y combinator
+Y = λf . (λx . f (x x)) (λx . f (x x))
+
+# run2 -- Y combinator compatible run
+R = λf.λr.λx.λl.λi.λj . (j H H) f r x l i j
+
+# End -- return r
+E = λa.λb.λf.λr.λx.λl.λi.λj . r
+
+# Oneliner closure
+((λr.λe.λa.λb.λt.λy.λf.λc.λd. (λm. I) M) R E A B T Y F C D)

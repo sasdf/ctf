@@ -33,4 +33,73 @@ I decided to harden it by adding a suffix to it.
 
 
 # Solution
-Will be released 72 hours after the end of competition.
+This task is about crafting a key of RC4 with some suffix that can generate a short keystream we want.
+
+To make it simpler, let's start with a simpler version without suffix first:
+Find a key such that first 3 bytes of RC4 keystream is `[42, 13, 37]`.
+
+RC4 has two routines, KSA for initialize state with key, and PRGA for generate keystream.
+
+## Simpler KSA
+```python
+S = list(range(256))
+j = 0
+for i in range(256):
+    j = (j + S[i] + key[i % len(key)]) % 256
+    swap(S[i], S[j])
+```
+If we can control all 256 bytes of the key, we can control all `j`.
+
+It's trivial to construct a key for a given SBox:
+Just swap the value we want to each position.
+
+## PRGA
+```python
+i, j = 0, 0
+while True:
+    i = (i + 1) % 256
+    j = (j + S[i]) % 256
+    k = (S[i] + S[j]) % 256
+    swap(S[i], S[j])
+    yield S[k]
+```
+It's more trickly in this part, we can control S[i] and S[j], but we can't use duplicate elements,
+which makes `j` increase pretty fast.
+
+Let's construct a solution manually first.
+Consider following SBox:
+```
+Pos:   00 01 02 03 ... 10 11 12 13 ... 22 23 24 ... 30 ...
+Val:   ?? 10 01 02 ... 20 21 ?? 22 ... 13 ?? 37 ... 42 ...
+Step1:    i            j                            k
+Step2:       i            j            k
+Step3:          i               j            k
+(Numbers are in decimal)
+```
+It will output the keystream we want.
+To construct a SBox for longer keystream, I use DFS to search for a solution without conflict about position or element value.
+
+## Leak IV
+Now, let's come back to the final version with suffix.
+
+The suffix is randomly generated, the first thing is to leak it.
+
+Our one way compression function looks like:
+```python
+state = IV
+for i in range(0, len(x), csz):
+    # ...
+return state.hex()
+```
+So if we send a empty string to it, it will give us IV.
+
+## KSA with suffix
+From first section,
+we know that not all position has constraint on its value.
+If the suffix doesn't messup those critical points, we can just construct our key as same as before.
+
+To construct the key,
+rewind the suffix with all possible `j` first, and check whether we can swap those critical points to the place we want.
+If there's no solution, go back to previous part and search for another SBox.
+
+You can find full exploit [here]([_files/solution/solve.py]).

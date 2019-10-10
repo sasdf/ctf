@@ -1093,7 +1093,106 @@ and UTF-8 oracle seems to be the most interesting one.</p>
 <p>Due to the fact that the packet leak is not pretty stable,
 the flag is hex-encoded to increase the entropy we can got from each successful oracle.</p>
 <h1 id="solution">Solution</h1>
-<p>Will be released 72 hours after the end of competition.</p>
+<h2 id="behavior">Behavior</h2>
+<p>The main function looks like:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sc <span class="token operator">=</span> SecureConsole<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    sc<span class="token punctuation">.</span>write<span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">.</span>endl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        sc<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&apos;[&gt;] Gimme your flag: &apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        line <span class="token operator">=</span> sc<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        sc<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&apos;[*] Result: &apos;</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            line <span class="token operator">=</span> line<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">&apos;utf8&apos;</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> line <span class="token operator">==</span> flag<span class="token punctuation">:</span>
+                sc<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&apos;OK&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                sc<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&apos;Nope&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span><span class="token punctuation">:</span>
+            sc<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&apos;QAQ&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>.readline</code> will read null terminated ciphertext and return its plaintext.</p>
+<p><code>.write</code> will encrypt the data, encoded to hexstring, chunked to 80 byte lines, and then print the result.</p>
+<p><code>.endl</code> will pad the space in current line with encrypted null bytes to 80 bytes.</p>
+<p>The encryption here is AES-CTR with urandom key.</p>
+<p>With property of CTR mode, we can flip bits for input without knowing its content.</p>
+<p>If we can somehow distinguish between those three outcomes, it&apos;s a UTF-8 oracle for plaintext.</p>
+<h2 id="packet-oracle">Packet oracle</h2>
+<p>Cipher for output is used correctly,
+so they&apos;re just some random strings if you don&apos;t have the key.</p>
+<p>All three kinds of output will be padded to same length, so there&apos;s no way to distinguish between them.</p>
+<p>However, data and padding are printed out in two separated syscall.</p>
+<p>Maybe we can find one packet for each syscall. Can we?</p>
+<p>No we can&apos;t.</p>
+<p>If you capture their packets, you will see only two packets.
+One is the prompt <code>[*] Result:</code> and another one is data + padding.
+The reason is that we&apos;re trying to send three packets out.</p>
+<p>Second and third one will be buffered and concated when waiting first one to be ACKed.
+This is called <a href="https://en.wikipedia.org/wiki/Nagle%27s_algorithm" target="_blank">Nagle&apos;s algorithm</a>.</p>
+<pre class="language-"><code>if there is new data to send
+  if the window size &gt;= MSS and available data is &gt;= MSS
+    send complete MSS segment now
+  else
+    if there is unconfirmed data still in the pipe
+      enqueue data in the buffer until an acknowledge is received
+    else
+      send data immediately
+    end if
+  end if
+end if
+</code></pre><h2 id="racing-with-nagle">Racing with Nagle</h2>
+<p>The idea to bypass it is simple: we have to ACK the first packet before second write.</p>
+<p>Actually, this would happened with a small probability if client and server are inside the same intranet.</p>
+<p>But we need to make it happened across Internet too.</p>
+<p>Network latency is inevitable, we have to send ACK in advance to ACK the packet in time.</p>
+<p>When kernel receive an invalid ACK from the future, it will think it&apos;s come from other connection.
+And our connection won&apos;t be affected.</p>
+<p>So we can send many ACK packets in advance, hoping one of them will ACK the first packet before second write.</p>
+<p>Once we trigger that race condition, we can get one bit of oracle.</p>
+<p>I craft and send / recv raw packets with scapy,
+the performance of default L3 send is pretty bad for flooding.
+You need to optimized it to make it possible for racing.</p>
+<h2 id="utf-8-oracle">UTF-8 oracle</h2>
+<p>The flag is hex-encoded, so here is the possible charset we need to leak:</p>
+<pre class="language-"><code>a 0110 0001
+b 0110 0010
+c 0110 0011
+d 0110 0100
+e 0110 0101
+f 0110 0110
+
+0 0011 0000
+1 0011 0001
+2 0011 0010
+3 0011 0011
+4 0011 0100
+5 0011 0101
+6 0011 0110
+7 0011 0111
+8 0011 1000
+9 0011 1001
+</code></pre><p>Also, we already know the prefix is <code>Balsn{</code>, and there are some trailing null bytes.</p>
+<p>There are some special codepoint in UTF8 is invalid.
+We can use these codepoint to leak some bits.</p>
+<p>The first oracle is <code>Invalid continuation</code>, we can leak first four bits with this oracle.</p>
+<pre class="language-"><code>Query Pattern:   1101xxxx ????xxxx
+Success Pattern: 1101xxxx 10xxxxxx
+</code></pre><p>Second oracle is code points larger than <code>U+10FFFF</code>:</p>
+<pre class="language-"><code>F5 - FF
+Query Pattern:   1111??xx 101xxxxx 10xxxxxx 10xxxxxx
+Success Pattern: 111100xx 101xxxxx 10xxxxxx 10xxxxxx
+</code></pre><p>Third oracle is two bytes overlong encoding:</p>
+<pre class="language-"><code>C0 / C1
+Query Pattern:   110000?x 101xxxxx
+Success Pattern: 1100001x 101xxxxx
+</code></pre><p>And the last oracle is three bytes overlong encoding:</p>
+<pre class="language-"><code>Query Pattern:   1110000? 10000000 10000000
+Success Pattern: 11100001 10000000 10000000
+</code></pre><p>You can find full exploit <a href="https://github.com/sasdf/ctf/blob/master/tasks/2019/BalsnCTF/misc/john/_files/solution/solve.py" target="_blank">here</a>.</p>
 
                                 
                                 </section>
@@ -1137,7 +1236,7 @@ the flag is hex-encoded to increase the entropy we can got from each successful 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"name":"john","category":"misc","points":1000,"solves":1,"title":"misc - john","level":"7.1.9","depth":2,"next":{"title":"rev - plam","level":"7.1.10","depth":2,"path":"tasks/2019/BalsnCTF/rev/plam/README.md","ref":"tasks/2019/BalsnCTF/rev/plam/README.md","articles":[]},"previous":{"title":"misc - pyshv3","level":"7.1.8","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv3/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv3/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/misc/john/README.md","mtime":"2019-10-08T11:14:48.662Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-08T16:03:03.756Z"},"basePath":"../../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"name":"john","category":"misc","points":1000,"solves":1,"title":"misc - john","level":"7.1.9","depth":2,"next":{"title":"rev - plam","level":"7.1.10","depth":2,"path":"tasks/2019/BalsnCTF/rev/plam/README.md","ref":"tasks/2019/BalsnCTF/rev/plam/README.md","articles":[]},"previous":{"title":"misc - pyshv3","level":"7.1.8","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv3/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv3/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/misc/john/README.md","mtime":"2019-10-10T16:18:33.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T16:27:23.382Z"},"basePath":"../../../../..","book":{"language":""}});
         });
     </script>
 </div>

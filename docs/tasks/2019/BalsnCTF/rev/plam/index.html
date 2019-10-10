@@ -1089,17 +1089,197 @@ However, I can&apos;t construct one of the most mind-blown stuff -- fixed point 
 and it&apos;s also difficult to curry those lambdas.</p>
 <p>plam works well before I switched to postfix representation.</p>
 <p>Postfix representation looks pretty great,
-I have no choice but implement a interpreter by myself to verify the challenge.</p>
+I have no choice but implement a 
+<a href="https://github.com/sasdf/ctf/blob/master/tasks/2019/BalsnCTF/rev/plam/_files/exec/main.cpp" target="_blank">interpreter</a> 
+by myself to verify the challenge.</p>
+<p>The interpreter is implemented using
+<a href="https://en.wikipedia.org/wiki/De_Bruijn_index" target="_blank">De Bruijn index</a>.
+It&apos;s a representation of lambda function which is invariant with respect to &#x3B1;-conversion.
+With this property, we can cache and retrieve reduction rules in very efficient way.</p>
 <h2 id="designed-criteria">Designed Criteria</h2>
 <p>The core of this flag checker is a system of GF2 (i.e. boolean) linear equations.
 To avoid it to be guessed, I generate product of 4 sums in each run.
 So only 1/16 of results will be true, which make blackbox analysis much harder.
 And also make the code more complicated &#x1F608; .</p>
-<p>Also, I don&apos;t want it to be solved with z3 after you convert those things to boolean operations,
+<p>Also, I don&apos;t want it to be solved with z3 after you convert those things to boolean operations without understanding them,
 so I added some branches to it.
 The complexity will explode for z3.</p>
 <h1 id="solution">Solution</h1>
-<p>Will be released 72 hours after the end of competition.</p>
+<p>You can find the source of that lambda program <a href="https://github.com/sasdf/ctf/blob/master/tasks/2019/BalsnCTF/rev/plam/_files/source/def.txt" target="_blank">here</a>.</p>
+<p>Open the file, you will see a long line consist of these sections:</p>
+<pre class="language-"><code>\abcdefghi.(\j.(...) (...))
+
+(j e e e e e e g e e g g g ... g g e e e e b) (...) (...)
+
+f a e g (c d c c[52] c[12] c[80] c[41] c[48] ... h[57] h h[68] h h[88] h e)
+
+Some other lambda
+</code></pre><p>The first part is a closure that load some global functions from its parameters.</p>
+<p>The second part is the return value of this function, it may be the main function.
+Also, the second and third parts are very long and random, it looks like some embedded data.</p>
+<p>Remaining parts are the definition of global function.</p>
+<p>Term in the form of <code>c[x]</code> or <code>h[x]</code> are input bits.</p>
+<p>if bit x in 0, all <code>c[x]</code> and <code>h[x]</code> will be replaced to <code>c</code> and <code>h</code> when we generating plam script.</p>
+<p>Otherwise, all <code>c[x]</code> and <code>h[x]</code> will be replaced to <code>d</code> and <code>i</code> when we generating plam script.</p>
+<p>Intended solution is understand those lambda and write a solver for it.
+There&apos;s no other tricks because we don&apos;t even have a interpreter that can run it.</p>
+<p>Let&apos;s try to understand the algorithm with original source code before uglified.</p>
+<h2 id="basic-primitive-types">Basic primitive types</h2>
+<pre class="language-"><code class="lang-python"><span class="token comment"># Boolean [x: true branch, y: false branch]</span>
+T <span class="token operator">=</span> &#x3BB;x<span class="token punctuation">.</span>&#x3BB;y<span class="token punctuation">.</span>x    <span class="token comment"># global function e</span>
+F <span class="token operator">=</span> &#x3BB;x<span class="token punctuation">.</span>&#x3BB;y<span class="token punctuation">.</span>y    <span class="token comment"># global function g</span>
+
+<span class="token comment"># Pair -- tuple [x: first elem, y: second elem, f: callback(first -&gt; second -&gt; res)]</span>
+P <span class="token operator">=</span> &#x3BB;x<span class="token punctuation">.</span>&#x3BB;y<span class="token punctuation">.</span>&#x3BB;f <span class="token punctuation">.</span> f x y
+
+<span class="token comment"># Tree node -- triple [v: node value, r: right, l: left, f: callback(node_value -&gt; right -&gt; left -&gt; res)]</span>
+N <span class="token operator">=</span> &#x3BB;v<span class="token punctuation">.</span>&#x3BB;r<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;f <span class="token punctuation">.</span> f v r l
+</code></pre>
+<p>These types are 
+<a href="https://en.wikipedia.org/wiki/Church_encoding" target="_blank">Church encoding</a> 
+of boolean and list.</p>
+<h2 id="postfix-representation">Postfix representation</h2>
+<p>Let&apos;s take a look at section</p>
+<pre class="language-"><code>c d c c[52] c[12] c[80] c[41] c[48] ... h[57] h h[68] h h[88] h e
+</code></pre><p>It looks like a list, but it&apos;s actually stack-based tree builder for postfix binary tree representation.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># Shift [n: node value, t: top, s: stack, c: callback(top -&gt; stack -&gt; res)]</span>
+<span class="token comment"># Pseudo code:</span>
+<span class="token comment">#     stack.push(top)</span>
+<span class="token comment">#     top = node_value</span>
+<span class="token comment">#     return (top, stack)</span>
+S <span class="token operator">=</span> &#x3BB;n<span class="token punctuation">.</span>&#x3BB;t<span class="token punctuation">.</span>&#x3BB;s<span class="token punctuation">.</span>&#x3BB;c <span class="token punctuation">.</span> c n <span class="token punctuation">(</span>P t s<span class="token punctuation">)</span>
+
+
+<span class="token comment"># Reduce [n: node value, t: top, s: stack, c: callback(top -&gt; stack -&gt; res)]</span>
+<span class="token comment"># Pseudo code:</span>
+<span class="token comment">#     left, right = stack.pop(), top</span>
+<span class="token comment">#     top = Node(node_value, right, left)</span>
+<span class="token comment">#     return (top, stack)</span>
+R <span class="token operator">=</span> &#x3BB;n<span class="token punctuation">.</span>&#x3BB;t<span class="token punctuation">.</span>&#x3BB;s<span class="token punctuation">.</span>&#x3BB;c <span class="token punctuation">.</span> c <span class="token punctuation">(</span>N n t <span class="token punctuation">(</span>s T<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>s F<span class="token punctuation">)</span>
+
+<span class="token comment"># Bind the data to function partially</span>
+<span class="token comment"># Type: top -&gt; stack -&gt; next_instruction -&gt; res</span>
+A <span class="token operator">=</span> S F    <span class="token comment"># global function c</span>
+B <span class="token operator">=</span> S T    <span class="token comment"># global function d</span>
+C <span class="token operator">=</span> R F    <span class="token comment"># global function h</span>
+D <span class="token operator">=</span> R T    <span class="token comment"># global function i</span>
+</code></pre>
+<p>First three characters <code>c d c</code> setup the initial (invalid) state of that builder,
+so that we can start chaining the function using callback.</p>
+<p>The last instruction <code>e</code> is <code>T</code>, it will take two argument and return the first one, which is the top value (i.e. builded tree).</p>
+<p>Actually, those callback can be replaced by returning tuple, but I think using callback will make it looks more complicated :)</p>
+<h2 id="tree-walking">Tree Walking</h2>
+<p>Now, we have a tree, the main function must walking in that tree.</p>
+<pre class="language-"><code>j = f a e g (tree)
+((j e e e e ... g g e e e e b) (...) (...)) ((...) (...) (...)) g ((...) (...) (...)) g
+</code></pre><p>The algorithm here is to generate some product of sum boolean expression.
+And combine them with some branch or AND operation.</p>
+<p>Let&apos;s take a look at implementation.</p>
+<p>In each step, we extract two elements from the tree with two indices.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># Unpack1 -- unpack level 1</span>
+V <span class="token operator">=</span> &#x3BB;i<span class="token punctuation">.</span>&#x3BB;v<span class="token punctuation">.</span>&#x3BB;r<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;c <span class="token punctuation">.</span> <span class="token punctuation">(</span>i r l<span class="token punctuation">)</span> <span class="token punctuation">(</span>c v<span class="token punctuation">)</span>
+
+<span class="token comment"># Unpack2 -- unpack level 2</span>
+W <span class="token operator">=</span> &#x3BB;j<span class="token punctuation">.</span>&#x3BB;v<span class="token punctuation">.</span>&#x3BB;w<span class="token punctuation">.</span>&#x3BB;r<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;c <span class="token punctuation">.</span> c v w <span class="token punctuation">(</span>j r l<span class="token punctuation">)</span>
+
+<span class="token comment"># Unpack -- unpack two entries from tree [i: index1, j: index2, l: tree, c: callback(value1 -&gt; value2 -&gt; tree -&gt; res)]</span>
+<span class="token comment"># Pseudo code:</span>
+<span class="token comment">#    value1 = tree.val</span>
+<span class="token comment">#    tree = tree.child[index1]</span>
+<span class="token comment">#    value2 = tree.val</span>
+<span class="token comment">#    tree = tree.child[index2]</span>
+<span class="token comment">#    return (value1, value2, tree)</span>
+U <span class="token operator">=</span> &#x3BB;i<span class="token punctuation">.</span>&#x3BB;j<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;c <span class="token punctuation">.</span> l <span class="token punctuation">(</span>V i<span class="token punctuation">)</span> <span class="token punctuation">(</span>W j<span class="token punctuation">)</span> c
+</code></pre>
+<p>And then we change the state based on those elements and the index.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># process -- calculate binary function [i: index1, r: result, x: accumulator, v: op, w: val, l: tree, c: callback(result -&gt; accumulator -&gt; tree -&gt; res)]</span>
+<span class="token comment"># Pseudo code:</span>
+<span class="token comment">#     if index1 == op:</span>
+<span class="token comment">#         result &amp;= accumulator</span>
+<span class="token comment">#         accumulator = val</span>
+<span class="token comment">#     else:</span>
+<span class="token comment">#         accumulator ^= val</span>
+<span class="token comment">#     return (result, accumulator, tree)</span>
+
+<span class="token comment"># G = \i r x v w l c . (xor i v) ( c r (xor x w) l ) ( c (and r x) w l )</span>
+G <span class="token operator">=</span> <span class="token punctuation">(</span>&#x3BB;i<span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;r<span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;x<span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;v<span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;w<span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;l<span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;c<span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token punctuation">(</span><span class="token punctuation">(</span>v F<span class="token punctuation">)</span> T<span class="token punctuation">)</span><span class="token punctuation">)</span> v<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>c r<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>x <span class="token punctuation">(</span><span class="token punctuation">(</span>w F<span class="token punctuation">)</span> T<span class="token punctuation">)</span><span class="token punctuation">)</span> w<span class="token punctuation">)</span><span class="token punctuation">)</span> l<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>c <span class="token punctuation">(</span><span class="token punctuation">(</span>r x<span class="token punctuation">)</span> F<span class="token punctuation">)</span><span class="token punctuation">)</span> w<span class="token punctuation">)</span> l<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>All op in the path we walked are constant.
+So the result of <code>(j e ... e b)</code> is product of sums for some boolean expression.</p>
+<h2 id="y-combinator">Y combinator</h2>
+<p>Different from the tree builder that we chaining the functions by callback,
+we use a fancy technique here -- Y combinator.</p>
+<p>Y combinator is a special function in untyped lambda can be used to define recursive functions.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># Y combinator -- An infinite recursive operator</span>
+<span class="token comment"># global function f</span>
+<span class="token comment"># </span>
+<span class="token comment"># Yf = f (Yf)</span>
+Y <span class="token operator">=</span> &#x3BB;f <span class="token punctuation">.</span> <span class="token punctuation">(</span>&#x3BB;x <span class="token punctuation">.</span> f <span class="token punctuation">(</span>x x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>&#x3BB;x <span class="token punctuation">.</span> f <span class="token punctuation">(</span>x x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>It looks like it will never stop at first glance.</p>
+<p>Actually, we can stop recursion by stop evaluating the first argument.</p>
+<p>Here&apos;s a simple example of implement addition using Y combinator:</p>
+<pre class="language-"><code class="lang-python">step <span class="token operator">=</span> &#x3BB;f<span class="token punctuation">.</span>&#x3BB;a<span class="token punctuation">.</span>&#x3BB;b<span class="token punctuation">.</span><span class="token punctuation">(</span>
+    <span class="token keyword">if</span> b <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> f <span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>b <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment"># b == 0</span>
+        <span class="token keyword">return</span> a
+<span class="token punctuation">)</span>
+add <span class="token operator">=</span> &#x3BB;a<span class="token punctuation">.</span>&#x3BB;b<span class="token punctuation">.</span> Y step a b
+</code></pre>
+<p>Let&apos;s come back to our reverse challenge:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># run -- execute single step in tree [f: recursive, r: result, x: accumulator, l: tree, i: index1, j: index2]</span>
+H <span class="token operator">=</span> &#x3BB;f<span class="token punctuation">.</span>&#x3BB;r<span class="token punctuation">.</span>&#x3BB;x<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;i<span class="token punctuation">.</span>&#x3BB;j <span class="token punctuation">.</span> U i j l <span class="token punctuation">(</span>G i r x<span class="token punctuation">)</span> f
+
+<span class="token comment"># run2 -- Y combinator compatible run</span>
+<span class="token comment"># global function a</span>
+<span class="token comment"># </span>
+<span class="token comment"># Pseudo code:</span>
+<span class="token comment">#     while True:</span>
+<span class="token comment">#         i, j = input()</span>
+<span class="token comment">#         if j is bool:</span>
+<span class="token comment">#             result, accumulator, tree = run(result, accumulator, tree, i, j)</span>
+<span class="token comment">#         else:</span>
+<span class="token comment">#             return (_, _, _, result, accumulator, tree, i, j)</span>
+R <span class="token operator">=</span> &#x3BB;f<span class="token punctuation">.</span>&#x3BB;r<span class="token punctuation">.</span>&#x3BB;x<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;i<span class="token punctuation">.</span>&#x3BB;j <span class="token punctuation">.</span> <span class="token punctuation">(</span>j H H<span class="token punctuation">)</span> f r x l i j
+
+<span class="token comment"># End -- return r</span>
+<span class="token comment"># global function b</span>
+E <span class="token operator">=</span> &#x3BB;a<span class="token punctuation">.</span>&#x3BB;b<span class="token punctuation">.</span>&#x3BB;f<span class="token punctuation">.</span>&#x3BB;r<span class="token punctuation">.</span>&#x3BB;x<span class="token punctuation">.</span>&#x3BB;l<span class="token punctuation">.</span>&#x3BB;i<span class="token punctuation">.</span>&#x3BB;j <span class="token punctuation">.</span> r
+</code></pre>
+<h2 id="combine-boolean-expression">Combine boolean expression</h2>
+<p>We&apos;re almost there, there&apos;s only one missing puzzle.</p>
+<p>We can see those pathes grouped as follows:</p>
+<pre class="language-"><code>((j e e e e ... g g e e e e b) (...) (...)) ((...) (...) (...)) g ((...) (...) (...)) g
+</code></pre><p>We already know that <code>(j e ... e b)</code> is a boolean expression.
+Evaluate a boolean value in Church encoding is branch.</p>
+<pre class="language-"><code class="lang-python">p a b
+<span class="token comment"># is equivalent to</span>
+<span class="token keyword">if</span> p<span class="token punctuation">:</span>
+    <span class="token keyword">return</span> a
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> b
+
+<span class="token comment"># --- #</span>
+
+x y F
+<span class="token comment"># is equivalent to</span>
+x <span class="token keyword">and</span> y
+</code></pre>
+<h2 id="recover-the-flag">Recover the flag</h2>
+<p>After parsing the data, We can figure out that the algorithm looks like:</p>
+<pre class="language-"><code>ret = 1
+for i in range(0, 16 * 3, 3):
+    if expr[i]:
+        ret &amp;= expr[i+1]
+    else:
+        ret &amp;= expr[i+2]
+
+# All expr are product of 4 sums: (v11 + v12 + ...) &amp; (v21 + v22 + ...) &amp; (v31 + v32 + ...) &amp; (v41 + v42 + ...)
+</code></pre><p>The intended solution here is to try all 65536 possible branches and solve the system of linear equations for each branch.</p>
+<p>I solve those equations with sagemath, but I think z3 may also works if you iterate through all those possible branches manually.</p>
+<p>You can find full script <a href="https://github.com/sasdf/ctf/blob/master/tasks/2019/BalsnCTF/rev/plam/_files/solution/solve.sage" target="_blank">here</a>.</p>
 
                                 
                                 </section>
@@ -1143,7 +1323,7 @@ The complexity will explode for z3.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"name":"plam","category":"reverse","points":1000,"solves":1,"title":"rev - plam","level":"7.1.10","depth":2,"next":{"title":"rev - vim","level":"7.1.11","depth":2,"path":"tasks/2019/BalsnCTF/rev/vim/README.md","ref":"tasks/2019/BalsnCTF/rev/vim/README.md","articles":[]},"previous":{"title":"misc - john","level":"7.1.9","depth":2,"path":"tasks/2019/BalsnCTF/misc/john/README.md","ref":"tasks/2019/BalsnCTF/misc/john/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/rev/plam/README.md","mtime":"2019-10-08T10:24:58.110Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-08T16:03:03.756Z"},"basePath":"../../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"name":"plam","category":"reverse","points":1000,"solves":1,"title":"rev - plam","level":"7.1.10","depth":2,"next":{"title":"rev - vim","level":"7.1.11","depth":2,"path":"tasks/2019/BalsnCTF/rev/vim/README.md","ref":"tasks/2019/BalsnCTF/rev/vim/README.md","articles":[]},"previous":{"title":"misc - john","level":"7.1.9","depth":2,"path":"tasks/2019/BalsnCTF/misc/john/README.md","ref":"tasks/2019/BalsnCTF/misc/john/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/rev/plam/README.md","mtime":"2019-10-10T16:24:47.965Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T16:27:23.382Z"},"basePath":"../../../../..","book":{"language":""}});
         });
     </script>
 </div>

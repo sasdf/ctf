@@ -1095,7 +1095,59 @@ I decided to harden it by adding a suffix to it.</p>
 <li>This task is written during the midterm week. I always become super creative on everything except my midterm when midterm is coming.</li>
 </ul>
 <h1 id="solution">Solution</h1>
-<p>Will be released 72 hours after the end of competition.</p>
+<p>This task is about crafting a key of RC4 with some suffix that can generate a short keystream we want.</p>
+<p>To make it simpler, let&apos;s start with a simpler version without suffix first:
+Find a key such that first 3 bytes of RC4 keystream is <code>[42, 13, 37]</code>.</p>
+<p>RC4 has two routines, KSA for initialize state with key, and PRGA for generate keystream.</p>
+<h2 id="simpler-ksa">Simpler KSA</h2>
+<pre class="language-"><code class="lang-python">S <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+j <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    j <span class="token operator">=</span> <span class="token punctuation">(</span>j <span class="token operator">+</span> S<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> key<span class="token punctuation">[</span>i <span class="token operator">%</span> <span class="token builtin">len</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">256</span>
+    swap<span class="token punctuation">(</span>S<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> S<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>If we can control all 256 bytes of the key, we can control all <code>j</code>.</p>
+<p>It&apos;s trivial to construct a key for a given SBox:
+Just swap the value we want to each position.</p>
+<h2 id="prga">PRGA</h2>
+<pre class="language-"><code class="lang-python">i<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    i <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">256</span>
+    j <span class="token operator">=</span> <span class="token punctuation">(</span>j <span class="token operator">+</span> S<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">256</span>
+    k <span class="token operator">=</span> <span class="token punctuation">(</span>S<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> S<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">256</span>
+    swap<span class="token punctuation">(</span>S<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> S<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> S<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
+</code></pre>
+<p>It&apos;s more trickly in this part, we can control S[i] and S[j], but we can&apos;t use duplicate elements,
+which makes <code>j</code> increase pretty fast.</p>
+<p>Let&apos;s construct a solution manually first.
+Consider following SBox:</p>
+<pre class="language-"><code>Pos:   00 01 02 03 ... 10 11 12 13 ... 22 23 24 ... 30 ...
+Val:   ?? 10 01 02 ... 20 21 ?? 22 ... 13 ?? 37 ... 42 ...
+Step1:    i            j                            k
+Step2:       i            j            k
+Step3:          i               j            k
+(Numbers are in decimal)
+</code></pre><p>It will output the keystream we want.
+To construct a SBox for longer keystream, I use DFS to search for a solution without conflict about position or element value.</p>
+<h2 id="leak-iv">Leak IV</h2>
+<p>Now, let&apos;s come back to the final version with suffix.</p>
+<p>The suffix is randomly generated, the first thing is to leak it.</p>
+<p>Our one way compression function looks like:</p>
+<pre class="language-"><code class="lang-python">state <span class="token operator">=</span> IV
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> csz<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># ...</span>
+<span class="token keyword">return</span> state<span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>So if we send a empty string to it, it will give us IV.</p>
+<h2 id="ksa-with-suffix">KSA with suffix</h2>
+<p>From first section,
+we know that not all position has constraint on its value.
+If the suffix doesn&apos;t messup those critical points, we can just construct our key as same as before.</p>
+<p>To construct the key,
+rewind the suffix with all possible <code>j</code> first, and check whether we can swap those critical points to the place we want.
+If there&apos;s no solution, go back to previous part and search for another SBox.</p>
+<p>You can find full exploit <a href="https://github.com/sasdf/ctf/blob/master/tasks/2019/BalsnCTF/crypto/harc4/_files/solution/solve.py" target="_blank">here</a>.</p>
 
                                 
                                 </section>
@@ -1139,7 +1191,7 @@ I decided to harden it by adding a suffix to it.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"name":"harc4","category":"crypto","points":857,"solves":5,"title":"crypto - harc4","level":"7.1.3","depth":2,"next":{"title":"crypto - unpredictable","level":"7.1.4","depth":2,"path":"tasks/2019/BalsnCTF/crypto/unpredictable/README.md","ref":"tasks/2019/BalsnCTF/crypto/unpredictable/README.md","articles":[]},"previous":{"title":"crypto - collision","level":"7.1.2","depth":2,"path":"tasks/2019/BalsnCTF/crypto/collision/README.md","ref":"tasks/2019/BalsnCTF/crypto/collision/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/crypto/harc4/README.md","mtime":"2019-10-08T16:01:31.277Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-08T16:03:03.756Z"},"basePath":"../../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"name":"harc4","category":"crypto","points":857,"solves":5,"title":"crypto - harc4","level":"7.1.3","depth":2,"next":{"title":"crypto - unpredictable","level":"7.1.4","depth":2,"path":"tasks/2019/BalsnCTF/crypto/unpredictable/README.md","ref":"tasks/2019/BalsnCTF/crypto/unpredictable/README.md","articles":[]},"previous":{"title":"crypto - collision","level":"7.1.2","depth":2,"path":"tasks/2019/BalsnCTF/crypto/collision/README.md","ref":"tasks/2019/BalsnCTF/crypto/collision/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tasks/2019/BalsnCTF/crypto/harc4/README.md","mtime":"2019-10-10T14:41:10.022Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T16:27:23.382Z"},"basePath":"../../../../..","book":{"language":""}});
         });
     </script>
 </div>
