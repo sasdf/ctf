@@ -6,7 +6,7 @@ solves: 8
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > md5 is broken, sha1 is broken, but our authenticator survives.

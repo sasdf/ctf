@@ -6,7 +6,7 @@ solves: 24
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Shamir did the job for you, just connect to the challenge and get the flag.

@@ -6,7 +6,7 @@ solves: 12
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Apparently curves with numbers in their name are now cool, so I decided to make my own.

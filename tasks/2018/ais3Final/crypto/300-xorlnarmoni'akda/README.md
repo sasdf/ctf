@@ -6,7 +6,7 @@ solves: 0
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Xace fua eno el lex jat fesela.

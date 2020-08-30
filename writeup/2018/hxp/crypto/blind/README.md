@@ -6,7 +6,7 @@ solves: 11
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > The deal is simple: I give you an oracle, you give me an oracle in return.

@@ -6,7 +6,7 @@ solves: 2
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Solving CTF challenges often involves a lot of work,

@@ -6,7 +6,7 @@ solves: 4
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Provable security just gives you this warm fuzzy feeling of cryptography you can rely on.

@@ -6,7 +6,7 @@ solves: 28
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Listen. Can you hear the voices? They are there. Somehow.

@@ -1,15 +1,1263 @@
-<!DOCTYPE HTML><html lang=""><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>crypto - curve12833227 · GitBook</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content=""name="description"><meta content="GitBook 3.2.3"name="generator"><link href="../../../../../gitbook/style.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-search/search.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css"rel="stylesheet"><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../../../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="../oops/"rel="next"/><link href="../blinder/"rel="prev"/></head><body><div class="book"><div class="book-summary"><nav role="navigation"><ul class="summary"><li class="chapter"data-level="1.1"data-path="../../../../../"><a href="../../../../../">Introduction</a></li><li class="header">Writeups</li><li class="header">2020</li><li class="chapter"data-level="3.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="3.1.1"data-path="../../../../2020/google/crypto/oracle/"><a href="../../../../2020/google/crypto/oracle/">crypto - Oracle</a></li><li class="chapter"data-level="3.1.2"data-path="../../../../2020/google/crypto/yafm/"><a href="../../../../2020/google/crypto/yafm/">crypto - YAFM</a></li><li class="chapter"data-level="3.1.3"data-path="../../../../2020/google/crypto/quantum/"><a href="../../../../2020/google/crypto/quantum/">crypto - Quantum Pyramids</a></li><li class="chapter"data-level="3.1.4"data-path="../../../../2020/google/crypto/sharky/"><a href="../../../../2020/google/crypto/sharky/">crypto - SHArky</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="4.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="4.1.1"data-path="../../../../2019/google/crypto/reality/"><a href="../../../../2019/google/crypto/reality/">crypto - reality</a></li><li class="chapter"data-level="4.1.2"data-path="../../../../2019/google/crypto/qkd/"><a href="../../../../2019/google/crypto/qkd/">crypto - Quantum Key Distribution</a></li><li class="chapter"data-level="4.1.3"data-path="../../../../2019/google/crypto/cell/"><a href="../../../../2019/google/crypto/cell/">crypto - Reverse a cellular automata</a></li><li class="chapter"data-level="4.1.4"data-path="../../../../2019/google/hardware/flagrom/"><a href="../../../../2019/google/hardware/flagrom/">hardware - flagrom</a></li><li class="chapter"data-level="4.1.5"data-path="../../../../2019/google/hardware/minetest/"><a href="../../../../2019/google/hardware/minetest/">hardware - minetest</a></li><li class="chapter"data-level="4.1.6"data-path="../../../../2019/google/hardware/remote/"><a href="../../../../2019/google/hardware/remote/">hardware - Remote Control</a></li><li class="chapter"data-level="4.1.7"data-path="../../../../2019/google/web/glotto/"><a href="../../../../2019/google/web/glotto/">web - gLotto</a></li><li class="chapter"data-level="4.1.8"data-path="../../../../2019/google/rev/dial/"><a href="../../../../2019/google/rev/dial/">rev - Dialtone</a></li></ul></li><li class="chapter"data-level="4.2"><span>Plaid</span><ul class="articles"><li class="chapter"data-level="4.2.1"data-path="../../../../2019/plaid/crypto/cypress/"><a href="../../../../2019/plaid/crypto/cypress/">crypto - SPlaid Cypress</a></li><li class="chapter"data-level="4.2.2"data-path="../../../../2019/plaid/rev/bigmaffs/"><a href="../../../../2019/plaid/rev/bigmaffs/">rev - big maffs</a></li></ul></li><li class="header">2018</li><li class="chapter"data-level="5.1"><span>hxp</span><ul class="articles"><li class="chapter"data-level="5.1.1"data-path="../blinder_v2/"><a href="../blinder_v2/">crypto - blinder_v2</a></li><li class="chapter"data-level="5.1.2"data-path="../blinder/"><a href="../blinder/">crypto - blinder</a></li><li class="chapter active"data-level="5.1.3"data-path="./"><a href="./">crypto - curve12833227</a></li><li class="chapter"data-level="5.1.4"data-path="../oops/"><a href="../oops/">crypto - oops2</a></li><li class="chapter"data-level="5.1.5"data-path="../blind/"><a href="../blind/">crypto - blind</a></li></ul></li><li class="chapter"data-level="5.2"><span>Pwn2Win</span><ul class="articles"><li class="chapter"data-level="5.2.1"data-path="../../../pwn2win/rev/back_to_bletchley_park/"><a href="../../../pwn2win/rev/back_to_bletchley_park/">cryrev - Back To Bletchley Park</a></li><li class="chapter"data-level="5.2.2"data-path="../../../pwn2win/crypto/GCM/"><a href="../../../pwn2win/crypto/GCM/">crypto - GCM</a></li></ul></li><li class="chapter"data-level="5.3"><span>HITCON</span><ul class="articles"><li class="chapter"data-level="5.3.1"data-path="../../../hitcon/crypto/lostmod/"><a href="../../../hitcon/crypto/lostmod/">crypto - Lost Modulus</a></li><li class="chapter"data-level="5.3.2"data-path="../../../hitcon/crypto/secret/"><a href="../../../hitcon/crypto/secret/">crypwn - Secret Note</a></li></ul></li><li class="chapter"data-level="5.4"><span>Hack.lu</span><ul class="articles"><li class="chapter"data-level="5.4.1"data-path="../../../Hack.lu/crypto/escape/"><a href="../../../Hack.lu/crypto/escape/">crypto - Escape the Grid</a></li><li class="chapter"data-level="5.4.2"data-path="../../../Hack.lu/crypto/relation/"><a href="../../../Hack.lu/crypto/relation/">crypto - Relations</a></li><li class="chapter"data-level="5.4.3"data-path="../../../Hack.lu/crypto/lfsr/"><a href="../../../Hack.lu/crypto/lfsr/">crypto - LFSR StreamCipher</a><ul class="articles"><li class="chapter"data-level="5.4.3.1"data-path="../../../Hack.lu/crypto/lfsr/task.html"><a href="../../../Hack.lu/crypto/lfsr/task.html">task description</a></li></ul></li></ul></li><li class="chapter"data-level="5.5"><span>Hackover</span><ul class="articles"><li class="chapter"data-level="5.5.1"data-path="../../../HackOver/crypto/oblivious/"><a href="../../../HackOver/crypto/oblivious/">crypto - oblivious</a></li><li class="chapter"data-level="5.5.2"data-path="../../../HackOver/crypto/secure_hash_v2/"><a href="../../../HackOver/crypto/secure_hash_v2/">crypto - secure_hash_v2</a></li><li class="chapter"data-level="5.5.3"data-path="../../../HackOver/rev/flagmaker/"><a href="../../../HackOver/rev/flagmaker/">rev - flagmaker</a></li></ul></li><li class="chapter"data-level="5.6"><span>Teaser Dragon</span><ul class="articles"><li class="chapter"data-level="5.6.1"data-path="../../../TeaserDragon/rev/Chains of trust/"><a href="../../../TeaserDragon/rev/Chains of trust/">rev - Chains of trust</a></li></ul></li><li class="chapter"data-level="5.7"><span>Defcamp</span><ul class="articles"><li class="chapter"data-level="5.7.1"data-path="../../../defcamp/rev/validator/"><a href="../../../defcamp/rev/validator/">rev - validator</a></li><li class="chapter"data-level="5.7.2"data-path="../../../defcamp/rev/memsome/"><a href="../../../defcamp/rev/memsome/">rev - memsome</a></li><li class="chapter"data-level="5.7.3"data-path="../../../defcamp/web/secops/"><a href="../../../defcamp/web/secops/">web - secops</a></li><li class="chapter"data-level="5.7.4"data-path="../../../defcamp/web/chat/"><a href="../../../defcamp/web/chat/">web - chat</a></li><li class="chapter"data-level="5.7.5"data-path="../../../defcamp/misc/voices/"><a href="../../../defcamp/misc/voices/">misc - voices</a></li></ul></li><li class="chapter"data-level="5.8"><span>HackIT</span><ul class="articles"><li class="chapter"data-level="5.8.1"data-path="../../../HackIT/coffee_overflow/"><a href="../../../HackIT/coffee_overflow/">rev - coffee_overflow</a></li></ul></li><li class="header">My Tasks</li><li class="header">2018</li><li class="chapter"data-level="7.1"><span>AIS3 Final</span><ul class="articles"><li class="chapter"data-level="7.1.1"data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/"><a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">crypto - mama</a></li><li class="chapter"data-level="7.1.2"data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/"><a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">crypto - secureSub</a></li><li class="chapter"data-level="7.1.3"data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/"><a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">crypto - xorlnarmoni'akda</a></li><li class="chapter"data-level="7.1.4"data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/"><a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">rev - SecDES</a></li><li class="chapter"data-level="7.1.5"data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/"><a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">rev - Almighty Duct Tape</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="8.1"><span>Balsn CTF</span><ul class="articles"><li class="chapter"data-level="8.1.1"data-path="../../../../../tasks/2019/BalsnCTF/"><a href="../../../../../tasks/2019/BalsnCTF/">Overview</a></li><li class="chapter"data-level="8.1.2"data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">crypto - collision</a></li><li class="chapter"data-level="8.1.3"data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">crypto - harc4</a></li><li class="chapter"data-level="8.1.4"data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">crypto - unpredictable</a></li><li class="chapter"data-level="8.1.5"data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/"><a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">crypwn - securenote</a></li><li class="chapter"data-level="8.1.6"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">misc - pyshv1</a></li><li class="chapter"data-level="8.1.7"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">misc - pyshv2</a></li><li class="chapter"data-level="8.1.8"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">misc - pyshv3</a></li><li class="chapter"data-level="8.1.9"data-path="../../../../../tasks/2019/BalsnCTF/misc/john/"><a href="../../../../../tasks/2019/BalsnCTF/misc/john/">misc - john</a></li><li class="chapter"data-level="8.1.10"data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/"><a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">rev - plam</a></li><li class="chapter"data-level="8.1.11"data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/"><a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">rev - vim</a></li></ul></li><li class="divider"></li><li><a href="https://www.gitbook.com"class="gitbook-link"target="blank">Published with GitBook</a></li></ul></nav></div><div class="book-body"><div class="body-inner"><div class="book-header"role="navigation"><h1><i class="fa fa-circle-o-notch fa-spin"></i> <a href="../../../../..">crypto - curve12833227</a></h1></div><div class="page-wrapper"role="main"tabindex="-1"><div class="page-inner"><section class="markdown-section normal"><div class="wpHeaderContainer"><h1 id="curve12833227">curve12833227</h1><div><span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/hxp/crypto/curve"target="_blank"><img alt="Attachments"src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github"></a></span><span><img alt="crypto - 187"src="https://img.shields.io/badge/crypto-187-green.svg?style=for-the-badge&amp;maxAge=3600"></span><span><img alt="12 solves"src="https://img.shields.io/badge/solves-12-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600"></span></div></div><p></p><blockquote><p>Apparently curves with numbers in their name are now cool, so I decided to make my own.</p></blockquote><h2 id="time">Time</h2><p>2 hours</p><h1 id="behavior">Behavior</h1><p>We have the flag encrypted by key <code>x</code>, and a point <code>xG</code> on the elliptic curve.</p><h1 id="solution">Solution</h1><h2 id="tldr">TL;DR</h2><ol><li>Recover the equation of the elliptic curve.</li><li>Map points on the curve to an multiplicative group.</li><li>Calculate discrete logarithm to find x.</li></ol><p>The slope of the curve is</p><pre class="language-"><code>3x^2 + 4x+ 1 / 2y
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>crypto - curve12833227 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../oops/" />
+    
+    
+    <link rel="prev" href="../blinder/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../../">
+            
+                <a href="../../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Writeups</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2020</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../../2020/google/crypto/oracle/">
+            
+                <a href="../../../../2020/google/crypto/oracle/">
+            
+                    
+                    crypto - Oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../../2020/google/crypto/yafm/">
+            
+                <a href="../../../../2020/google/crypto/yafm/">
+            
+                    
+                    crypto - YAFM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../../2020/google/crypto/quantum/">
+            
+                <a href="../../../../2020/google/crypto/quantum/">
+            
+                    
+                    crypto - Quantum Pyramids
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../../2020/google/crypto/sharky/">
+            
+                <a href="../../../../2020/google/crypto/sharky/">
+            
+                    
+                    crypto - SHArky
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../2019/google/crypto/reality/">
+            
+                <a href="../../../../2019/google/crypto/reality/">
+            
+                    
+                    crypto - reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../2019/google/crypto/qkd/">
+            
+                <a href="../../../../2019/google/crypto/qkd/">
+            
+                    
+                    crypto - Quantum Key Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../2019/google/crypto/cell/">
+            
+                <a href="../../../../2019/google/crypto/cell/">
+            
+                    
+                    crypto - Reverse a cellular automata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../2019/google/hardware/flagrom/">
+            
+                <a href="../../../../2019/google/hardware/flagrom/">
+            
+                    
+                    hardware - flagrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../../2019/google/hardware/minetest/">
+            
+                <a href="../../../../2019/google/hardware/minetest/">
+            
+                    
+                    hardware - minetest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../../2019/google/hardware/remote/">
+            
+                <a href="../../../../2019/google/hardware/remote/">
+            
+                    
+                    hardware - Remote Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../../../2019/google/web/glotto/">
+            
+                <a href="../../../../2019/google/web/glotto/">
+            
+                    
+                    web - gLotto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../../../2019/google/rev/dial/">
+            
+                <a href="../../../../2019/google/rev/dial/">
+            
+                    
+                    rev - Dialtone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    Plaid
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../../2019/plaid/crypto/cypress/">
+            
+                <a href="../../../../2019/plaid/crypto/cypress/">
+            
+                    
+                    crypto - SPlaid Cypress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../../2019/plaid/rev/bigmaffs/">
+            
+                <a href="../../../../2019/plaid/rev/bigmaffs/">
+            
+                    
+                    rev - big maffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    hxp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../blinder_v2/">
+            
+                <a href="../blinder_v2/">
+            
+                    
+                    crypto - blinder_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../blinder/">
+            
+                <a href="../blinder/">
+            
+                    
+                    crypto - blinder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    crypto - curve12833227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../oops/">
+            
+                <a href="../oops/">
+            
+                    
+                    crypto - oops2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../blind/">
+            
+                <a href="../blind/">
+            
+                    
+                    crypto - blind
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    Pwn2Win
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../../../pwn2win/rev/back_to_bletchley_park/">
+            
+                <a href="../../../pwn2win/rev/back_to_bletchley_park/">
+            
+                    
+                    cryrev - Back To Bletchley Park
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../../../pwn2win/crypto/GCM/">
+            
+                <a href="../../../pwn2win/crypto/GCM/">
+            
+                    
+                    crypto - GCM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" >
+            
+                <span>
+            
+                    
+                    HITCON
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="../../../hitcon/crypto/lostmod/">
+            
+                <a href="../../../hitcon/crypto/lostmod/">
+            
+                    
+                    crypto - Lost Modulus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.2" data-path="../../../hitcon/crypto/secret/">
+            
+                <a href="../../../hitcon/crypto/secret/">
+            
+                    
+                    crypwn - Secret Note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                    Hack.lu
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.1" data-path="../../../Hack.lu/crypto/escape/">
+            
+                <a href="../../../Hack.lu/crypto/escape/">
+            
+                    
+                    crypto - Escape the Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.2" data-path="../../../Hack.lu/crypto/relation/">
+            
+                <a href="../../../Hack.lu/crypto/relation/">
+            
+                    
+                    crypto - Relations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.3" data-path="../../../Hack.lu/crypto/lfsr/">
+            
+                <a href="../../../Hack.lu/crypto/lfsr/">
+            
+                    
+                    crypto - LFSR StreamCipher
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.3.1" data-path="../../../Hack.lu/crypto/lfsr/task.html">
+            
+                <a href="../../../Hack.lu/crypto/lfsr/task.html">
+            
+                    
+                    task description
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" >
+            
+                <span>
+            
+                    
+                    Hackover
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.5.1" data-path="../../../HackOver/crypto/oblivious/">
+            
+                <a href="../../../HackOver/crypto/oblivious/">
+            
+                    
+                    crypto - oblivious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.2" data-path="../../../HackOver/crypto/secure_hash_v2/">
+            
+                <a href="../../../HackOver/crypto/secure_hash_v2/">
+            
+                    
+                    crypto - secure_hash_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.3" data-path="../../../HackOver/rev/flagmaker/">
+            
+                <a href="../../../HackOver/rev/flagmaker/">
+            
+                    
+                    rev - flagmaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" >
+            
+                <span>
+            
+                    
+                    Teaser Dragon
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.1" data-path="../../../TeaserDragon/rev/Chains of trust/">
+            
+                <a href="../../../TeaserDragon/rev/Chains of trust/">
+            
+                    
+                    rev - Chains of trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" >
+            
+                <span>
+            
+                    
+                    Defcamp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.7.1" data-path="../../../defcamp/rev/validator/">
+            
+                <a href="../../../defcamp/rev/validator/">
+            
+                    
+                    rev - validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.2" data-path="../../../defcamp/rev/memsome/">
+            
+                <a href="../../../defcamp/rev/memsome/">
+            
+                    
+                    rev - memsome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.3" data-path="../../../defcamp/web/secops/">
+            
+                <a href="../../../defcamp/web/secops/">
+            
+                    
+                    web - secops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.4" data-path="../../../defcamp/web/chat/">
+            
+                <a href="../../../defcamp/web/chat/">
+            
+                    
+                    web - chat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.5" data-path="../../../defcamp/misc/voices/">
+            
+                <a href="../../../defcamp/misc/voices/">
+            
+                    
+                    misc - voices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" >
+            
+                <span>
+            
+                    
+                    HackIT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.8.1" data-path="../../../HackIT/coffee_overflow/">
+            
+                <a href="../../../HackIT/coffee_overflow/">
+            
+                    
+                    rev - coffee_overflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">My Tasks</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    AIS3 Final
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                    
+                    crypto - mama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                    
+                    crypto - secureSub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                    
+                    crypto - xorlnarmoni'akda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                    
+                    rev - SecDES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                    
+                    rev - Almighty Duct Tape
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../../../../../tasks/2019/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                    
+                    crypto - collision
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                    
+                    crypto - harc4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                    
+                    crypto - unpredictable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                    
+                    crypwn - securenote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                    
+                    misc - pyshv1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                    
+                    misc - pyshv2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.8" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                    
+                    misc - pyshv3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.9" data-path="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                    
+                    misc - john
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.10" data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                    
+                    rev - plam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.11" data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                    
+                    rev - vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../../.." >crypto - curve12833227</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div class="wpHeaderContainer">
+                    <h1 id="curve12833227">curve12833227</h1>
+                    <div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/hxp/crypto/curve" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/crypto-187-green.svg?style=for-the-badge&amp;maxAge=3600" alt="crypto - 187"></span><span><img src="https://img.shields.io/badge/solves-12-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="12 solves"></span></div>
+                </div><p></p>
+<blockquote>
+<p>Apparently curves with numbers in their name are now cool, so I decided to make my own.</p>
+</blockquote>
+<h2 id="time">Time</h2>
+<p>2 hours</p>
+<h1 id="behavior">Behavior</h1>
+<p>We have the flag encrypted by key <code>x</code>,
+and a point <code>xG</code> on the elliptic curve.</p>
+<h1 id="solution">Solution</h1>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li>Recover the equation of the elliptic curve.</li>
+<li>Map points on the curve to an multiplicative group.</li>
+<li>Calculate discrete logarithm to find x.</li>
+</ol>
+<p>The slope of the curve is</p>
+<pre class="language-"><code>3x^2 + 4x+ 1 / 2y
 compare to the derivative of y^2 = x^3 + cx^2 + ax + b
 3x^2 + 2cx + a / 2y
 E: y^2 = x^3 + 2x^2 + x + b
 Evaluate on the point (4, 10), we found that b = 0
 E: y^2 = x^3 + 2x^2 + x = x (x + 1)^2
-</code></pre><p>That is a singular curve, which is isomorphic to a multiplicative group.</p><p>Here&apos;s <a href="https://crypto.stackexchange.com/questions/61302/how-to-solve-this-ecdlp"target="_blank">a great article</a> about how to solve discrete log on these curve.</p><p>First, we translate the curve to</p><pre class="language-"><code>y = x^2 (x - 1)
-</code></pre><p>and find the square root of <code>-1</code>:</p><pre class="language-"><code>z^2 = -1 mod p
+</code></pre><p>That is a singular curve,
+which is isomorphic to a multiplicative group.</p>
+<p>Here&apos;s
+<a href="https://crypto.stackexchange.com/questions/61302/how-to-solve-this-ecdlp" target="_blank">a great article</a>
+about how to solve discrete log on these curve.</p>
+<p>First, we translate the curve to</p>
+<pre class="language-"><code>y = x^2 (x - 1)
+</code></pre><p>and find the square root of <code>-1</code>:</p>
+<pre class="language-"><code>z^2 = -1 mod p
 z = 189460722536962819362366221450020958767
 f(x, y) = (y + zx) / (y - zx)
-</code></pre><p>where f is an isomorphism from E to Fp.</p><p>And then we can get x by solving the discrete logarithm using sage:</p><pre class="language-"><code class="lang-python">Fp <span class="token operator">=</span> IntegerModRing<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+</code></pre><p>where f is an isomorphism from E to Fp.</p>
+<p>And then we can get x by solving the discrete logarithm using sage:</p>
+<pre class="language-"><code class="lang-python">Fp <span class="token operator">=</span> IntegerModRing<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
 g <span class="token operator">=</span> Fp<span class="token punctuation">(</span>f<span class="token punctuation">(</span>Gx<span class="token punctuation">,</span> Gy<span class="token punctuation">)</span><span class="token punctuation">)</span>
 t <span class="token operator">=</span> Fp<span class="token punctuation">(</span>f<span class="token punctuation">(</span>Tx<span class="token punctuation">,</span> Ty<span class="token punctuation">)</span><span class="token punctuation">)</span>
 x <span class="token operator">=</span> t<span class="token punctuation">.</span>log<span class="token punctuation">(</span>g<span class="token punctuation">)</span>
-</code></pre><p>It takes several minutes to solve, and then we can decrypt our flag with <code>x</code> :)</p></section></div></div></div><a href="../blinder/"class="navigation navigation-prev"aria-label="Previous page: crypto - blinder"><i class="fa fa-angle-left"></i> </a><a href="../oops/"class="navigation navigation-next"aria-label="Next page: crypto - oops2"><i class="fa fa-angle-right"></i></a></div><script>var gitbook=gitbook||[];gitbook.push(function(){gitbook.page.hasChanged({page:{name:"curve12833227",category:"crypto",points:187,solves:12,title:"crypto - curve12833227",level:"5.1.3",depth:2,next:{title:"crypto - oops2",level:"5.1.4",depth:2,path:"writeup/2018/hxp/crypto/oops/README.md",ref:"writeup/2018/hxp/crypto/oops/README.md",articles:[]},previous:{title:"crypto - blinder",level:"5.1.2",depth:2,path:"writeup/2018/hxp/crypto/blinder/README.md",ref:"writeup/2018/hxp/crypto/blinder/README.md",articles:[]},dir:"ltr"},config:{gitbook:"*",theme:"default",variables:{},plugins:["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],pluginsConfig:{prism:{css:["prismjs/themes/prism-tomorrow.css"],lang:{C:"c","C++":"cpp",asm:"nasm"}},disqus:{useIdentifier:!1,shortName:"sasdfwriteup"},search:{maxIndexSize:1e6},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!1,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},lunr:{maxIndexSize:1e6,ignoreSpecialCharacters:!1},katex:{},fontsettings:{theme:"white",family:"sans",size:2},sharing:{facebook:!0,twitter:!0,google:!1,weibo:!1,instapaper:!1,vk:!1,all:["facebook","google","twitter","weibo","instapaper"]},"theme-default":{styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"},showLevel:!1},"writeup-utils":{filePrefix:"https://github.com/sasdf/ctf/blob/master",repoPrefix:"https://github.com/sasdf/ctf/blob/master",rawPrefix:"https://raw.githubusercontent.com/sasdf/ctf/master"}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"}},file:{path:"writeup/2018/hxp/crypto/curve/README.md",mtime:"2020-08-30T19:19:46.121Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2020-08-30T20:48:48.903Z"},basePath:"../../../../..",book:{language:""}})})</script></div><script src="../../../../../gitbook/gitbook.js"></script><script src="../../../../../gitbook/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script><script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script><script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script></body></html>
+</code></pre>
+<p>It takes several minutes to solve, and then we can decrypt our flag with <code>x</code> :)</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../blinder/" class="navigation navigation-prev " aria-label="Previous page: crypto - blinder">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../oops/" class="navigation navigation-next " aria-label="Next page: crypto - oops2">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"name":"curve12833227","category":"crypto","points":187,"solves":12,"title":"crypto - curve12833227","level":"5.1.3","depth":2,"next":{"title":"crypto - oops2","level":"5.1.4","depth":2,"path":"writeup/2018/hxp/crypto/oops/README.md","ref":"writeup/2018/hxp/crypto/oops/README.md","articles":[]},"previous":{"title":"crypto - blinder","level":"5.1.2","depth":2,"path":"writeup/2018/hxp/crypto/blinder/README.md","ref":"writeup/2018/hxp/crypto/blinder/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{"maxIndexSize":1000000},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2018/hxp/crypto/curve/README.md","mtime":"2020-08-30T20:59:08.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-30T20:59:19.877Z"},"basePath":"../../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

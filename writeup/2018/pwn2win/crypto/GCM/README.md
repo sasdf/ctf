@@ -6,7 +6,7 @@ solves: 8
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > There is only one method of performing bank transactions that can not be monitored by The Bavarian.

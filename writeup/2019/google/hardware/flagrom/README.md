@@ -6,7 +6,7 @@ solves: 57
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > This 8051 board has a SecureEEPROM installed.

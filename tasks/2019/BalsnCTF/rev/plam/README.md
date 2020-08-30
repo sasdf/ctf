@@ -6,7 +6,7 @@ solves: 1
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > I tried my best, but it's still a little bit slow.

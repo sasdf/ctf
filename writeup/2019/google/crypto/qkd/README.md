@@ -6,7 +6,7 @@ solves: 134
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Generate a key using Quantum Key Distribution (QKD) algorithm and decrypt the flag.

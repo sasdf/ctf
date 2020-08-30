@@ -6,7 +6,7 @@ solves: 6
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > MCP: I've got a little challenge for you, Sark -- a new recruit.

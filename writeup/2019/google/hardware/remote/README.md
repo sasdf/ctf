@@ -6,7 +6,7 @@ solves: 10
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > You're in the room with a TV, an IOT Hub, and a smart wall clock.

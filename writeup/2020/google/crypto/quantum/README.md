@@ -6,7 +6,7 @@ solves: 9
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > A super efficient post-quantum signature scheme has been deployed. Can you forge a signature?

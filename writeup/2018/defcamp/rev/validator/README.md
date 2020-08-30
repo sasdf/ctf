@@ -6,7 +6,7 @@ solves: 8
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > Like any good admin, we don't store the flag, we validate that it can be generated.

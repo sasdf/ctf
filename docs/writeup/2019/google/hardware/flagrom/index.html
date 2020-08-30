@@ -1,4 +1,1186 @@
-<!DOCTYPE HTML><html lang=""><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>hardware - flagrom · GitBook</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content=""name="description"><meta content="GitBook 3.2.3"name="generator"><link href="../../../../../gitbook/style.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-search/search.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css"rel="stylesheet"><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../../../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="../minetest/"rel="next"/><link href="../../crypto/cell/"rel="prev"/></head><body><div class="book"><div class="book-summary"><nav role="navigation"><ul class="summary"><li class="chapter"data-level="1.1"data-path="../../../../../"><a href="../../../../../">Introduction</a></li><li class="header">Writeups</li><li class="header">2020</li><li class="chapter"data-level="3.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="3.1.1"data-path="../../../../2020/google/crypto/oracle/"><a href="../../../../2020/google/crypto/oracle/">crypto - Oracle</a></li><li class="chapter"data-level="3.1.2"data-path="../../../../2020/google/crypto/yafm/"><a href="../../../../2020/google/crypto/yafm/">crypto - YAFM</a></li><li class="chapter"data-level="3.1.3"data-path="../../../../2020/google/crypto/quantum/"><a href="../../../../2020/google/crypto/quantum/">crypto - Quantum Pyramids</a></li><li class="chapter"data-level="3.1.4"data-path="../../../../2020/google/crypto/sharky/"><a href="../../../../2020/google/crypto/sharky/">crypto - SHArky</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="4.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="4.1.1"data-path="../../crypto/reality/"><a href="../../crypto/reality/">crypto - reality</a></li><li class="chapter"data-level="4.1.2"data-path="../../crypto/qkd/"><a href="../../crypto/qkd/">crypto - Quantum Key Distribution</a></li><li class="chapter"data-level="4.1.3"data-path="../../crypto/cell/"><a href="../../crypto/cell/">crypto - Reverse a cellular automata</a></li><li class="chapter active"data-level="4.1.4"data-path="./"><a href="./">hardware - flagrom</a></li><li class="chapter"data-level="4.1.5"data-path="../minetest/"><a href="../minetest/">hardware - minetest</a></li><li class="chapter"data-level="4.1.6"data-path="../remote/"><a href="../remote/">hardware - Remote Control</a></li><li class="chapter"data-level="4.1.7"data-path="../../web/glotto/"><a href="../../web/glotto/">web - gLotto</a></li><li class="chapter"data-level="4.1.8"data-path="../../rev/dial/"><a href="../../rev/dial/">rev - Dialtone</a></li></ul></li><li class="chapter"data-level="4.2"><span>Plaid</span><ul class="articles"><li class="chapter"data-level="4.2.1"data-path="../../../plaid/crypto/cypress/"><a href="../../../plaid/crypto/cypress/">crypto - SPlaid Cypress</a></li><li class="chapter"data-level="4.2.2"data-path="../../../plaid/rev/bigmaffs/"><a href="../../../plaid/rev/bigmaffs/">rev - big maffs</a></li></ul></li><li class="header">2018</li><li class="chapter"data-level="5.1"><span>hxp</span><ul class="articles"><li class="chapter"data-level="5.1.1"data-path="../../../../2018/hxp/crypto/blinder_v2/"><a href="../../../../2018/hxp/crypto/blinder_v2/">crypto - blinder_v2</a></li><li class="chapter"data-level="5.1.2"data-path="../../../../2018/hxp/crypto/blinder/"><a href="../../../../2018/hxp/crypto/blinder/">crypto - blinder</a></li><li class="chapter"data-level="5.1.3"data-path="../../../../2018/hxp/crypto/curve/"><a href="../../../../2018/hxp/crypto/curve/">crypto - curve12833227</a></li><li class="chapter"data-level="5.1.4"data-path="../../../../2018/hxp/crypto/oops/"><a href="../../../../2018/hxp/crypto/oops/">crypto - oops2</a></li><li class="chapter"data-level="5.1.5"data-path="../../../../2018/hxp/crypto/blind/"><a href="../../../../2018/hxp/crypto/blind/">crypto - blind</a></li></ul></li><li class="chapter"data-level="5.2"><span>Pwn2Win</span><ul class="articles"><li class="chapter"data-level="5.2.1"data-path="../../../../2018/pwn2win/rev/back_to_bletchley_park/"><a href="../../../../2018/pwn2win/rev/back_to_bletchley_park/">cryrev - Back To Bletchley Park</a></li><li class="chapter"data-level="5.2.2"data-path="../../../../2018/pwn2win/crypto/GCM/"><a href="../../../../2018/pwn2win/crypto/GCM/">crypto - GCM</a></li></ul></li><li class="chapter"data-level="5.3"><span>HITCON</span><ul class="articles"><li class="chapter"data-level="5.3.1"data-path="../../../../2018/hitcon/crypto/lostmod/"><a href="../../../../2018/hitcon/crypto/lostmod/">crypto - Lost Modulus</a></li><li class="chapter"data-level="5.3.2"data-path="../../../../2018/hitcon/crypto/secret/"><a href="../../../../2018/hitcon/crypto/secret/">crypwn - Secret Note</a></li></ul></li><li class="chapter"data-level="5.4"><span>Hack.lu</span><ul class="articles"><li class="chapter"data-level="5.4.1"data-path="../../../../2018/Hack.lu/crypto/escape/"><a href="../../../../2018/Hack.lu/crypto/escape/">crypto - Escape the Grid</a></li><li class="chapter"data-level="5.4.2"data-path="../../../../2018/Hack.lu/crypto/relation/"><a href="../../../../2018/Hack.lu/crypto/relation/">crypto - Relations</a></li><li class="chapter"data-level="5.4.3"data-path="../../../../2018/Hack.lu/crypto/lfsr/"><a href="../../../../2018/Hack.lu/crypto/lfsr/">crypto - LFSR StreamCipher</a><ul class="articles"><li class="chapter"data-level="5.4.3.1"data-path="../../../../2018/Hack.lu/crypto/lfsr/task.html"><a href="../../../../2018/Hack.lu/crypto/lfsr/task.html">task description</a></li></ul></li></ul></li><li class="chapter"data-level="5.5"><span>Hackover</span><ul class="articles"><li class="chapter"data-level="5.5.1"data-path="../../../../2018/HackOver/crypto/oblivious/"><a href="../../../../2018/HackOver/crypto/oblivious/">crypto - oblivious</a></li><li class="chapter"data-level="5.5.2"data-path="../../../../2018/HackOver/crypto/secure_hash_v2/"><a href="../../../../2018/HackOver/crypto/secure_hash_v2/">crypto - secure_hash_v2</a></li><li class="chapter"data-level="5.5.3"data-path="../../../../2018/HackOver/rev/flagmaker/"><a href="../../../../2018/HackOver/rev/flagmaker/">rev - flagmaker</a></li></ul></li><li class="chapter"data-level="5.6"><span>Teaser Dragon</span><ul class="articles"><li class="chapter"data-level="5.6.1"data-path="../../../../2018/TeaserDragon/rev/Chains of trust/"><a href="../../../../2018/TeaserDragon/rev/Chains of trust/">rev - Chains of trust</a></li></ul></li><li class="chapter"data-level="5.7"><span>Defcamp</span><ul class="articles"><li class="chapter"data-level="5.7.1"data-path="../../../../2018/defcamp/rev/validator/"><a href="../../../../2018/defcamp/rev/validator/">rev - validator</a></li><li class="chapter"data-level="5.7.2"data-path="../../../../2018/defcamp/rev/memsome/"><a href="../../../../2018/defcamp/rev/memsome/">rev - memsome</a></li><li class="chapter"data-level="5.7.3"data-path="../../../../2018/defcamp/web/secops/"><a href="../../../../2018/defcamp/web/secops/">web - secops</a></li><li class="chapter"data-level="5.7.4"data-path="../../../../2018/defcamp/web/chat/"><a href="../../../../2018/defcamp/web/chat/">web - chat</a></li><li class="chapter"data-level="5.7.5"data-path="../../../../2018/defcamp/misc/voices/"><a href="../../../../2018/defcamp/misc/voices/">misc - voices</a></li></ul></li><li class="chapter"data-level="5.8"><span>HackIT</span><ul class="articles"><li class="chapter"data-level="5.8.1"data-path="../../../../2018/HackIT/coffee_overflow/"><a href="../../../../2018/HackIT/coffee_overflow/">rev - coffee_overflow</a></li></ul></li><li class="header">My Tasks</li><li class="header">2018</li><li class="chapter"data-level="7.1"><span>AIS3 Final</span><ul class="articles"><li class="chapter"data-level="7.1.1"data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/"><a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">crypto - mama</a></li><li class="chapter"data-level="7.1.2"data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/"><a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">crypto - secureSub</a></li><li class="chapter"data-level="7.1.3"data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/"><a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">crypto - xorlnarmoni'akda</a></li><li class="chapter"data-level="7.1.4"data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/"><a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">rev - SecDES</a></li><li class="chapter"data-level="7.1.5"data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/"><a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">rev - Almighty Duct Tape</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="8.1"><span>Balsn CTF</span><ul class="articles"><li class="chapter"data-level="8.1.1"data-path="../../../../../tasks/2019/BalsnCTF/"><a href="../../../../../tasks/2019/BalsnCTF/">Overview</a></li><li class="chapter"data-level="8.1.2"data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">crypto - collision</a></li><li class="chapter"data-level="8.1.3"data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">crypto - harc4</a></li><li class="chapter"data-level="8.1.4"data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">crypto - unpredictable</a></li><li class="chapter"data-level="8.1.5"data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/"><a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">crypwn - securenote</a></li><li class="chapter"data-level="8.1.6"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">misc - pyshv1</a></li><li class="chapter"data-level="8.1.7"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">misc - pyshv2</a></li><li class="chapter"data-level="8.1.8"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">misc - pyshv3</a></li><li class="chapter"data-level="8.1.9"data-path="../../../../../tasks/2019/BalsnCTF/misc/john/"><a href="../../../../../tasks/2019/BalsnCTF/misc/john/">misc - john</a></li><li class="chapter"data-level="8.1.10"data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/"><a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">rev - plam</a></li><li class="chapter"data-level="8.1.11"data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/"><a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">rev - vim</a></li></ul></li><li class="divider"></li><li><a href="https://www.gitbook.com"class="gitbook-link"target="blank">Published with GitBook</a></li></ul></nav></div><div class="book-body"><div class="body-inner"><div class="book-header"role="navigation"><h1><i class="fa fa-circle-o-notch fa-spin"></i> <a href="../../../../..">hardware - flagrom</a></h1></div><div class="page-wrapper"role="main"tabindex="-1"><div class="page-inner"><section class="markdown-section normal"><div class="wpHeaderContainer"><h1 id="flagrom">flagrom</h1><div><span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/google/hardware/flagrom"target="_blank"><img alt="Attachments"src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github"></a></span><span><img alt="Hardware - 187"src="https://img.shields.io/badge/Hardware-187-green.svg?style=for-the-badge&amp;maxAge=3600"></span><span><img alt="57 solves"src="https://img.shields.io/badge/solves-57-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600"></span></div></div><p></p><blockquote><p>This 8051 board has a SecureEEPROM installed. It&apos;s obvious the flag is stored there. Go and get it.</p></blockquote><h2 id="time">Time</h2><p>1.5 hour</p><h1 id="behavior">Behavior</h1><p>The service is a 8051 simulator. And it has a custom Secure EEPROM chip connected to its I&#xB2;C Port.</p><p>The service will run a firmware first to write the flag to that EEPROM. After locking the flag to prevent from accessing, the service will run the 8051 code we provided.</p><p>The goal is bypass the lock and read our flag out.</p><p>They provide the ELF executable of simulator, firmware source code in C, and SecureEEPROM source code in verilog.</p><h1 id="solution">Solution</h1><h2 id="tldr">TL;DR</h2><ol><li>Communicate to the EEPROM using raw I&#xB2;C GPIO.</li><li>Set the <code>i2c_address_valid</code> bit using address 0.</li><li>Force reset the state by trigging <code>i2c_start</code>.</li><li>Lock all pages.</li><li>Force reset the state by trigging <code>i2c_start</code>.</li><li>Read the whole memory out.</li></ol><h2 id="8051-setup">8051 setup</h2><p>This part is about the environment setup. Feel free to skip this section if you&apos;ve read the challenge&apos;s code.</p><p>First, lets look at what the challenge do. The simulator binary is unstriped and easy to understand.</p><p>Here&apos;s the simplified main function of simulator:</p><pre class="language-"><code class="lang-c">dev_i2c<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">seeprom_new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>hardware - flagrom · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../minetest/" />
+    
+    
+    <link rel="prev" href="../../crypto/cell/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../../">
+            
+                <a href="../../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Writeups</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2020</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../../2020/google/crypto/oracle/">
+            
+                <a href="../../../../2020/google/crypto/oracle/">
+            
+                    
+                    crypto - Oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../../2020/google/crypto/yafm/">
+            
+                <a href="../../../../2020/google/crypto/yafm/">
+            
+                    
+                    crypto - YAFM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../../2020/google/crypto/quantum/">
+            
+                <a href="../../../../2020/google/crypto/quantum/">
+            
+                    
+                    crypto - Quantum Pyramids
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../../2020/google/crypto/sharky/">
+            
+                <a href="../../../../2020/google/crypto/sharky/">
+            
+                    
+                    crypto - SHArky
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../crypto/reality/">
+            
+                <a href="../../crypto/reality/">
+            
+                    
+                    crypto - reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../crypto/qkd/">
+            
+                <a href="../../crypto/qkd/">
+            
+                    
+                    crypto - Quantum Key Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../crypto/cell/">
+            
+                <a href="../../crypto/cell/">
+            
+                    
+                    crypto - Reverse a cellular automata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    hardware - flagrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../minetest/">
+            
+                <a href="../minetest/">
+            
+                    
+                    hardware - minetest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../remote/">
+            
+                <a href="../remote/">
+            
+                    
+                    hardware - Remote Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../web/glotto/">
+            
+                <a href="../../web/glotto/">
+            
+                    
+                    web - gLotto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../rev/dial/">
+            
+                <a href="../../rev/dial/">
+            
+                    
+                    rev - Dialtone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    Plaid
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../plaid/crypto/cypress/">
+            
+                <a href="../../../plaid/crypto/cypress/">
+            
+                    
+                    crypto - SPlaid Cypress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../plaid/rev/bigmaffs/">
+            
+                <a href="../../../plaid/rev/bigmaffs/">
+            
+                    
+                    rev - big maffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    hxp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../../../2018/hxp/crypto/blinder_v2/">
+            
+                <a href="../../../../2018/hxp/crypto/blinder_v2/">
+            
+                    
+                    crypto - blinder_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../../../2018/hxp/crypto/blinder/">
+            
+                <a href="../../../../2018/hxp/crypto/blinder/">
+            
+                    
+                    crypto - blinder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../../../2018/hxp/crypto/curve/">
+            
+                <a href="../../../../2018/hxp/crypto/curve/">
+            
+                    
+                    crypto - curve12833227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../../../../2018/hxp/crypto/oops/">
+            
+                <a href="../../../../2018/hxp/crypto/oops/">
+            
+                    
+                    crypto - oops2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../../../../2018/hxp/crypto/blind/">
+            
+                <a href="../../../../2018/hxp/crypto/blind/">
+            
+                    
+                    crypto - blind
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    Pwn2Win
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../../../../2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                <a href="../../../../2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                    
+                    cryrev - Back To Bletchley Park
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../../../../2018/pwn2win/crypto/GCM/">
+            
+                <a href="../../../../2018/pwn2win/crypto/GCM/">
+            
+                    
+                    crypto - GCM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" >
+            
+                <span>
+            
+                    
+                    HITCON
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="../../../../2018/hitcon/crypto/lostmod/">
+            
+                <a href="../../../../2018/hitcon/crypto/lostmod/">
+            
+                    
+                    crypto - Lost Modulus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.2" data-path="../../../../2018/hitcon/crypto/secret/">
+            
+                <a href="../../../../2018/hitcon/crypto/secret/">
+            
+                    
+                    crypwn - Secret Note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                    Hack.lu
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.1" data-path="../../../../2018/Hack.lu/crypto/escape/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/escape/">
+            
+                    
+                    crypto - Escape the Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.2" data-path="../../../../2018/Hack.lu/crypto/relation/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/relation/">
+            
+                    
+                    crypto - Relations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.3" data-path="../../../../2018/Hack.lu/crypto/lfsr/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/lfsr/">
+            
+                    
+                    crypto - LFSR StreamCipher
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.3.1" data-path="../../../../2018/Hack.lu/crypto/lfsr/task.html">
+            
+                <a href="../../../../2018/Hack.lu/crypto/lfsr/task.html">
+            
+                    
+                    task description
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" >
+            
+                <span>
+            
+                    
+                    Hackover
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.5.1" data-path="../../../../2018/HackOver/crypto/oblivious/">
+            
+                <a href="../../../../2018/HackOver/crypto/oblivious/">
+            
+                    
+                    crypto - oblivious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.2" data-path="../../../../2018/HackOver/crypto/secure_hash_v2/">
+            
+                <a href="../../../../2018/HackOver/crypto/secure_hash_v2/">
+            
+                    
+                    crypto - secure_hash_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.3" data-path="../../../../2018/HackOver/rev/flagmaker/">
+            
+                <a href="../../../../2018/HackOver/rev/flagmaker/">
+            
+                    
+                    rev - flagmaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" >
+            
+                <span>
+            
+                    
+                    Teaser Dragon
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.1" data-path="../../../../2018/TeaserDragon/rev/Chains of trust/">
+            
+                <a href="../../../../2018/TeaserDragon/rev/Chains of trust/">
+            
+                    
+                    rev - Chains of trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" >
+            
+                <span>
+            
+                    
+                    Defcamp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.7.1" data-path="../../../../2018/defcamp/rev/validator/">
+            
+                <a href="../../../../2018/defcamp/rev/validator/">
+            
+                    
+                    rev - validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.2" data-path="../../../../2018/defcamp/rev/memsome/">
+            
+                <a href="../../../../2018/defcamp/rev/memsome/">
+            
+                    
+                    rev - memsome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.3" data-path="../../../../2018/defcamp/web/secops/">
+            
+                <a href="../../../../2018/defcamp/web/secops/">
+            
+                    
+                    web - secops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.4" data-path="../../../../2018/defcamp/web/chat/">
+            
+                <a href="../../../../2018/defcamp/web/chat/">
+            
+                    
+                    web - chat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.5" data-path="../../../../2018/defcamp/misc/voices/">
+            
+                <a href="../../../../2018/defcamp/misc/voices/">
+            
+                    
+                    misc - voices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" >
+            
+                <span>
+            
+                    
+                    HackIT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.8.1" data-path="../../../../2018/HackIT/coffee_overflow/">
+            
+                <a href="../../../../2018/HackIT/coffee_overflow/">
+            
+                    
+                    rev - coffee_overflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">My Tasks</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    AIS3 Final
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                    
+                    crypto - mama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                    
+                    crypto - secureSub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                    
+                    crypto - xorlnarmoni'akda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                    
+                    rev - SecDES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                    
+                    rev - Almighty Duct Tape
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../../../../../tasks/2019/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                    
+                    crypto - collision
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                    
+                    crypto - harc4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                    
+                    crypto - unpredictable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                    
+                    crypwn - securenote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                    
+                    misc - pyshv1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                    
+                    misc - pyshv2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.8" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                    
+                    misc - pyshv3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.9" data-path="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                    
+                    misc - john
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.10" data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                    
+                    rev - plam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.11" data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                    
+                    rev - vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../../.." >hardware - flagrom</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div class="wpHeaderContainer">
+                    <h1 id="flagrom">flagrom</h1>
+                    <div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/google/hardware/flagrom" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/Hardware-187-green.svg?style=for-the-badge&amp;maxAge=3600" alt="Hardware - 187"></span><span><img src="https://img.shields.io/badge/solves-57-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="57 solves"></span></div>
+                </div><p></p>
+<blockquote>
+<p>This 8051 board has a SecureEEPROM installed.
+It&apos;s obvious the flag is stored there.
+Go and get it.</p>
+</blockquote>
+<h2 id="time">Time</h2>
+<p>1.5 hour  </p>
+<h1 id="behavior">Behavior</h1>
+<p>The service is a 8051 simulator.
+And it has a custom Secure EEPROM chip connected to its I&#xB2;C Port.</p>
+<p>The service will run a firmware first to write the flag to that EEPROM.
+After locking the flag to prevent from accessing, the service will run the 8051 code we provided.</p>
+<p>The goal is bypass the lock and read our flag out.</p>
+<p>They provide the ELF executable of simulator,
+firmware source code in C,
+and SecureEEPROM source code in verilog.</p>
+<h1 id="solution">Solution</h1>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li>Communicate to the EEPROM using raw I&#xB2;C GPIO.</li>
+<li>Set the <code>i2c_address_valid</code> bit using address 0.</li>
+<li>Force reset the state by trigging <code>i2c_start</code>.</li>
+<li>Lock all pages.</li>
+<li>Force reset the state by trigging <code>i2c_start</code>.</li>
+<li>Read the whole memory out.</li>
+</ol>
+<h2 id="8051-setup">8051 setup</h2>
+<p>This part is about the environment setup.
+Feel free to skip this section if you&apos;ve read the challenge&apos;s code.</p>
+<p>First, lets look at what the challenge do.
+The simulator binary is unstriped and easy to understand.</p>
+<p>Here&apos;s the simplified main function of simulator:</p>
+<pre class="language-"><code class="lang-c">dev_i2c<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">seeprom_new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">&quot;Executing firmware...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">init_emu</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>emu<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -18,12 +1200,17 @@ done_marker <span class="token operator">=</span> <span class="token number">0</
 <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100000</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>done_marker<span class="token punctuation">;</span> <span class="token operator">++</span>i <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     emu8051<span class="token operator">::</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>emu<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><p>and the main function of firmware:</p><pre class="language-"><code class="lang-c"><span class="token function">write_flag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// Store the flag to SecureEEPROM at offset 64 (page 1)</span>
+</code></pre>
+<p>and the main function of firmware:</p>
+<pre class="language-"><code class="lang-c"><span class="token function">write_flag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// Store the flag to SecureEEPROM at offset 64 (page 1)</span>
 <span class="token function">secure_banks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Lock page 1 to prevent from accessing</span>
 <span class="token function">remove_flag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Clear the flag in 8051&apos;s RAM</span>
 <span class="token function">write_welcome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Write a welcome message to page 0.</span>
 POWEROFF <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-</code></pre><p>Clearly, it will run a firmware to store the flag, and then it&apos;ll runs our code.</p><p>In the <code>init_emu</code> function,</p><pre class="language-"><code class="lang-c"><span class="token keyword">void</span> <span class="token function">init_emu</span><span class="token punctuation">(</span>emu8051 <span class="token operator">*</span>emu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code></pre>
+<p>Clearly, it will run a firmware to store the flag, and then it&apos;ll runs our code.</p>
+<p>In the <code>init_emu</code> function,</p>
+<pre class="language-"><code class="lang-c"><span class="token keyword">void</span> <span class="token function">init_emu</span><span class="token punctuation">(</span>emu8051 <span class="token operator">*</span>emu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   emu8051<span class="token operator">::</span><span class="token function">sfr_register_handler</span><span class="token punctuation">(</span>emu<span class="token punctuation">,</span> <span class="token number">0xFA</span><span class="token punctuation">,</span> sfr_gpio_module<span class="token punctuation">)</span><span class="token punctuation">;</span>
   emu8051<span class="token operator">::</span><span class="token function">sfr_register_handler</span><span class="token punctuation">(</span>emu<span class="token punctuation">,</span> <span class="token number">0xFB</span><span class="token punctuation">,</span> sfr_gpio_module<span class="token punctuation">)</span><span class="token punctuation">;</span>
   emu8051<span class="token operator">::</span><span class="token function">sfr_register_handler</span><span class="token punctuation">(</span>emu<span class="token punctuation">,</span> <span class="token number">0xFC</span><span class="token punctuation">,</span> sfr_i2c_module<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -46,7 +1233,16 @@ POWEROFF <span class="token operator">=</span> <span class="token number">1</spa
       <span class="token operator">*</span>value <span class="token operator">=</span> <span class="token function">seeprom_read_sda</span><span class="token punctuation">(</span>dev_i2c<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><blockquote><p>Some background knowledge<br>A SFR (Special Function Register) is a register within a microprocessor, which controls or monitors various aspects of the microprocessor&apos;s function.<br>I&#xB2;C is a wire protocol for communicating between multiple devices. It uses two wires, SCL is clock, and SDA is for data.</p></blockquote><p>We can see that the 8051 has a builtin I&#xB2;C module, which is connected to a SecureEEPROM. We can also control the I&#xB2;C pin directly using GPIO.</p><p>Those sfr definitions are also provided in <code>firmware.c</code> too.</p><pre class="language-"><code class="lang-c">__sfr <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xff</span><span class="token punctuation">)</span> POWEROFF<span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>Some background knowledge<br>A SFR (Special Function Register) is a register within a microprocessor,
+which controls or monitors various aspects of the microprocessor&apos;s function.<br>I&#xB2;C is a wire protocol for communicating between multiple devices.
+It uses two wires, SCL is clock, and SDA is for data.</p>
+</blockquote>
+<p>We can see that the 8051 has a builtin I&#xB2;C module, which is connected to a SecureEEPROM.
+We can also control the I&#xB2;C pin directly using GPIO.</p>
+<p>Those sfr definitions are also provided in <code>firmware.c</code> too.</p>
+<pre class="language-"><code class="lang-c">__sfr <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xff</span><span class="token punctuation">)</span> POWEROFF<span class="token punctuation">;</span>
 __sfr <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xfe</span><span class="token punctuation">)</span> DEBUG<span class="token punctuation">;</span>
 __sfr <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xfd</span><span class="token punctuation">)</span> CHAROUT<span class="token punctuation">;</span>
 __xdata <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xff00</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token keyword">char</span> FLAG<span class="token punctuation">[</span><span class="token number">0x100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -61,13 +1257,18 @@ __xdata <span class="token function">__at</span><span class="token punctuation">
 __xdata <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xfe03</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token keyword">char</span> I2C_ERROR_CODE<span class="token punctuation">;</span>  <span class="token comment">// 0 - no errors.</span>
 __xdata <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xfe08</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token keyword">char</span> I2C_DATA<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// Don&apos;t repeat addr.</span>
 __sfr <span class="token function">__at</span><span class="token punctuation">(</span><span class="token number">0xfc</span><span class="token punctuation">)</span> I2C_STATE<span class="token punctuation">;</span>  <span class="token comment">// Read: 0 - idle, 1 - busy; Write: 1 - start</span>
-</code></pre><h2 id="secure-eeprom">Secure EEPROM</h2><p>It&apos;s implemented as a state machine, containing several states like:</p><pre class="language-"><code>I2C_IDLE
+</code></pre>
+<h2 id="secure-eeprom">Secure EEPROM</h2>
+<p>It&apos;s implemented as a state machine, 
+containing several states like:</p>
+<pre class="language-"><code>I2C_IDLE
 I2C_START
 I2C_LOAD_CONTROL
 I2C_LOAD_ADDRESS
 I2C_WRITE
 I2C_READ
-</code></pre><p>The lock is stored in a bit mask, which cannot be cleared after set:</p><pre class="language-"><code class="lang-verilog"><span class="token keyword">logic</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> mem_secure<span class="token punctuation">;</span>
+</code></pre><p>The lock is stored in a bit mask, which cannot be cleared after set:</p>
+<pre class="language-"><code class="lang-verilog"><span class="token keyword">logic</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> mem_secure<span class="token punctuation">;</span>
 
 # i2c_control is our <span class="token keyword">input</span>
 <span class="token keyword">wire</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span> i2c_control_bank <span class="token operator">=</span> i2c_control<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -78,7 +1279,9 @@ I2C_READ
     mem_secure <span class="token operator">&lt;=</span> mem_secure <span class="token operator">|</span> i2c_control_bank<span class="token punctuation">;</span>
     i2c_state <span class="token operator">&lt;=</span> I2C_ACK<span class="token punctuation">;</span>
 <span class="token keyword">end</span>
-</code></pre><p>The first strange thing I noticed is how it check the lock when reading / writing:</p><pre class="language-"><code class="lang-verilog"># i2c_address is the offset we set
+</code></pre>
+<p>The first strange thing I noticed is how it check the lock when reading / writing:</p>
+<pre class="language-"><code class="lang-verilog"># i2c_address is the offset we set
 <span class="token keyword">wire</span> i2c_address_secure <span class="token operator">=</span> mem_secure<span class="token punctuation">[</span>i2c_address <span class="token operator">/</span> <span class="token number">64</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">wire</span> i2c_next_address_secure <span class="token operator">=</span> mem_secure<span class="token punctuation">[</span><span class="token punctuation">(</span>i2c_address <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">64</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -89,7 +1292,12 @@ I2C_READ
 <span class="token keyword">end</span> <span class="token keyword">else</span> <span class="token keyword">begin</span>
     i2c_state <span class="token operator">&lt;=</span> I2C_NACK<span class="token punctuation">;</span>
 <span class="token keyword">end</span>
-</code></pre><p>instead of checking whether current page is locked or not, it checks that the lock of current byte and next byte are the same.</p><p>We can bypass this check when both pages are locked.</p><p>However, there&apos;s another check when setting <code>i2c_address</code>:</p><pre class="language-"><code class="lang-verilog"><span class="token keyword">if</span> <span class="token punctuation">(</span>i2c_address_secure<span class="token punctuation">)</span> <span class="token keyword">begin</span>
+</code></pre>
+<p>instead of checking whether current page is locked or not,
+it checks that the lock of current byte and next byte are the same.</p>
+<p>We can bypass this check when both pages are locked.</p>
+<p>However, there&apos;s another check when setting <code>i2c_address</code>:</p>
+<pre class="language-"><code class="lang-verilog"><span class="token keyword">if</span> <span class="token punctuation">(</span>i2c_address_secure<span class="token punctuation">)</span> <span class="token keyword">begin</span>
     i2c_address_valid <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     i2c_state <span class="token operator">&lt;=</span> I2C_NACK<span class="token punctuation">;</span>
 <span class="token keyword">end</span> <span class="token keyword">else</span> <span class="token keyword">begin</span>
@@ -97,13 +1305,45 @@ I2C_READ
     i2c_address_valid <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     i2c_state <span class="token operator">&lt;=</span> I2C_ACK_THEN_WRITE<span class="token punctuation">;</span>
 <span class="token keyword">end</span>
-</code></pre><p>and we can only switch to <code>I2C_READ</code> state when <code>i2c_address_valid</code> is 1.</p><p>There are two conditions that <code>i2c_address_valid</code> will be set to zero:</p><ul><li>We send a address which is locked</li><li>We send a special sequence <code>i2c_stop</code></li></ul><p>If we communicate with the EEPROM using builtin I&#xB2;C module, a <code>i2c_stop</code> will be sent after each request.</p><p>But sending <code>i2c_stop</code> is not necessary. We can reset the state by sending <code>i2c_start</code> instead of <code>i2c_stop</code>:</p><pre class="language-"><code class="lang-verilog"><span class="token keyword">if</span> <span class="token punctuation">(</span>i2c_stop<span class="token punctuation">)</span> <span class="token keyword">begin</span>
+</code></pre>
+<p>and we can only switch to <code>I2C_READ</code> state when <code>i2c_address_valid</code> is 1.</p>
+<p>There are two conditions that <code>i2c_address_valid</code> will be set to zero:</p>
+<ul>
+<li>We send a address which is locked</li>
+<li>We send a special sequence <code>i2c_stop</code></li>
+</ul>
+<p>If we communicate with the EEPROM using builtin I&#xB2;C module,
+a <code>i2c_stop</code> will be sent after each request.</p>
+<p>But sending <code>i2c_stop</code> is not necessary.
+We can reset the state by sending <code>i2c_start</code> instead of <code>i2c_stop</code>:</p>
+<pre class="language-"><code class="lang-verilog"><span class="token keyword">if</span> <span class="token punctuation">(</span>i2c_stop<span class="token punctuation">)</span> <span class="token keyword">begin</span>
     i2c_address_valid <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     i2c_state <span class="token operator">&lt;=</span> I2C_IDLE<span class="token punctuation">;</span>
 <span class="token keyword">end</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i2c_start<span class="token punctuation">)</span> <span class="token keyword">begin</span>
     i2c_state <span class="token operator">&lt;=</span> I2C_START<span class="token punctuation">;</span>
 <span class="token keyword">end</span>
-</code></pre><p>BTW, sending <code>i2c_start</code> again is a valid operation in I&#xB2;C specification. Here&apos;s the description from wikipedia:</p><blockquote><p>After the acknowledge bit, the clock line is low and the master may do one of three things:</p><ul><li>Begin transferring another byte of data: the transmitter sets SDA, and the master pulses SCL high.</li><li>Send a &quot;Stop&quot;: Set SDA low, let SCL go high, then let SDA go high. This releases the I&#xB2;C bus.</li><li>Send a &quot;Repeated start&quot;: Set SDA high, let SCL go high, then pull SDA low again. This starts a new I&#xB2;C bus message without releasing the bus.</li></ul></blockquote><h2 id="bypass-the-lock">Bypass the lock</h2><p>Now, the goal is clear,</p><ul><li>Set the address to zero. It is not locked, so <code>i2c_address_valid</code> is 1.</li><li>Lock all pages to bypass the check in <code>I2C_READ</code></li><li>Read all 256 bytes in the memory.</li></ul><p>To implemented the I&#xB2;C protocol, I copy those code in the simulator and modify them. For example,</p><pre class="language-"><code class="lang-c"><span class="token comment">/* Original code in the simulator */</span>
+</code></pre>
+<p>BTW, sending <code>i2c_start</code> again is a valid operation in I&#xB2;C specification.
+Here&apos;s the description from wikipedia:</p>
+<blockquote>
+<p>After the acknowledge bit, the clock line is low and the master may do one of three things:</p>
+<ul>
+<li>Begin transferring another byte of data: the transmitter sets SDA, and the master pulses SCL high.</li>
+<li>Send a &quot;Stop&quot;: Set SDA low, let SCL go high, then let SDA go high. This releases the I&#xB2;C bus.</li>
+<li>Send a &quot;Repeated start&quot;: Set SDA high, let SCL go high, then pull SDA low again. This starts a new I&#xB2;C bus message without releasing the bus.</li>
+</ul>
+</blockquote>
+<h2 id="bypass-the-lock">Bypass the lock</h2>
+<p>Now, the goal is clear,</p>
+<ul>
+<li>Set the address to zero. It is not locked, so <code>i2c_address_valid</code> is 1.</li>
+<li>Lock all pages to bypass the check in <code>I2C_READ</code></li>
+<li>Read all 256 bytes in the memory.</li>
+</ul>
+<p>To implemented the I&#xB2;C protocol,
+I copy those code in the simulator and modify them.
+For example,</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">/* Original code in the simulator */</span>
 <span class="token keyword">void</span> <span class="token function">send_start</span><span class="token punctuation">(</span>__int64 a1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">seeprom_write_scl</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">seeprom_write_sda</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -118,7 +1358,10 @@ I2C_READ
   RAW_I2C_SCL <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
   RAW_I2C_SDA <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><p>And below is our main exploit, you can find the full script at <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/google/hardware/flagrom/_files/user.c"target="_blank">here</a></p><p>First, set the address to zero</p><pre class="language-"><code class="lang-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;start\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>And below is our main exploit, you can find the full script at <a href="https://github.com/sasdf/ctf/blob/master/writeup/2019/google/hardware/flagrom/_files/user.c" target="_blank">here</a></p>
+<p>First, set the address to zero</p>
+<pre class="language-"><code class="lang-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;start\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">send_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;op load_address\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -128,13 +1371,17 @@ I2C_READ
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;addr 0\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">send_byte</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">recv_ack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;failed 1\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">goto</span> end<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</code></pre><p>Next, lock all pages.</p><pre class="language-"><code class="lang-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;restart\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Next, lock all pages.</p>
+<pre class="language-"><code class="lang-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;restart\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">send_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;op secure\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">send_byte</span><span class="token punctuation">(</span>SEEPROM_I2C_ADDR_SECURE <span class="token operator">|</span> <span class="token number">0</span>b1111<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">recv_ack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;failed 2\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">goto</span> end<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</code></pre><p>Finally, dump the whole memory.</p><pre class="language-"><code class="lang-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;restart 2\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Finally, dump the whole memory.</p>
+<pre class="language-"><code class="lang-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;restart 2\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">send_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;op read\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -147,4 +1394,76 @@ I2C_READ
     CHAROUT <span class="token operator">=</span> c<span class="token punctuation">;</span> <span class="token comment">// print out the byte</span>
 <span class="token punctuation">}</span>
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre></section></div></div></div><a href="../../crypto/cell/"class="navigation navigation-prev"aria-label="Previous page: crypto - Reverse a cellular automata"><i class="fa fa-angle-left"></i> </a><a href="../minetest/"class="navigation navigation-next"aria-label="Next page: hardware - minetest"><i class="fa fa-angle-right"></i></a></div><script>var gitbook=gitbook||[];gitbook.push(function(){gitbook.page.hasChanged({page:{name:"flagrom",category:"Hardware",points:187,solves:57,title:"hardware - flagrom",level:"4.1.4",depth:2,next:{title:"hardware - minetest",level:"4.1.5",depth:2,path:"writeup/2019/google/hardware/minetest/README.md",ref:"writeup/2019/google/hardware/minetest/README.md",articles:[]},previous:{title:"crypto - Reverse a cellular automata",level:"4.1.3",depth:2,path:"writeup/2019/google/crypto/cell/README.md",ref:"writeup/2019/google/crypto/cell/README.md",articles:[]},dir:"ltr"},config:{gitbook:"*",theme:"default",variables:{},plugins:["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],pluginsConfig:{prism:{css:["prismjs/themes/prism-tomorrow.css"],lang:{C:"c","C++":"cpp",asm:"nasm"}},disqus:{useIdentifier:!1,shortName:"sasdfwriteup"},search:{maxIndexSize:1e6},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!1,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},lunr:{maxIndexSize:1e6,ignoreSpecialCharacters:!1},katex:{},fontsettings:{theme:"white",family:"sans",size:2},sharing:{facebook:!0,twitter:!0,google:!1,weibo:!1,instapaper:!1,vk:!1,all:["facebook","google","twitter","weibo","instapaper"]},"theme-default":{styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"},showLevel:!1},"writeup-utils":{filePrefix:"https://github.com/sasdf/ctf/blob/master",repoPrefix:"https://github.com/sasdf/ctf/blob/master",rawPrefix:"https://raw.githubusercontent.com/sasdf/ctf/master"}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"}},file:{path:"writeup/2019/google/hardware/flagrom/README.md",mtime:"2020-08-30T19:19:46.181Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2020-08-30T20:48:48.903Z"},basePath:"../../../../..",book:{language:""}})})</script></div><script src="../../../../../gitbook/gitbook.js"></script><script src="../../../../../gitbook/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script><script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script><script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script></body></html>
+</code></pre>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../crypto/cell/" class="navigation navigation-prev " aria-label="Previous page: crypto - Reverse a cellular automata">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../minetest/" class="navigation navigation-next " aria-label="Next page: hardware - minetest">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"name":"flagrom","category":"Hardware","points":187,"solves":57,"title":"hardware - flagrom","level":"4.1.4","depth":2,"next":{"title":"hardware - minetest","level":"4.1.5","depth":2,"path":"writeup/2019/google/hardware/minetest/README.md","ref":"writeup/2019/google/hardware/minetest/README.md","articles":[]},"previous":{"title":"crypto - Reverse a cellular automata","level":"4.1.3","depth":2,"path":"writeup/2019/google/crypto/cell/README.md","ref":"writeup/2019/google/crypto/cell/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{"maxIndexSize":1000000},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2019/google/hardware/flagrom/README.md","mtime":"2020-08-30T20:59:08.344Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-30T20:59:19.877Z"},"basePath":"../../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

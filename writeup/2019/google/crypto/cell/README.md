@@ -6,7 +6,7 @@ solves: 148
 ---
 
 {% ignore %}
-[Go to rendered GitBook version](https://sasdf.cf/ctf/)
+[Go to rendered GitBook version](https://sasdf.github.io/ctf/)
 {% endignore %}
 
 > It's hard to reverse a step in a cellular automata, but solvable if done right.
