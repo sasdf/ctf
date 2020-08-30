@@ -1,0 +1,74 @@
+import requests
+import codecs
+import hashlib
+import multiprocessing as mp
+from tqdm import tqdm, trange
+
+
+base = 'https://quantumpyramids.web.ctfcompetition.com'
+sess = requests.Session()
+
+m = "opensesame"
+sig = """
+0000000000000000df4d96b2ff09b6190677908198f5e4051168d68f480d4dd42a901
+66e81c060b92e5ab69b6acbffce1dc4aeb31cbcc2c970aa9448ab0f320264003fac44
+bbfc0e1f4694a05e1b2b95987cadccf2a5763f714dec18c685e3bd7b1d619af4b37da
+50500f770e9460f4a2a214f2dcbe2449b43f3fd877fea163ea293e8926adbcc1a19f1
+742b790d9a2e5ebb126013db33be2517b1eba888085d96aa351e77f31c6d68e51a8ea
+6bb7a900cd0ea498f68fc201b6feebe35689c4b3df496f65367c2c2058e2ff9dad130
+bd1a633e8f04bdd5ea62f4238f5e51599854e62e1b3c23e13c9220ea0586455d6bd9b
+6851ad733f56a39a6e15c1728cbd9ba35152dbbe5fceb26a92635f80bb417678531ce
+5e44c16efa8219b0230261f71582d73d7b7221363e3cf98a145a1c2aa3457655d3afc
+eb9303e99b96d3e23a4861014ec0e05cbe346b8a1da628b9aa39afc66a0d9f90a2d64
+2842118ef9a8bb9f286ffba794f702dba6b1185cc125754e8bba8792b9e36ecccc143
+4da85224d9c11b8f0f2cb16cee731bd9ee03521f7283c2f9ab58ac2e7fe1f6356b1db
+8ccc232176a8ee77c46f5175ccff418ff65723e649883f25ac8f57d6cb2a86a58de32
+9a85c72f64263f93dcf65f09e83a50964eb7b3c9d1b75cf52e09d0123a3d441c98a3e
+3606b92b4ef893662bc957f473d9163f5cedb4d7d3b897b73910c1054fcb7006194ef
+79062a7238df579dae346b5a7195c8af8762b300989131db227234c6e71208b084b19
+1d84010b4caaef40b918985cd1ad248a2cfd3195c0ea8419ad204b4e1cbc35cb433bf
+7d7ba45e02d19a4e66b2f1359d18f94ca932b6a397a0c3e3676134e039d607846ab1d
+53c862c1757e2c8c314cc52e019f25b4dc6a7f70dd259b81ae116d88586f853153611
+baa11788563f141b165466d760d4d9f69a8ebe09212f9867e1a88a18ba6e136723c23
+473484558a54b65eee23b2233f4c94286ff90d13ac4ca4f9a6d3c559fa1e9a4915217
+3f114099038675fed6f514d45bdb46a1e86bfe8ce1dd0fa27994fbcb3a0248fb44b6c
+8add6d8869ca19f7bdced23d1afd97ef117b2e22ef500741f0cf1e1a789fb06715162
+8445094968f18c3b3c8d8b006c4a80a62c49eab47d66cff570b20ba620b0303795c41
+07bf3ce6059aa8cdeecc865e34ae0d85ab995bc1417456e68c087500c84b7f3ca4404
+caf4ae769a895d336f3fafa5f846fff22b7f7b2495e7850c3c71c1cd283a31a360f3f
+c5686c25905821f7cb84d113f2a3956c0537e83d2eac009328398c34d44eb8fbb5606
+b624823740363defd25ac69b05da7173bb6e95d110c11c2b0773965f25a51c0338ad5
+b4e863aef4a1ecd86d98c56a42dc491cdf7c3f5b6d8761ba56bd15cab6f00f5e13ce6
+bc9f1c7005371f200b129b6f93a92160e8b9bb4606303e7e780eb11c64873dca575fb
+d5213e526fff11f70e7903125c9e1406bf8dd55297ede4ca4d13fa6173adb02826e08
+96ef929a5e8a0a1c0c5a1aed821fd7e2c2573daca6da9b7bc6d425df5416311d7b9a3
+7671ae5dabf8ced7cb4247655accc307626bcfc4e1bcee0b181bcf0fd8068c11655ce
+677231b06f670eb252ca85359749681ba890a8ca8ac083604591f98f3fe5a07ba094e
+1b0ea99a0d7323df8dd68fc9d7bba51fb978294e58cd70f5e70348a4525f866d04d93
+8c0ebf1f8e5ff083a84e9022d1d0e92376707d205025ce3ee24d8d25e3d53fe8c5cc1
+cd00119a4869f22e67226d92e428bbcd56210849184a68e6eebe5b501d419b53fe5c6
+c7f431f
+"""
+
+
+def sign(msg):
+    body = {"message": codecs.encode(msg, 'base64').decode().replace('\n', '')}
+    res = sess.post(base + '/sign', json=body)
+    assert res.status_code == 200
+    res = res.json()
+    assert res['status'] == 'Signature created.', res
+    return codecs.decode(res['signature'].encode(), 'base64')
+
+
+def verify(msg, sig):
+    body = {
+        "message": codecs.encode(msg, 'base64').decode().replace('\n', ''),
+        "signature": codecs.encode(sig, 'base64').decode().replace('\n', ''),
+    }
+    res = sess.post(base + '/verify', json=body)
+    assert res.status_code == 200
+    res = res.json()
+    return res
+
+sig = bytes.fromhex(sig.replace('\n', '').replace(' ', ''))
+print(verify(m.encode(), sig))

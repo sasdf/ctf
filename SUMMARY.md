@@ -4,6 +4,13 @@
 
 ## Writeups
 
+### 2020
+* Google
+    * [crypto - Oracle](writeup/2020/google/crypto/oracle/README.md)
+    * [crypto - YAFM](writeup/2020/google/crypto/yafm/README.md)
+    * [crypto - Quantum Pyramids](writeup/2020/google/crypto/quantum/README.md)
+    * [crypto - SHArky](writeup/2020/google/crypto/sharky/README.md)
+
 ### 2019
 * Google
     * [crypto - reality](writeup/2019/google/crypto/reality/README.md)
