@@ -5,6 +5,9 @@
 ## Writeups
 
 ### 2020
+* TWCTF
+    * [rev - metal](writeup/2020/tokyoWesterns/rev/metal/README.md)
+    * [crypto - XOR and shift encryptor](writeup/2020/tokyoWesterns/crypto/xs/README.md)
 * Google
     * [crypto - Oracle](writeup/2020/google/crypto/oracle/README.md)
     * [crypto - YAFM](writeup/2020/google/crypto/yafm/README.md)
