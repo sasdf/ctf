@@ -1,0 +1,11 @@
+service share_the_flag
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = share_the_flag
+	type = UNLISTED	
+	port = 37896
+	server = /chall.py
+}

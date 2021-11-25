@@ -87,3 +87,16 @@
     * [rev - plam](tasks/2019/BalsnCTF/rev/plam/README.md)
     * [rev - vim](tasks/2019/BalsnCTF/rev/vim/README.md)
 
+### 2020
+* Balsn CTF
+    * [crypto - aeshash](tasks/2020/BalsnCTF/crypto/aeshash/README.md)
+
+### 2021
+* ACSC
+    * [crypto - Share The Flag](tasks/2021/ACSC/crypto/share_the_flag/README.md)
+
+* Balsn CTF
+    * [Overview](tasks/2021/BalsnCTF/README.md)
+    * [crypto - 1337 pins](tasks/2021/BalsnCTF/crypto/1337pins/README.md)
+    * [crypto - dlog](tasks/2021/BalsnCTF/crypto/dlog/README.md)
+    * [crypto - trinity](tasks/2021/BalsnCTF/crypto/trinity/README.md)

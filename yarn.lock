@@ -2184,9 +2184,9 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-"i18n@github:gitbookio/i18n-node#f26fbfa6b1d7a3bb086ff7849ca262f58a30255b":
+i18n@GitbookIO/i18n-node#f26fbfa6b1d7a3bb086ff7849ca262f58a30255b:
   version "0.5.0"
-  resolved "https://codeload.github.com/gitbookio/i18n-node/tar.gz/f26fbfa6b1d7a3bb086ff7849ca262f58a30255b"
+  resolved "https://codeload.github.com/GitbookIO/i18n-node/tar.gz/f26fbfa6b1d7a3bb086ff7849ca262f58a30255b"
   dependencies:
     debug "^3"
     mustache "*"
@@ -4501,9 +4501,9 @@ semver@~5.1.0:
   version "5.1.1"
   resolved "http://registry.npmjs.org/semver/-/semver-5.1.1.tgz#a3292a373e6f3e0798da0b20641b9a9c5bc47e19"
 
-"send@github:gitbookio/send#9081de9cb0fc85d60e871685f252c98db764cb55":
+send@GitbookIO/send#9081de9cb0fc85d60e871685f252c98db764cb55:
   version "0.2.0"
-  resolved "https://codeload.github.com/gitbookio/send/tar.gz/9081de9cb0fc85d60e871685f252c98db764cb55"
+  resolved "https://codeload.github.com/GitbookIO/send/tar.gz/9081de9cb0fc85d60e871685f252c98db764cb55"
   dependencies:
     debug "^3"
     fresh "~0.2.1"

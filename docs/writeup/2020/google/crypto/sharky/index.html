@@ -1,4 +1,1364 @@
-<!DOCTYPE HTML><html lang=""><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>crypto - SHArky · GitBook</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content=""name="description"><meta content="GitBook 3.2.3"name="generator"><link href="../../../../../gitbook/style.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-search/search.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css"rel="stylesheet"><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../../../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="../quantum/"rel="prev"/></head><body><div class="book"><div class="book-summary"><nav role="navigation"><ul class="summary"><li class="chapter"data-level="1.1"data-path="../../../../../"><a href="../../../../../">Introduction</a></li><li class="header">Writeups</li><li class="header">2020</li><li class="chapter"data-level="3.1"><span>TWCTF</span><ul class="articles"><li class="chapter"data-level="3.1.1"data-path="../../../tokyoWesterns/rev/metal/"><a href="../../../tokyoWesterns/rev/metal/">rev - metal</a></li><li class="chapter"data-level="3.1.2"data-path="../../../tokyoWesterns/crypto/xs/"><a href="../../../tokyoWesterns/crypto/xs/">crypto - XOR and shift encryptor</a></li></ul></li><li class="chapter"data-level="3.2"><span>Google</span><ul class="articles"><li class="chapter"data-level="3.2.1"data-path="../oracle/"><a href="../oracle/">crypto - Oracle</a></li><li class="chapter"data-level="3.2.2"data-path="../yafm/"><a href="../yafm/">crypto - YAFM</a></li><li class="chapter"data-level="3.2.3"data-path="../quantum/"><a href="../quantum/">crypto - Quantum Pyramids</a></li><li class="chapter active"data-level="3.2.4"data-path="./"><a href="./">crypto - SHArky</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="4.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="4.1.1"data-path="../../../../2019/google/crypto/reality/"><a href="../../../../2019/google/crypto/reality/">crypto - reality</a></li><li class="chapter"data-level="4.1.2"data-path="../../../../2019/google/crypto/qkd/"><a href="../../../../2019/google/crypto/qkd/">crypto - Quantum Key Distribution</a></li><li class="chapter"data-level="4.1.3"data-path="../../../../2019/google/crypto/cell/"><a href="../../../../2019/google/crypto/cell/">crypto - Reverse a cellular automata</a></li><li class="chapter"data-level="4.1.4"data-path="../../../../2019/google/hardware/flagrom/"><a href="../../../../2019/google/hardware/flagrom/">hardware - flagrom</a></li><li class="chapter"data-level="4.1.5"data-path="../../../../2019/google/hardware/minetest/"><a href="../../../../2019/google/hardware/minetest/">hardware - minetest</a></li><li class="chapter"data-level="4.1.6"data-path="../../../../2019/google/hardware/remote/"><a href="../../../../2019/google/hardware/remote/">hardware - Remote Control</a></li><li class="chapter"data-level="4.1.7"data-path="../../../../2019/google/web/glotto/"><a href="../../../../2019/google/web/glotto/">web - gLotto</a></li><li class="chapter"data-level="4.1.8"data-path="../../../../2019/google/rev/dial/"><a href="../../../../2019/google/rev/dial/">rev - Dialtone</a></li></ul></li><li class="chapter"data-level="4.2"><span>Plaid</span><ul class="articles"><li class="chapter"data-level="4.2.1"data-path="../../../../2019/plaid/crypto/cypress/"><a href="../../../../2019/plaid/crypto/cypress/">crypto - SPlaid Cypress</a></li><li class="chapter"data-level="4.2.2"data-path="../../../../2019/plaid/rev/bigmaffs/"><a href="../../../../2019/plaid/rev/bigmaffs/">rev - big maffs</a></li></ul></li><li class="header">2018</li><li class="chapter"data-level="5.1"><span>hxp</span><ul class="articles"><li class="chapter"data-level="5.1.1"data-path="../../../../2018/hxp/crypto/blinder_v2/"><a href="../../../../2018/hxp/crypto/blinder_v2/">crypto - blinder_v2</a></li><li class="chapter"data-level="5.1.2"data-path="../../../../2018/hxp/crypto/blinder/"><a href="../../../../2018/hxp/crypto/blinder/">crypto - blinder</a></li><li class="chapter"data-level="5.1.3"data-path="../../../../2018/hxp/crypto/curve/"><a href="../../../../2018/hxp/crypto/curve/">crypto - curve12833227</a></li><li class="chapter"data-level="5.1.4"data-path="../../../../2018/hxp/crypto/oops/"><a href="../../../../2018/hxp/crypto/oops/">crypto - oops2</a></li><li class="chapter"data-level="5.1.5"data-path="../../../../2018/hxp/crypto/blind/"><a href="../../../../2018/hxp/crypto/blind/">crypto - blind</a></li></ul></li><li class="chapter"data-level="5.2"><span>Pwn2Win</span><ul class="articles"><li class="chapter"data-level="5.2.1"data-path="../../../../2018/pwn2win/rev/back_to_bletchley_park/"><a href="../../../../2018/pwn2win/rev/back_to_bletchley_park/">cryrev - Back To Bletchley Park</a></li><li class="chapter"data-level="5.2.2"data-path="../../../../2018/pwn2win/crypto/GCM/"><a href="../../../../2018/pwn2win/crypto/GCM/">crypto - GCM</a></li></ul></li><li class="chapter"data-level="5.3"><span>HITCON</span><ul class="articles"><li class="chapter"data-level="5.3.1"data-path="../../../../2018/hitcon/crypto/lostmod/"><a href="../../../../2018/hitcon/crypto/lostmod/">crypto - Lost Modulus</a></li><li class="chapter"data-level="5.3.2"data-path="../../../../2018/hitcon/crypto/secret/"><a href="../../../../2018/hitcon/crypto/secret/">crypwn - Secret Note</a></li></ul></li><li class="chapter"data-level="5.4"><span>Hack.lu</span><ul class="articles"><li class="chapter"data-level="5.4.1"data-path="../../../../2018/Hack.lu/crypto/escape/"><a href="../../../../2018/Hack.lu/crypto/escape/">crypto - Escape the Grid</a></li><li class="chapter"data-level="5.4.2"data-path="../../../../2018/Hack.lu/crypto/relation/"><a href="../../../../2018/Hack.lu/crypto/relation/">crypto - Relations</a></li><li class="chapter"data-level="5.4.3"data-path="../../../../2018/Hack.lu/crypto/lfsr/"><a href="../../../../2018/Hack.lu/crypto/lfsr/">crypto - LFSR StreamCipher</a><ul class="articles"><li class="chapter"data-level="5.4.3.1"data-path="../../../../2018/Hack.lu/crypto/lfsr/task.html"><a href="../../../../2018/Hack.lu/crypto/lfsr/task.html">task description</a></li></ul></li></ul></li><li class="chapter"data-level="5.5"><span>Hackover</span><ul class="articles"><li class="chapter"data-level="5.5.1"data-path="../../../../2018/HackOver/crypto/oblivious/"><a href="../../../../2018/HackOver/crypto/oblivious/">crypto - oblivious</a></li><li class="chapter"data-level="5.5.2"data-path="../../../../2018/HackOver/crypto/secure_hash_v2/"><a href="../../../../2018/HackOver/crypto/secure_hash_v2/">crypto - secure_hash_v2</a></li><li class="chapter"data-level="5.5.3"data-path="../../../../2018/HackOver/rev/flagmaker/"><a href="../../../../2018/HackOver/rev/flagmaker/">rev - flagmaker</a></li></ul></li><li class="chapter"data-level="5.6"><span>Teaser Dragon</span><ul class="articles"><li class="chapter"data-level="5.6.1"data-path="../../../../2018/TeaserDragon/rev/Chains of trust/"><a href="../../../../2018/TeaserDragon/rev/Chains of trust/">rev - Chains of trust</a></li></ul></li><li class="chapter"data-level="5.7"><span>Defcamp</span><ul class="articles"><li class="chapter"data-level="5.7.1"data-path="../../../../2018/defcamp/rev/validator/"><a href="../../../../2018/defcamp/rev/validator/">rev - validator</a></li><li class="chapter"data-level="5.7.2"data-path="../../../../2018/defcamp/rev/memsome/"><a href="../../../../2018/defcamp/rev/memsome/">rev - memsome</a></li><li class="chapter"data-level="5.7.3"data-path="../../../../2018/defcamp/web/secops/"><a href="../../../../2018/defcamp/web/secops/">web - secops</a></li><li class="chapter"data-level="5.7.4"data-path="../../../../2018/defcamp/web/chat/"><a href="../../../../2018/defcamp/web/chat/">web - chat</a></li><li class="chapter"data-level="5.7.5"data-path="../../../../2018/defcamp/misc/voices/"><a href="../../../../2018/defcamp/misc/voices/">misc - voices</a></li></ul></li><li class="chapter"data-level="5.8"><span>HackIT</span><ul class="articles"><li class="chapter"data-level="5.8.1"data-path="../../../../2018/HackIT/coffee_overflow/"><a href="../../../../2018/HackIT/coffee_overflow/">rev - coffee_overflow</a></li></ul></li><li class="header">My Tasks</li><li class="header">2018</li><li class="chapter"data-level="7.1"><span>AIS3 Final</span><ul class="articles"><li class="chapter"data-level="7.1.1"data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/"><a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">crypto - mama</a></li><li class="chapter"data-level="7.1.2"data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/"><a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">crypto - secureSub</a></li><li class="chapter"data-level="7.1.3"data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/"><a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">crypto - xorlnarmoni'akda</a></li><li class="chapter"data-level="7.1.4"data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/"><a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">rev - SecDES</a></li><li class="chapter"data-level="7.1.5"data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/"><a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">rev - Almighty Duct Tape</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="8.1"><span>Balsn CTF</span><ul class="articles"><li class="chapter"data-level="8.1.1"data-path="../../../../../tasks/2019/BalsnCTF/"><a href="../../../../../tasks/2019/BalsnCTF/">Overview</a></li><li class="chapter"data-level="8.1.2"data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">crypto - collision</a></li><li class="chapter"data-level="8.1.3"data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">crypto - harc4</a></li><li class="chapter"data-level="8.1.4"data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">crypto - unpredictable</a></li><li class="chapter"data-level="8.1.5"data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/"><a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">crypwn - securenote</a></li><li class="chapter"data-level="8.1.6"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">misc - pyshv1</a></li><li class="chapter"data-level="8.1.7"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">misc - pyshv2</a></li><li class="chapter"data-level="8.1.8"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">misc - pyshv3</a></li><li class="chapter"data-level="8.1.9"data-path="../../../../../tasks/2019/BalsnCTF/misc/john/"><a href="../../../../../tasks/2019/BalsnCTF/misc/john/">misc - john</a></li><li class="chapter"data-level="8.1.10"data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/"><a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">rev - plam</a></li><li class="chapter"data-level="8.1.11"data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/"><a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">rev - vim</a></li></ul></li><li class="divider"></li><li><a href="https://www.gitbook.com"target="blank"class="gitbook-link">Published with GitBook</a></li></ul></nav></div><div class="book-body"><div class="body-inner"><div class="book-header"role="navigation"><h1><i class="fa fa-circle-o-notch fa-spin"></i> <a href="../../../../..">crypto - SHArky</a></h1></div><div class="page-wrapper"role="main"tabindex="-1"><div class="page-inner"><section class="markdown-section normal"><div class="wpHeaderContainer"><h1 id="sharky">SHArky</h1><div><span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2020/google/crypto/sharky"target="_blank"><img alt="Attachments"src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github"></a></span><span><img alt="crypto - 231"src="https://img.shields.io/badge/crypto-231-green.svg?style=for-the-badge&amp;maxAge=3600"></span><span><img alt="38 solves"src="https://img.shields.io/badge/solves-38-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600"></span></div></div><p></p><blockquote><p>Can you find the round keys?</p></blockquote><h2 id="time">Time</h2><p>2 hours</p><h1 id="behavior">Behavior</h1><p>We got a modified SHA256 in this task. The first 8 round constants are replaced by 8 random values, and our goal is to recover those 8 round constants with only one output hash and its input.</p><h1 id="solution">Solution</h1><h2 id="tldr">TL;DR</h2><ol><li>Subtract the IV from the output</li><li>Undo last 56 rounds</li><li>Recover round constants from 8 to 1 by propagating the error the first round.</li></ol><h2 id="sha256">SHA256</h2><p>The overall structure of SHA256 looks like this:</p><pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">sha256</span><span class="token punctuation">(</span>inp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>crypto - SHArky · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../quantum/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../../">
+            
+                <a href="../../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Writeups</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2020</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    TWCTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../tokyoWesterns/rev/metal/">
+            
+                <a href="../../../tokyoWesterns/rev/metal/">
+            
+                    
+                    rev - metal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../tokyoWesterns/crypto/xs/">
+            
+                <a href="../../../tokyoWesterns/crypto/xs/">
+            
+                    
+                    crypto - XOR and shift encryptor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../oracle/">
+            
+                <a href="../oracle/">
+            
+                    
+                    crypto - Oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../yafm/">
+            
+                <a href="../yafm/">
+            
+                    
+                    crypto - YAFM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../quantum/">
+            
+                <a href="../quantum/">
+            
+                    
+                    crypto - Quantum Pyramids
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    crypto - SHArky
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../2019/google/crypto/reality/">
+            
+                <a href="../../../../2019/google/crypto/reality/">
+            
+                    
+                    crypto - reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../2019/google/crypto/qkd/">
+            
+                <a href="../../../../2019/google/crypto/qkd/">
+            
+                    
+                    crypto - Quantum Key Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../2019/google/crypto/cell/">
+            
+                <a href="../../../../2019/google/crypto/cell/">
+            
+                    
+                    crypto - Reverse a cellular automata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../2019/google/hardware/flagrom/">
+            
+                <a href="../../../../2019/google/hardware/flagrom/">
+            
+                    
+                    hardware - flagrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../../2019/google/hardware/minetest/">
+            
+                <a href="../../../../2019/google/hardware/minetest/">
+            
+                    
+                    hardware - minetest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../../2019/google/hardware/remote/">
+            
+                <a href="../../../../2019/google/hardware/remote/">
+            
+                    
+                    hardware - Remote Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../../../2019/google/web/glotto/">
+            
+                <a href="../../../../2019/google/web/glotto/">
+            
+                    
+                    web - gLotto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../../../2019/google/rev/dial/">
+            
+                <a href="../../../../2019/google/rev/dial/">
+            
+                    
+                    rev - Dialtone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    Plaid
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../../2019/plaid/crypto/cypress/">
+            
+                <a href="../../../../2019/plaid/crypto/cypress/">
+            
+                    
+                    crypto - SPlaid Cypress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../../2019/plaid/rev/bigmaffs/">
+            
+                <a href="../../../../2019/plaid/rev/bigmaffs/">
+            
+                    
+                    rev - big maffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    hxp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../../../2018/hxp/crypto/blinder_v2/">
+            
+                <a href="../../../../2018/hxp/crypto/blinder_v2/">
+            
+                    
+                    crypto - blinder_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../../../2018/hxp/crypto/blinder/">
+            
+                <a href="../../../../2018/hxp/crypto/blinder/">
+            
+                    
+                    crypto - blinder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../../../2018/hxp/crypto/curve/">
+            
+                <a href="../../../../2018/hxp/crypto/curve/">
+            
+                    
+                    crypto - curve12833227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../../../../2018/hxp/crypto/oops/">
+            
+                <a href="../../../../2018/hxp/crypto/oops/">
+            
+                    
+                    crypto - oops2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../../../../2018/hxp/crypto/blind/">
+            
+                <a href="../../../../2018/hxp/crypto/blind/">
+            
+                    
+                    crypto - blind
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    Pwn2Win
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../../../../2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                <a href="../../../../2018/pwn2win/rev/back_to_bletchley_park/">
+            
+                    
+                    cryrev - Back To Bletchley Park
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../../../../2018/pwn2win/crypto/GCM/">
+            
+                <a href="../../../../2018/pwn2win/crypto/GCM/">
+            
+                    
+                    crypto - GCM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" >
+            
+                <span>
+            
+                    
+                    HITCON
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="../../../../2018/hitcon/crypto/lostmod/">
+            
+                <a href="../../../../2018/hitcon/crypto/lostmod/">
+            
+                    
+                    crypto - Lost Modulus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.2" data-path="../../../../2018/hitcon/crypto/secret/">
+            
+                <a href="../../../../2018/hitcon/crypto/secret/">
+            
+                    
+                    crypwn - Secret Note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                    Hack.lu
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.1" data-path="../../../../2018/Hack.lu/crypto/escape/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/escape/">
+            
+                    
+                    crypto - Escape the Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.2" data-path="../../../../2018/Hack.lu/crypto/relation/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/relation/">
+            
+                    
+                    crypto - Relations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.3" data-path="../../../../2018/Hack.lu/crypto/lfsr/">
+            
+                <a href="../../../../2018/Hack.lu/crypto/lfsr/">
+            
+                    
+                    crypto - LFSR StreamCipher
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.3.1" data-path="../../../../2018/Hack.lu/crypto/lfsr/task.html">
+            
+                <a href="../../../../2018/Hack.lu/crypto/lfsr/task.html">
+            
+                    
+                    task description
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" >
+            
+                <span>
+            
+                    
+                    Hackover
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.5.1" data-path="../../../../2018/HackOver/crypto/oblivious/">
+            
+                <a href="../../../../2018/HackOver/crypto/oblivious/">
+            
+                    
+                    crypto - oblivious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.2" data-path="../../../../2018/HackOver/crypto/secure_hash_v2/">
+            
+                <a href="../../../../2018/HackOver/crypto/secure_hash_v2/">
+            
+                    
+                    crypto - secure_hash_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.3" data-path="../../../../2018/HackOver/rev/flagmaker/">
+            
+                <a href="../../../../2018/HackOver/rev/flagmaker/">
+            
+                    
+                    rev - flagmaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" >
+            
+                <span>
+            
+                    
+                    Teaser Dragon
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.1" data-path="../../../../2018/TeaserDragon/rev/Chains of trust/">
+            
+                <a href="../../../../2018/TeaserDragon/rev/Chains of trust/">
+            
+                    
+                    rev - Chains of trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" >
+            
+                <span>
+            
+                    
+                    Defcamp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.7.1" data-path="../../../../2018/defcamp/rev/validator/">
+            
+                <a href="../../../../2018/defcamp/rev/validator/">
+            
+                    
+                    rev - validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.2" data-path="../../../../2018/defcamp/rev/memsome/">
+            
+                <a href="../../../../2018/defcamp/rev/memsome/">
+            
+                    
+                    rev - memsome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.3" data-path="../../../../2018/defcamp/web/secops/">
+            
+                <a href="../../../../2018/defcamp/web/secops/">
+            
+                    
+                    web - secops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.4" data-path="../../../../2018/defcamp/web/chat/">
+            
+                <a href="../../../../2018/defcamp/web/chat/">
+            
+                    
+                    web - chat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.5" data-path="../../../../2018/defcamp/misc/voices/">
+            
+                <a href="../../../../2018/defcamp/misc/voices/">
+            
+                    
+                    misc - voices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" >
+            
+                <span>
+            
+                    
+                    HackIT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.8.1" data-path="../../../../2018/HackIT/coffee_overflow/">
+            
+                <a href="../../../../2018/HackIT/coffee_overflow/">
+            
+                    
+                    rev - coffee_overflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">My Tasks</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    AIS3 Final
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                    
+                    crypto - mama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                    
+                    crypto - secureSub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                    
+                    crypto - xorlnarmoni'akda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                    
+                    rev - SecDES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                    
+                    rev - Almighty Duct Tape
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../../../../../tasks/2019/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                    
+                    crypto - collision
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                    
+                    crypto - harc4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                    
+                    crypto - unpredictable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                    
+                    crypwn - securenote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                    
+                    misc - pyshv1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                    
+                    misc - pyshv2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.8" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                    
+                    misc - pyshv3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.9" data-path="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                    
+                    misc - john
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.10" data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                    
+                    rev - plam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.11" data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                    
+                    rev - vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../../../../../tasks/2020/BalsnCTF/crypto/aeshash/">
+            
+                <a href="../../../../../tasks/2020/BalsnCTF/crypto/aeshash/">
+            
+                    
+                    crypto - aeshash
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2021</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" >
+            
+                <span>
+            
+                    
+                    ACSC
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../../../../../tasks/2021/ACSC/crypto/share_the_flag/">
+            
+                <a href="../../../../../tasks/2021/ACSC/crypto/share_the_flag/">
+            
+                    
+                    crypto - Share The Flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.2.1" data-path="../../../../../tasks/2021/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2.2" data-path="../../../../../tasks/2021/BalsnCTF/crypto/1337pins/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/crypto/1337pins/">
+            
+                    
+                    crypto - 1337 pins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2.3" data-path="../../../../../tasks/2021/BalsnCTF/crypto/dlog/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/crypto/dlog/">
+            
+                    
+                    crypto - dlog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2.4" data-path="../../../../../tasks/2021/BalsnCTF/crypto/trinity/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/crypto/trinity/">
+            
+                    
+                    crypto - trinity
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../../.." >crypto - SHArky</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div class="wpHeaderContainer">
+                    <h1 id="sharky">SHArky</h1>
+                    <div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2020/google/crypto/sharky" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/crypto-231-green.svg?style=for-the-badge&amp;maxAge=3600" alt="crypto - 231"></span><span><img src="https://img.shields.io/badge/solves-38-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="38 solves"></span></div>
+                </div><p></p>
+<blockquote>
+<p>Can you find the round keys?</p>
+</blockquote>
+<h2 id="time">Time</h2>
+<p>2 hours</p>
+<h1 id="behavior">Behavior</h1>
+<p>We got a modified SHA256 in this task.
+The first 8 round constants are replaced by 8 random values,
+and our goal is to recover those 8 round constants with only one output hash and its input.</p>
+<h1 id="solution">Solution</h1>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li>Subtract the IV from the output</li>
+<li>Undo last 56 rounds</li>
+<li>Recover round constants from 8 to 1 by propagating the error the first round.</li>
+</ol>
+<h2 id="sha256">SHA256</h2>
+<p>The overall structure of SHA256 looks like this:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">sha256</span><span class="token punctuation">(</span>inp<span class="token punctuation">)</span><span class="token punctuation">:</span>
     padded <span class="token operator">=</span> pad<span class="token punctuation">(</span>inp<span class="token punctuation">)</span> <span class="token comment"># pad to multiple of 64 bytes</span>
     blocks <span class="token operator">=</span> chunk<span class="token punctuation">(</span>padded<span class="token punctuation">)</span> <span class="token comment"># split each 64 bytes blocks</span>
     state <span class="token operator">=</span> IV
@@ -6,8 +1366,14 @@
         w <span class="token operator">=</span> compute_w<span class="token punctuation">(</span>block<span class="token punctuation">)</span>
         s <span class="token operator">=</span> compression<span class="token punctuation">(</span>state<span class="token punctuation">,</span> w<span class="token punctuation">,</span> ROUND_KEYS<span class="token punctuation">)</span>
         state <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffffffff</span> <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">]</span>
-</code></pre><p>In this task, our input has only one block, so the for loop only runs once. Also, we know what the input is, so we have all those <code>w</code>.</p><p>The last step can be reversed by subtraction:</p><pre class="language-"><code class="lang-python">state <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>x <span class="token operator">-</span> y<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffffffff</span> <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> IV<span class="token punctuation">)</span><span class="token punctuation">]</span>
-</code></pre><p>Next, the compression function is:</p><pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">compression</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">,</span> w<span class="token punctuation">,</span> round_keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+</code></pre>
+<p>In this task, our input has only one block, so the for loop only runs once.
+Also, we know what the input is, so we have all those <code>w</code>.</p>
+<p>The last step can be reversed by subtraction:</p>
+<pre class="language-"><code class="lang-python">state <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>x <span class="token operator">-</span> y<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffffffff</span> <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> IV<span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Next, the compression function is:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">compression</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">,</span> w<span class="token punctuation">,</span> round_keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         state <span class="token operator">=</span> self<span class="token punctuation">.</span>compression_step<span class="token punctuation">(</span>state<span class="token punctuation">,</span> round_keys<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> state
@@ -22,7 +1388,9 @@
     tmp2 <span class="token operator">=</span> <span class="token punctuation">(</span>tmp1 <span class="token operator">+</span> s0 <span class="token operator">+</span> maj<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffffffff</span>
     tmp3 <span class="token operator">=</span> <span class="token punctuation">(</span>d <span class="token operator">+</span> tmp1<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffffffff</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>tmp2<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> tmp3<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">,</span> g<span class="token punctuation">)</span>
-</code></pre><p>It won&apos;t be too hard to write its inverse by changing order of instructions and terms:</p><pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">decompression_step</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">,</span> k_i<span class="token punctuation">,</span> w_i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+</code></pre>
+<p>It won&apos;t be too hard to write its inverse by changing order of instructions and terms:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">decompression_step</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">,</span> k_i<span class="token punctuation">,</span> w_i<span class="token punctuation">)</span><span class="token punctuation">:</span>
     tmp2<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> tmp3<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">,</span> g <span class="token operator">=</span> state
     maj <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>a <span class="token operator">&amp;</span> c<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>b <span class="token operator">&amp;</span> c<span class="token punctuation">)</span>
     s0 <span class="token operator">=</span> self<span class="token punctuation">.</span>rotate_right<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">^</span> self<span class="token punctuation">.</span>rotate_right<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span> <span class="token operator">^</span> self<span class="token punctuation">.</span>rotate_right<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span>
@@ -32,4 +1400,93 @@
     ch <span class="token operator">=</span> <span class="token punctuation">(</span>e <span class="token operator">&amp;</span> f<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span><span class="token operator">~</span>e <span class="token operator">&amp;</span> g<span class="token punctuation">)</span>
     h <span class="token operator">=</span> <span class="token punctuation">(</span>tmp1 <span class="token operator">-</span> s1 <span class="token operator">-</span> ch <span class="token operator">-</span> k_i <span class="token operator">-</span> w_i<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xffffffff</span>
     <span class="token keyword">return</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">,</span> g<span class="token punctuation">,</span> h
-</code></pre><p>The last 56 round constants is same as standard SHA256, so we can undo those rounds with the inverse function above.</p><p>The problem is: how to reveal those secret round keys?</p><h2 id="linear-property-of-first-8-rounds">Linear property of first 8 rounds</h2><p>In decompression_step, we can notice that <code>k_i</code> is only used to calculate <code>h</code>. If we use a wrong round constant in <code>decompression_step</code>, Only <code>h</code> will be incorrect. All values from <code>a</code> to <code>g</code> is still valid. Furthermore, the error in <code>h</code> is the difference between the real round constant and the constant we use.</p><p>Consider the last round (i.e. round 8), If we use 0 as the round constant to undo this round, Only <code>h</code> is incorrect, and the difference to the real one is the secret constant we want.</p><p>Next, consider round 7, <code>h</code> becomes <code>g</code> and all values from <code>a</code> to <code>f</code> is valid. Values after <code>h</code> will be rubbish, but it doesn&apos;t matter.</p><p>Keep undoing those rounds with round constant 0, the error will be propagate to <code>a</code>, and the difference between our <code>a</code> and <code>a</code> in IV will be the last secret constant we want !!!</p><p>With this secret constant, we can undo round 8. And use same tricks again to make the error of round 7&apos;s constant propagate to <code>b</code> and so on.</p><p>You can found the script at <a href="https://github.com/sasdf/ctf/blob/master/writeup/2020/google/crypto/sharky/_files/solve.py"target="_blank">here</a>.</p></section></div></div></div><a href="../quantum/"class="navigation navigation-prev navigation-unique"aria-label="Previous page: crypto - Quantum Pyramids"><i class="fa fa-angle-left"></i></a></div><script>var gitbook=gitbook||[];gitbook.push(function(){gitbook.page.hasChanged({page:{name:"SHArky",category:"crypto",points:231,solves:38,title:"crypto - SHArky",level:"3.2.4",depth:2,next:{title:"Google",level:"4.1",depth:1,ref:"",articles:[{title:"crypto - reality",level:"4.1.1",depth:2,path:"writeup/2019/google/crypto/reality/README.md",ref:"writeup/2019/google/crypto/reality/README.md",articles:[]},{title:"crypto - Quantum Key Distribution",level:"4.1.2",depth:2,path:"writeup/2019/google/crypto/qkd/README.md",ref:"writeup/2019/google/crypto/qkd/README.md",articles:[]},{title:"crypto - Reverse a cellular automata",level:"4.1.3",depth:2,path:"writeup/2019/google/crypto/cell/README.md",ref:"writeup/2019/google/crypto/cell/README.md",articles:[]},{title:"hardware - flagrom",level:"4.1.4",depth:2,path:"writeup/2019/google/hardware/flagrom/README.md",ref:"writeup/2019/google/hardware/flagrom/README.md",articles:[]},{title:"hardware - minetest",level:"4.1.5",depth:2,path:"writeup/2019/google/hardware/minetest/README.md",ref:"writeup/2019/google/hardware/minetest/README.md",articles:[]},{title:"hardware - Remote Control",level:"4.1.6",depth:2,path:"writeup/2019/google/hardware/remote/README.md",ref:"writeup/2019/google/hardware/remote/README.md",articles:[]},{title:"web - gLotto",level:"4.1.7",depth:2,path:"writeup/2019/google/web/glotto/README.md",ref:"writeup/2019/google/web/glotto/README.md",articles:[]},{title:"rev - Dialtone",level:"4.1.8",depth:2,path:"writeup/2019/google/rev/dial/README.md",ref:"writeup/2019/google/rev/dial/README.md",articles:[]}]},previous:{title:"crypto - Quantum Pyramids",level:"3.2.3",depth:2,path:"writeup/2020/google/crypto/quantum/README.md",ref:"writeup/2020/google/crypto/quantum/README.md",articles:[]},dir:"ltr"},config:{gitbook:"*",theme:"default",variables:{},plugins:["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],pluginsConfig:{prism:{css:["prismjs/themes/prism-tomorrow.css"],lang:{C:"c","C++":"cpp",asm:"nasm"}},disqus:{useIdentifier:!1,shortName:"sasdfwriteup"},search:{maxIndexSize:1e6},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!1,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},lunr:{maxIndexSize:1e6,ignoreSpecialCharacters:!1},katex:{},fontsettings:{theme:"white",family:"sans",size:2},sharing:{facebook:!0,twitter:!0,google:!1,weibo:!1,instapaper:!1,vk:!1,all:["facebook","google","twitter","weibo","instapaper"]},"theme-default":{styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"},showLevel:!1},"writeup-utils":{filePrefix:"https://github.com/sasdf/ctf/blob/master",repoPrefix:"https://github.com/sasdf/ctf/blob/master",rawPrefix:"https://raw.githubusercontent.com/sasdf/ctf/master"}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"}},file:{path:"writeup/2020/google/crypto/sharky/README.md",mtime:"2020-08-30T20:59:08.334Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2020-09-25T17:26:22.339Z"},basePath:"../../../../..",book:{language:""}})})</script></div><script src="../../../../../gitbook/gitbook.js"></script><script src="../../../../../gitbook/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script><script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script><script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script></body></html>
+</code></pre>
+<p>The last 56 round constants is same as standard SHA256,
+so we can undo those rounds with the inverse function above.</p>
+<p>The problem is: how to reveal those secret round keys?</p>
+<h2 id="linear-property-of-first-8-rounds">Linear property of first 8 rounds</h2>
+<p>In decompression_step, we can notice that <code>k_i</code> is only used to calculate <code>h</code>.
+If we use a wrong round constant in <code>decompression_step</code>,
+Only <code>h</code> will be incorrect.
+All values from <code>a</code> to <code>g</code> is still valid.
+Furthermore, the error in <code>h</code> is the difference between the real round constant and the constant we use.</p>
+<p>Consider the last round (i.e. round 8),
+If we use 0 as the round constant to undo this round,
+Only <code>h</code> is incorrect, and the difference to the real one is the secret constant we want.</p>
+<p>Next, consider round 7,
+<code>h</code> becomes <code>g</code> and all values from <code>a</code> to <code>f</code> is valid.
+Values after <code>h</code> will be rubbish, but it doesn&apos;t matter.</p>
+<p>Keep undoing those rounds with round constant 0,
+the error will be propagate to <code>a</code>,
+and the difference between our <code>a</code> and <code>a</code> in IV will be the last secret constant we want !!!</p>
+<p>With this secret constant, we can undo round 8.
+And use same tricks again to make the error of round 7&apos;s constant propagate to <code>b</code> and so on.</p>
+<p>You can found the script at <a href="https://github.com/sasdf/ctf/blob/master/writeup/2020/google/crypto/sharky/_files/solve.py" target="_blank">here</a>.</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../quantum/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: crypto - Quantum Pyramids">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"name":"SHArky","category":"crypto","points":231,"solves":38,"title":"crypto - SHArky","level":"3.2.4","depth":2,"next":{"title":"Google","level":"4.1","depth":1,"ref":"","articles":[{"title":"crypto - reality","level":"4.1.1","depth":2,"path":"writeup/2019/google/crypto/reality/README.md","ref":"writeup/2019/google/crypto/reality/README.md","articles":[]},{"title":"crypto - Quantum Key Distribution","level":"4.1.2","depth":2,"path":"writeup/2019/google/crypto/qkd/README.md","ref":"writeup/2019/google/crypto/qkd/README.md","articles":[]},{"title":"crypto - Reverse a cellular automata","level":"4.1.3","depth":2,"path":"writeup/2019/google/crypto/cell/README.md","ref":"writeup/2019/google/crypto/cell/README.md","articles":[]},{"title":"hardware - flagrom","level":"4.1.4","depth":2,"path":"writeup/2019/google/hardware/flagrom/README.md","ref":"writeup/2019/google/hardware/flagrom/README.md","articles":[]},{"title":"hardware - minetest","level":"4.1.5","depth":2,"path":"writeup/2019/google/hardware/minetest/README.md","ref":"writeup/2019/google/hardware/minetest/README.md","articles":[]},{"title":"hardware - Remote Control","level":"4.1.6","depth":2,"path":"writeup/2019/google/hardware/remote/README.md","ref":"writeup/2019/google/hardware/remote/README.md","articles":[]},{"title":"web - gLotto","level":"4.1.7","depth":2,"path":"writeup/2019/google/web/glotto/README.md","ref":"writeup/2019/google/web/glotto/README.md","articles":[]},{"title":"rev - Dialtone","level":"4.1.8","depth":2,"path":"writeup/2019/google/rev/dial/README.md","ref":"writeup/2019/google/rev/dial/README.md","articles":[]}]},"previous":{"title":"crypto - Quantum Pyramids","level":"3.2.3","depth":2,"path":"writeup/2020/google/crypto/quantum/README.md","ref":"writeup/2020/google/crypto/quantum/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{"maxIndexSize":1000000},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2020/google/crypto/sharky/README.md","mtime":"2021-11-23T11:07:12.664Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-25T02:42:39.634Z"},"basePath":"../../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

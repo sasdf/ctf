@@ -1,0 +1,7 @@
+version: '3'
+services:
+  challenge:
+    build: .
+    ports:
+      - "37896:37896"
+    restart: always

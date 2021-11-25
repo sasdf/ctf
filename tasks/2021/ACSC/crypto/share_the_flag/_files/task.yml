@@ -1,0 +1,10 @@
+---
+name: Share the flag
+description: >
+  <p>We want to share the flag with you.</p><br>
+  <code>nc {host} {port}</code>
+flag: "ACSC{wOAdvfst41xJzG6r}"
+author: sasdf
+port: 37896
+tags:
+- crypto

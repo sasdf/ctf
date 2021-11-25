@@ -1,4 +1,1385 @@
-<!DOCTYPE HTML><html lang=""><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>crypto - LFSR StreamCipher · GitBook</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content=""name="description"><meta content="GitBook 3.2.3"name="generator"><link href="../../../../../gitbook/style.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-search/search.css"rel="stylesheet"><link href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css"rel="stylesheet"><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../../../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="task.html"rel="next"/><link href="../relation/"rel="prev"/></head><body><div class="book"><div class="book-summary"><nav role="navigation"><ul class="summary"><li class="chapter"data-level="1.1"data-path="../../../../../"><a href="../../../../../">Introduction</a></li><li class="header">Writeups</li><li class="header">2020</li><li class="chapter"data-level="3.1"><span>TWCTF</span><ul class="articles"><li class="chapter"data-level="3.1.1"data-path="../../../../2020/tokyoWesterns/rev/metal/"><a href="../../../../2020/tokyoWesterns/rev/metal/">rev - metal</a></li><li class="chapter"data-level="3.1.2"data-path="../../../../2020/tokyoWesterns/crypto/xs/"><a href="../../../../2020/tokyoWesterns/crypto/xs/">crypto - XOR and shift encryptor</a></li></ul></li><li class="chapter"data-level="3.2"><span>Google</span><ul class="articles"><li class="chapter"data-level="3.2.1"data-path="../../../../2020/google/crypto/oracle/"><a href="../../../../2020/google/crypto/oracle/">crypto - Oracle</a></li><li class="chapter"data-level="3.2.2"data-path="../../../../2020/google/crypto/yafm/"><a href="../../../../2020/google/crypto/yafm/">crypto - YAFM</a></li><li class="chapter"data-level="3.2.3"data-path="../../../../2020/google/crypto/quantum/"><a href="../../../../2020/google/crypto/quantum/">crypto - Quantum Pyramids</a></li><li class="chapter"data-level="3.2.4"data-path="../../../../2020/google/crypto/sharky/"><a href="../../../../2020/google/crypto/sharky/">crypto - SHArky</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="4.1"><span>Google</span><ul class="articles"><li class="chapter"data-level="4.1.1"data-path="../../../../2019/google/crypto/reality/"><a href="../../../../2019/google/crypto/reality/">crypto - reality</a></li><li class="chapter"data-level="4.1.2"data-path="../../../../2019/google/crypto/qkd/"><a href="../../../../2019/google/crypto/qkd/">crypto - Quantum Key Distribution</a></li><li class="chapter"data-level="4.1.3"data-path="../../../../2019/google/crypto/cell/"><a href="../../../../2019/google/crypto/cell/">crypto - Reverse a cellular automata</a></li><li class="chapter"data-level="4.1.4"data-path="../../../../2019/google/hardware/flagrom/"><a href="../../../../2019/google/hardware/flagrom/">hardware - flagrom</a></li><li class="chapter"data-level="4.1.5"data-path="../../../../2019/google/hardware/minetest/"><a href="../../../../2019/google/hardware/minetest/">hardware - minetest</a></li><li class="chapter"data-level="4.1.6"data-path="../../../../2019/google/hardware/remote/"><a href="../../../../2019/google/hardware/remote/">hardware - Remote Control</a></li><li class="chapter"data-level="4.1.7"data-path="../../../../2019/google/web/glotto/"><a href="../../../../2019/google/web/glotto/">web - gLotto</a></li><li class="chapter"data-level="4.1.8"data-path="../../../../2019/google/rev/dial/"><a href="../../../../2019/google/rev/dial/">rev - Dialtone</a></li></ul></li><li class="chapter"data-level="4.2"><span>Plaid</span><ul class="articles"><li class="chapter"data-level="4.2.1"data-path="../../../../2019/plaid/crypto/cypress/"><a href="../../../../2019/plaid/crypto/cypress/">crypto - SPlaid Cypress</a></li><li class="chapter"data-level="4.2.2"data-path="../../../../2019/plaid/rev/bigmaffs/"><a href="../../../../2019/plaid/rev/bigmaffs/">rev - big maffs</a></li></ul></li><li class="header">2018</li><li class="chapter"data-level="5.1"><span>hxp</span><ul class="articles"><li class="chapter"data-level="5.1.1"data-path="../../../hxp/crypto/blinder_v2/"><a href="../../../hxp/crypto/blinder_v2/">crypto - blinder_v2</a></li><li class="chapter"data-level="5.1.2"data-path="../../../hxp/crypto/blinder/"><a href="../../../hxp/crypto/blinder/">crypto - blinder</a></li><li class="chapter"data-level="5.1.3"data-path="../../../hxp/crypto/curve/"><a href="../../../hxp/crypto/curve/">crypto - curve12833227</a></li><li class="chapter"data-level="5.1.4"data-path="../../../hxp/crypto/oops/"><a href="../../../hxp/crypto/oops/">crypto - oops2</a></li><li class="chapter"data-level="5.1.5"data-path="../../../hxp/crypto/blind/"><a href="../../../hxp/crypto/blind/">crypto - blind</a></li></ul></li><li class="chapter"data-level="5.2"><span>Pwn2Win</span><ul class="articles"><li class="chapter"data-level="5.2.1"data-path="../../../pwn2win/rev/back_to_bletchley_park/"><a href="../../../pwn2win/rev/back_to_bletchley_park/">cryrev - Back To Bletchley Park</a></li><li class="chapter"data-level="5.2.2"data-path="../../../pwn2win/crypto/GCM/"><a href="../../../pwn2win/crypto/GCM/">crypto - GCM</a></li></ul></li><li class="chapter"data-level="5.3"><span>HITCON</span><ul class="articles"><li class="chapter"data-level="5.3.1"data-path="../../../hitcon/crypto/lostmod/"><a href="../../../hitcon/crypto/lostmod/">crypto - Lost Modulus</a></li><li class="chapter"data-level="5.3.2"data-path="../../../hitcon/crypto/secret/"><a href="../../../hitcon/crypto/secret/">crypwn - Secret Note</a></li></ul></li><li class="chapter"data-level="5.4"><span>Hack.lu</span><ul class="articles"><li class="chapter"data-level="5.4.1"data-path="../escape/"><a href="../escape/">crypto - Escape the Grid</a></li><li class="chapter"data-level="5.4.2"data-path="../relation/"><a href="../relation/">crypto - Relations</a></li><li class="chapter active"data-level="5.4.3"data-path="./"><a href="./">crypto - LFSR StreamCipher</a><ul class="articles"><li class="chapter"data-level="5.4.3.1"data-path="task.html"><a href="task.html">task description</a></li></ul></li></ul></li><li class="chapter"data-level="5.5"><span>Hackover</span><ul class="articles"><li class="chapter"data-level="5.5.1"data-path="../../../HackOver/crypto/oblivious/"><a href="../../../HackOver/crypto/oblivious/">crypto - oblivious</a></li><li class="chapter"data-level="5.5.2"data-path="../../../HackOver/crypto/secure_hash_v2/"><a href="../../../HackOver/crypto/secure_hash_v2/">crypto - secure_hash_v2</a></li><li class="chapter"data-level="5.5.3"data-path="../../../HackOver/rev/flagmaker/"><a href="../../../HackOver/rev/flagmaker/">rev - flagmaker</a></li></ul></li><li class="chapter"data-level="5.6"><span>Teaser Dragon</span><ul class="articles"><li class="chapter"data-level="5.6.1"data-path="../../../TeaserDragon/rev/Chains of trust/"><a href="../../../TeaserDragon/rev/Chains of trust/">rev - Chains of trust</a></li></ul></li><li class="chapter"data-level="5.7"><span>Defcamp</span><ul class="articles"><li class="chapter"data-level="5.7.1"data-path="../../../defcamp/rev/validator/"><a href="../../../defcamp/rev/validator/">rev - validator</a></li><li class="chapter"data-level="5.7.2"data-path="../../../defcamp/rev/memsome/"><a href="../../../defcamp/rev/memsome/">rev - memsome</a></li><li class="chapter"data-level="5.7.3"data-path="../../../defcamp/web/secops/"><a href="../../../defcamp/web/secops/">web - secops</a></li><li class="chapter"data-level="5.7.4"data-path="../../../defcamp/web/chat/"><a href="../../../defcamp/web/chat/">web - chat</a></li><li class="chapter"data-level="5.7.5"data-path="../../../defcamp/misc/voices/"><a href="../../../defcamp/misc/voices/">misc - voices</a></li></ul></li><li class="chapter"data-level="5.8"><span>HackIT</span><ul class="articles"><li class="chapter"data-level="5.8.1"data-path="../../../HackIT/coffee_overflow/"><a href="../../../HackIT/coffee_overflow/">rev - coffee_overflow</a></li></ul></li><li class="header">My Tasks</li><li class="header">2018</li><li class="chapter"data-level="7.1"><span>AIS3 Final</span><ul class="articles"><li class="chapter"data-level="7.1.1"data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/"><a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">crypto - mama</a></li><li class="chapter"data-level="7.1.2"data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/"><a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">crypto - secureSub</a></li><li class="chapter"data-level="7.1.3"data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/"><a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">crypto - xorlnarmoni'akda</a></li><li class="chapter"data-level="7.1.4"data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/"><a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">rev - SecDES</a></li><li class="chapter"data-level="7.1.5"data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/"><a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">rev - Almighty Duct Tape</a></li></ul></li><li class="header">2019</li><li class="chapter"data-level="8.1"><span>Balsn CTF</span><ul class="articles"><li class="chapter"data-level="8.1.1"data-path="../../../../../tasks/2019/BalsnCTF/"><a href="../../../../../tasks/2019/BalsnCTF/">Overview</a></li><li class="chapter"data-level="8.1.2"data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">crypto - collision</a></li><li class="chapter"data-level="8.1.3"data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">crypto - harc4</a></li><li class="chapter"data-level="8.1.4"data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/"><a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">crypto - unpredictable</a></li><li class="chapter"data-level="8.1.5"data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/"><a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">crypwn - securenote</a></li><li class="chapter"data-level="8.1.6"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">misc - pyshv1</a></li><li class="chapter"data-level="8.1.7"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">misc - pyshv2</a></li><li class="chapter"data-level="8.1.8"data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/"><a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">misc - pyshv3</a></li><li class="chapter"data-level="8.1.9"data-path="../../../../../tasks/2019/BalsnCTF/misc/john/"><a href="../../../../../tasks/2019/BalsnCTF/misc/john/">misc - john</a></li><li class="chapter"data-level="8.1.10"data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/"><a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">rev - plam</a></li><li class="chapter"data-level="8.1.11"data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/"><a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">rev - vim</a></li></ul></li><li class="divider"></li><li><a href="https://www.gitbook.com"target="blank"class="gitbook-link">Published with GitBook</a></li></ul></nav></div><div class="book-body"><div class="body-inner"><div class="book-header"role="navigation"><h1><i class="fa fa-circle-o-notch fa-spin"></i> <a href="../../../../..">crypto - LFSR StreamCipher</a></h1></div><div class="page-wrapper"role="main"tabindex="-1"><div class="page-inner"><section class="markdown-section normal"><div class="wpHeaderContainer"><h1 id="lfsr-streamcipher">LFSR StreamCipher</h1><div><span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/Hack.lu/crypto/lfsr"target="_blank"><img alt="Attachments"src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github"></a></span><span><img alt="crypto - 500"src="https://img.shields.io/badge/crypto-500-green.svg?style=for-the-badge&amp;maxAge=3600"></span><span><img alt="3 solves"src="https://img.shields.io/badge/solves-3-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600"></span></div></div><p></p><blockquote><p><a href="task.html">Task Description</a></p></blockquote><h2 id="time">Time</h2><p>Solved after the CTF with a lot of help from the admin (@asante).</p><h1 id="solution">Solution</h1><p>In this challenge, we have a LFSR, a non-linear filter of algebraic degree 6, and its first 1001 outputs. Our goal is to recover its initial seed.</p><p>For LFSR clock <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.68333em;vertical-align:0"></span><span class="mord mathit">L</span></span></span></span> and filter <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.8888799999999999em;vertical-align:-.19444em"></span><span class="mord mathit"style="margin-right:.10764em">f</span></span></span></span>, the outputs <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.84444em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span></span> are: <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi>f</mi><mo>(</mo><mi>s</mi><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mn>0</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi>f</mi><mo>(</mo><mi>L</mi><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi>f</mi><mo>(</mo><msup><mi>L</mi><mn>2</mn></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>&#x22EF;</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi>f</mi><mo>(</mo><msup><mi>L</mi><mi>n</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mi>n</mi></msub></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} f(s) &amp;= b_0\\ f(L(s)) &amp;= b_1\\ f(L^2(s)) &amp;= b_2\\ &amp; \cdots \\ f(L^n(s)) &amp;= b_n\\ \end{aligned}</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:7.524108em;vertical-align:-3.512054em"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:4.012054em"><span style="top:-6.172054em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord mathit"style="margin-right:.10764em">f</span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span></span></span><span style="top:-4.672053999999999em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord mathit"style="margin-right:.10764em">f</span><span class="mopen">(</span><span class="mord mathit">L</span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span></span></span><span style="top:-3.1479459999999992em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord mathit"style="margin-right:.10764em">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span></span></span><span style="top:-1.6479459999999997em"><span class="pstrut"style="height:3em"></span><span class="mord"></span></span><span style="top:-.14794600000000013em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord mathit"style="margin-right:.10764em">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.7143919999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">n</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.512054em"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:4.012054em"><span style="top:-6.172054em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span><span style="top:-4.672053999999999em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span><span style="top:-3.1479459999999992em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span><span style="top:-1.6479459999999997em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.16666666666666666em"></span><span class="minner">&#x22EF;</span></span></span><span style="top:-.14794600000000013em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.151392em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.512054em"><span></span></span></span></span></span></span></span></span></span></span></span> Degree of these equations are too large, it is infeasible to solve <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.43056em;vertical-align:0"></span><span class="mord mathit">s</span></span></span></span> directly. We need to lower the degree to solve <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.43056em;vertical-align:0"></span><span class="mord mathit">s</span></span></span></span>, and here comes the idea of annihilators: annihilator <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.625em;vertical-align:-.19444em"></span><span class="mord mathit"style="margin-right:.03588em">g</span></span></span></span> of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.8888799999999999em;vertical-align:-.19444em"></span><span class="mord mathit"style="margin-right:.10764em">f</span></span></span></span> with is: <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mi mathvariant="normal">&#x2200;</mi><mi>x</mi><mo>:</mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mi mathvariant="normal">&#x2200;</mi><mi>x</mi><mo>&#x2208;</mo><mo>{</mo><mi>z</mi><mtext>&#xA0;</mtext><mi mathvariant="normal">&#x2223;</mi><mtext>&#xA0;</mtext><mi>f</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>}</mo><mo>:</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} &amp; \forall x: f(x)g(x) = 0 \\ \implies&amp; \forall x \in \{z\ |\ f(z) = 1\}: g(x) = 0 \\ \end{aligned}</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:3.0000000000000004em;vertical-align:-1.2500000000000002em"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:1.7500000000000002em"><span style="top:-3.91em"><span class="pstrut"style="height:3em"></span><span class="mord"></span></span><span style="top:-2.41em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">&#x27F9;</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:1.2500000000000002em"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:1.7500000000000002em"><span style="top:-3.91em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mord">&#x2200;</span><span class="mord mathit">x</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord mathit"style="margin-right:.10764em">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mord mathit"style="margin-right:.03588em">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">0</span></span></span><span style="top:-2.41em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord"></span><span class="mord">&#x2200;</span><span class="mord mathit">x</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">&#x2208;</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mopen">{</span><span class="mord mathit"style="margin-right:.04398em">z</span><span class="mspace">&#xA0;</span><span class="mord">&#x2223;</span><span class="mspace">&#xA0;</span><span class="mord mathit"style="margin-right:.10764em">f</span><span class="mopen">(</span><span class="mord mathit"style="margin-right:.04398em">z</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span><span class="mclose">}</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord mathit"style="margin-right:.03588em">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:1.2500000000000002em"><span></span></span></span></span></span></span></span></span></span></span></span></p><p>If we can find a function g with lower degree, we can solve for following system of equations instead: <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>=</mo><mn>0</mn><mspace width="1em"></mspace><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">g(L^i(s)) = 0 \quad \forall i: b_i = 1</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:1.1246639999999999em;vertical-align:-.25em"></span><span class="mord mathit"style="margin-right:.03588em">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8746639999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut"style="height:.69444em;vertical-align:0"></span><span class="mord">0</span><span class="mspace"style="margin-right:1em"></span><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut"style="height:.84444em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut"style="height:.64444em;vertical-align:0"></span><span class="mord">1</span></span></span></span></span></p><p>We can find such function using sage:</p><pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sage<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>boolean_function <span class="token keyword">import</span> BooleanFunction
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>crypto - LFSR StreamCipher · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-writeup-utils/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="task.html" />
+    
+    
+    <link rel="prev" href="../relation/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../../">
+            
+                <a href="../../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Writeups</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2020</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    TWCTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../../2020/tokyoWesterns/rev/metal/">
+            
+                <a href="../../../../2020/tokyoWesterns/rev/metal/">
+            
+                    
+                    rev - metal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../../2020/tokyoWesterns/crypto/xs/">
+            
+                <a href="../../../../2020/tokyoWesterns/crypto/xs/">
+            
+                    
+                    crypto - XOR and shift encryptor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../../../2020/google/crypto/oracle/">
+            
+                <a href="../../../../2020/google/crypto/oracle/">
+            
+                    
+                    crypto - Oracle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../../../2020/google/crypto/yafm/">
+            
+                <a href="../../../../2020/google/crypto/yafm/">
+            
+                    
+                    crypto - YAFM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../../../2020/google/crypto/quantum/">
+            
+                <a href="../../../../2020/google/crypto/quantum/">
+            
+                    
+                    crypto - Quantum Pyramids
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../../../2020/google/crypto/sharky/">
+            
+                <a href="../../../../2020/google/crypto/sharky/">
+            
+                    
+                    crypto - SHArky
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Google
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../2019/google/crypto/reality/">
+            
+                <a href="../../../../2019/google/crypto/reality/">
+            
+                    
+                    crypto - reality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../2019/google/crypto/qkd/">
+            
+                <a href="../../../../2019/google/crypto/qkd/">
+            
+                    
+                    crypto - Quantum Key Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../2019/google/crypto/cell/">
+            
+                <a href="../../../../2019/google/crypto/cell/">
+            
+                    
+                    crypto - Reverse a cellular automata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../2019/google/hardware/flagrom/">
+            
+                <a href="../../../../2019/google/hardware/flagrom/">
+            
+                    
+                    hardware - flagrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../../2019/google/hardware/minetest/">
+            
+                <a href="../../../../2019/google/hardware/minetest/">
+            
+                    
+                    hardware - minetest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../../2019/google/hardware/remote/">
+            
+                <a href="../../../../2019/google/hardware/remote/">
+            
+                    
+                    hardware - Remote Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../../../2019/google/web/glotto/">
+            
+                <a href="../../../../2019/google/web/glotto/">
+            
+                    
+                    web - gLotto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../../../2019/google/rev/dial/">
+            
+                <a href="../../../../2019/google/rev/dial/">
+            
+                    
+                    rev - Dialtone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    Plaid
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../../2019/plaid/crypto/cypress/">
+            
+                <a href="../../../../2019/plaid/crypto/cypress/">
+            
+                    
+                    crypto - SPlaid Cypress
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../../2019/plaid/rev/bigmaffs/">
+            
+                <a href="../../../../2019/plaid/rev/bigmaffs/">
+            
+                    
+                    rev - big maffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    hxp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../../hxp/crypto/blinder_v2/">
+            
+                <a href="../../../hxp/crypto/blinder_v2/">
+            
+                    
+                    crypto - blinder_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../../hxp/crypto/blinder/">
+            
+                <a href="../../../hxp/crypto/blinder/">
+            
+                    
+                    crypto - blinder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../../hxp/crypto/curve/">
+            
+                <a href="../../../hxp/crypto/curve/">
+            
+                    
+                    crypto - curve12833227
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../../../hxp/crypto/oops/">
+            
+                <a href="../../../hxp/crypto/oops/">
+            
+                    
+                    crypto - oops2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../../../hxp/crypto/blind/">
+            
+                <a href="../../../hxp/crypto/blind/">
+            
+                    
+                    crypto - blind
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    Pwn2Win
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../../../pwn2win/rev/back_to_bletchley_park/">
+            
+                <a href="../../../pwn2win/rev/back_to_bletchley_park/">
+            
+                    
+                    cryrev - Back To Bletchley Park
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../../../pwn2win/crypto/GCM/">
+            
+                <a href="../../../pwn2win/crypto/GCM/">
+            
+                    
+                    crypto - GCM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" >
+            
+                <span>
+            
+                    
+                    HITCON
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="../../../hitcon/crypto/lostmod/">
+            
+                <a href="../../../hitcon/crypto/lostmod/">
+            
+                    
+                    crypto - Lost Modulus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.2" data-path="../../../hitcon/crypto/secret/">
+            
+                <a href="../../../hitcon/crypto/secret/">
+            
+                    
+                    crypwn - Secret Note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                    Hack.lu
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.1" data-path="../escape/">
+            
+                <a href="../escape/">
+            
+                    
+                    crypto - Escape the Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4.2" data-path="../relation/">
+            
+                <a href="../relation/">
+            
+                    
+                    crypto - Relations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    crypto - LFSR StreamCipher
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.4.3.1" data-path="task.html">
+            
+                <a href="task.html">
+            
+                    
+                    task description
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" >
+            
+                <span>
+            
+                    
+                    Hackover
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.5.1" data-path="../../../HackOver/crypto/oblivious/">
+            
+                <a href="../../../HackOver/crypto/oblivious/">
+            
+                    
+                    crypto - oblivious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.2" data-path="../../../HackOver/crypto/secure_hash_v2/">
+            
+                <a href="../../../HackOver/crypto/secure_hash_v2/">
+            
+                    
+                    crypto - secure_hash_v2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5.3" data-path="../../../HackOver/rev/flagmaker/">
+            
+                <a href="../../../HackOver/rev/flagmaker/">
+            
+                    
+                    rev - flagmaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" >
+            
+                <span>
+            
+                    
+                    Teaser Dragon
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.1" data-path="../../../TeaserDragon/rev/Chains of trust/">
+            
+                <a href="../../../TeaserDragon/rev/Chains of trust/">
+            
+                    
+                    rev - Chains of trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" >
+            
+                <span>
+            
+                    
+                    Defcamp
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.7.1" data-path="../../../defcamp/rev/validator/">
+            
+                <a href="../../../defcamp/rev/validator/">
+            
+                    
+                    rev - validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.2" data-path="../../../defcamp/rev/memsome/">
+            
+                <a href="../../../defcamp/rev/memsome/">
+            
+                    
+                    rev - memsome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.3" data-path="../../../defcamp/web/secops/">
+            
+                <a href="../../../defcamp/web/secops/">
+            
+                    
+                    web - secops
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.4" data-path="../../../defcamp/web/chat/">
+            
+                <a href="../../../defcamp/web/chat/">
+            
+                    
+                    web - chat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7.5" data-path="../../../defcamp/misc/voices/">
+            
+                <a href="../../../defcamp/misc/voices/">
+            
+                    
+                    misc - voices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" >
+            
+                <span>
+            
+                    
+                    HackIT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.8.1" data-path="../../../HackIT/coffee_overflow/">
+            
+                <a href="../../../HackIT/coffee_overflow/">
+            
+                    
+                    rev - coffee_overflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">My Tasks</li>
+        
+        
+    
+
+    
+        
+        <li class="header">2018</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    AIS3 Final
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/100-mama/">
+            
+                    
+                    crypto - mama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/200-secureSub/">
+            
+                    
+                    crypto - secureSub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/crypto/300-xorlnarmoni'akda/">
+            
+                    
+                    crypto - xorlnarmoni'akda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/100-SecDES/">
+            
+                    
+                    rev - SecDES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                <a href="../../../../../tasks/2018/ais3Final/rev/200-AlmightyDuctTape/">
+            
+                    
+                    rev - Almighty Duct Tape
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2019</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../../../../../tasks/2019/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/collision/">
+            
+                    
+                    crypto - collision
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/harc4/">
+            
+                    
+                    crypto - harc4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/crypto/unpredictable/">
+            
+                    
+                    crypto - unpredictable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/pwn/securenote/">
+            
+                    
+                    crypwn - securenote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv1/">
+            
+                    
+                    misc - pyshv1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv2/">
+            
+                    
+                    misc - pyshv2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.8" data-path="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/pyshv3/">
+            
+                    
+                    misc - pyshv3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.9" data-path="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/misc/john/">
+            
+                    
+                    misc - john
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.10" data-path="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/plam/">
+            
+                    
+                    rev - plam
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.11" data-path="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                <a href="../../../../../tasks/2019/BalsnCTF/rev/vim/">
+            
+                    
+                    rev - vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2020</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../../../../../tasks/2020/BalsnCTF/crypto/aeshash/">
+            
+                <a href="../../../../../tasks/2020/BalsnCTF/crypto/aeshash/">
+            
+                    
+                    crypto - aeshash
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2021</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" >
+            
+                <span>
+            
+                    
+                    ACSC
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../../../../../tasks/2021/ACSC/crypto/share_the_flag/">
+            
+                <a href="../../../../../tasks/2021/ACSC/crypto/share_the_flag/">
+            
+                    
+                    crypto - Share The Flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" >
+            
+                <span>
+            
+                    
+                    Balsn CTF
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.2.1" data-path="../../../../../tasks/2021/BalsnCTF/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2.2" data-path="../../../../../tasks/2021/BalsnCTF/crypto/1337pins/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/crypto/1337pins/">
+            
+                    
+                    crypto - 1337 pins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2.3" data-path="../../../../../tasks/2021/BalsnCTF/crypto/dlog/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/crypto/dlog/">
+            
+                    
+                    crypto - dlog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2.4" data-path="../../../../../tasks/2021/BalsnCTF/crypto/trinity/">
+            
+                <a href="../../../../../tasks/2021/BalsnCTF/crypto/trinity/">
+            
+                    
+                    crypto - trinity
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../../.." >crypto - LFSR StreamCipher</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div class="wpHeaderContainer">
+                    <h1 id="lfsr-streamcipher">LFSR StreamCipher</h1>
+                    <div>
+                        <span><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/Hack.lu/crypto/lfsr" target="_blank"><img src="https://img.shields.io/badge/-Attachments-lightgrey.svg?style=for-the-badge&amp;maxAge=3600&amp;logo=github" alt="Attachments"></a></span><span><img src="https://img.shields.io/badge/crypto-500-green.svg?style=for-the-badge&amp;maxAge=3600" alt="crypto - 500"></span><span><img src="https://img.shields.io/badge/solves-3-lightseagreen.svg?style=for-the-badge&amp;maxAge=3600" alt="3 solves"></span></div>
+                </div><p></p>
+<blockquote>
+<p><a href="task.html">Task Description</a></p>
+</blockquote>
+<h2 id="time">Time</h2>
+<p>Solved after the CTF with a lot of help from the admin (@asante).</p>
+<h1 id="solution">Solution</h1>
+<p>In this challenge,
+we have a LFSR, a non-linear filter of algebraic degree 6, and its first 1001 outputs.
+Our goal is to recover its initial seed.</p>
+<p>For LFSR clock <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathit">L</span></span></span></span> and filter <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span>, the outputs <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are:
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>f</mi><mo>(</mo><mi>s</mi><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mn>0</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>f</mi><mo>(</mo><mi>L</mi><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>f</mi><mo>(</mo><msup><mi>L</mi><mn>2</mn></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>&#x22EF;</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>f</mi><mo>(</mo><msup><mi>L</mi><mi>n</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>b</mi><mi>n</mi></msub></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+f(s) &amp;= b_0\\
+f(L(s)) &amp;= b_1\\
+f(L^2(s)) &amp;= b_2\\
+&amp; \cdots \\
+f(L^n(s)) &amp;= b_n\\
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:7.524108em;vertical-align:-3.512054em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.012054em;"><span style="top:-6.172054em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span></span></span><span style="top:-4.672053999999999em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">L</span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span></span></span><span style="top:-3.1479459999999992em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span></span></span><span style="top:-1.6479459999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-0.14794600000000013em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.512054em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.012054em;"><span style="top:-6.172054em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.672053999999999em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.1479459999999992em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.6479459999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">&#x22EF;</span></span></span><span style="top:-0.14794600000000013em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.512054em;"><span></span></span></span></span></span></span></span></span></span></span></span>
+Degree of these equations are too large, it is infeasible to solve <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit">s</span></span></span></span> directly.
+We need to lower the degree to solve <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit">s</span></span></span></span>,
+and here comes the idea of annihilators:
+annihilator <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathit" style="margin-right:0.03588em;">g</span></span></span></span> of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span></span> with is:
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi mathvariant="normal">&#x2200;</mi><mi>x</mi><mo>:</mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi mathvariant="normal">&#x2200;</mi><mi>x</mi><mo>&#x2208;</mo><mo>{</mo><mi>z</mi><mtext>&#xA0;</mtext><mi mathvariant="normal">&#x2223;</mi><mtext>&#xA0;</mtext><mi>f</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>}</mo><mo>:</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp;
+    \forall x: f(x)g(x) = 0 \\
+\implies&amp;
+    \forall x \in \{z\ |\ f(z) = 1\}: g(x) = 0 \\
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000000000000004em;vertical-align:-1.2500000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x27F9;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord">&#x2200;</span><span class="mord mathit">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord">&#x2200;</span><span class="mord mathit">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">{</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mspace">&#xA0;</span><span class="mord">&#x2223;</span><span class="mspace">&#xA0;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>If we can find a function g with lower degree,
+we can solve for following system of equations instead:
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>=</mo><mn>0</mn><mspace width="1em"></mspace><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+    g(L^i(s)) = 0 \quad \forall i: b_i = 1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1246639999999999em;vertical-align:-0.25em;"></span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8746639999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:1em;"></span><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
+<p>We can find such function using sage:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sage<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>boolean_function <span class="token keyword">import</span> BooleanFunction
 B <span class="token operator">=</span> BooleanPolynomialRing<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;x0&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;x64&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;x96&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;x128&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;x192&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;x255&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 x0<span class="token punctuation">,</span> x64<span class="token punctuation">,</span> x96<span class="token punctuation">,</span> x128<span class="token punctuation">,</span> x192<span class="token punctuation">,</span> x255 <span class="token operator">=</span> B<span class="token punctuation">.</span>gens<span class="token punctuation">(</span><span class="token punctuation">)</span>
 p <span class="token operator">=</span> x0<span class="token operator">*</span>x64<span class="token operator">*</span>x96<span class="token operator">*</span>x128<span class="token operator">*</span>x192<span class="token operator">*</span>x255 <span class="token operator">+</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">+</span> x128<span class="token operator">*</span>x192<span class="token operator">*</span>x255
@@ -6,9 +1387,131 @@ f <span class="token operator">=</span> BooleanFunction<span class="token punctu
 <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>annihilator<span class="token punctuation">(</span>f<span class="token punctuation">.</span>algebraic_immunity<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># output x0 + x1 + x2 + x3 + x4 + x5 + 1</span>
 <span class="token comment"># which means x0 + x64 + x96 + x128 + x192 + x255 + 1</span>
-</code></pre><p>Now we have a great linear annihilator.</p><p>For more about annihilator, algebraic immunity, and algebraic attack on LFSR, see <a href="https://pdfs.semanticscholar.org/a787/7b314149d4c70f9c53f60967c20683f6625a.pdf"target="_blank">this awesome slide</a>.</p><p>To solve the system of equations, we can express the LFSR in <a href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register#Matrix_forms"target="_blank">matrix form</a>, apply our annihilator <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.625em;vertical-align:-.19444em"></span><span class="mord mathit"style="margin-right:.03588em">g</span></span></span></span> on the matrix, and solve for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.43056em;vertical-align:0"></span><span class="mord mathit">s</span></span></span></span>, formally: <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mtext>Let&#xA0;</mtext><mi>h</mi></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>=</mo><msup><mi>x</mi><mn>0</mn></msup><mo>+</mo><msup><mi>x</mi><mn>64</mn></msup><mo>+</mo><msup><mi>x</mi><mn>96</mn></msup><mo>+</mo><msup><mi>x</mi><mn>128</mn></msup><mo>+</mo><msup><mi>x</mi><mn>192</mn></msup><mo>+</mo><msup><mi>x</mi><mn>255</mn></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mi>L</mi></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>=</mo><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mo>&#x22F1;</mo></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>0</mn></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><msub><mi>c</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><msub><mi>c</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><msub><mi>c</mi><mn>2</mn></msub></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle displaystyle="false"scriptlevel="0"><msub><mi>c</mi><mi>n</mi></msub></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} \text{Let}\ h &amp;= x^{0} + x^{64} + x^{96} + x^{128} + x^{192} + x^{255}\\ L &amp;= \left(\begin{matrix} 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \\ 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 \\ c_0 &amp; c_1 &amp; c_2 &amp; \cdots &amp; c_n \\ \end{matrix}\right) \\ \end{aligned}</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:8.484107999999999em;vertical-align:-3.9920539999999995em"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:4.4920539999999995em"><span style="top:-9.207946em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord text"><span class="mord">Let</span></span><span class="mspace">&#xA0;</span><span class="mord mathit">h</span></span></span><span style="top:-4.9679459999999995em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord mathit">L</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.9920539999999995em"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:4.4920539999999995em"><span style="top:-9.207946em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight">6</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight">9</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">2</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8641079999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">5</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span><span style="top:-4.9679459999999995em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.550045em"><span style="top:-.7499750000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239D;</span></span></span><span style="top:-1.9049850000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-2.5049950000000005em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-3.1050050000000002em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-3.705015em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-4.305025em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-5.550045em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239B;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.050045em"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.427500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-5.2275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.3675em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule"style="border-right-width:0;border-top-width:1.5em;bottom:0"></span></span></span></span><span style="top:-2.167500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-.9675000000000009em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.079999999999999em"><span></span></span></span></span></span><span class="arraycolsep"style="width:.5em"></span><span class="arraycolsep"style="width:.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.427500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-5.2275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.3675em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule"style="border-right-width:0;border-top-width:1.5em;bottom:0"></span></span></span></span><span style="top:-2.167500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-.9675000000000009em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.079999999999999em"><span></span></span></span></span></span><span class="arraycolsep"style="width:.5em"></span><span class="arraycolsep"style="width:.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.427500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-5.2275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-3.3675em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule"style="border-right-width:0;border-top-width:1.5em;bottom:0"></span></span></span></span><span style="top:-2.167500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-.9675000000000009em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.079999999999999em"><span></span></span></span></span></span><span class="arraycolsep"style="width:.5em"></span><span class="arraycolsep"style="width:.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.240000000000001em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span><span style="top:-5.04em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span><span style="top:-3.18em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="minner">&#x22F1;</span></span></span><span style="top:-1.9800000000000009em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span><span style="top:-.7800000000000009em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.079999999999999em"><span></span></span></span></span></span><span class="arraycolsep"style="width:.5em"></span><span class="arraycolsep"style="width:.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.240000000000001em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-5.04em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.18em"><span class="pstrut"style="height:3.5em"></span><span class="mord"></span></span><span style="top:-1.9800000000000009em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-.7800000000000009em"><span class="pstrut"style="height:3.5em"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.151392em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.079999999999999em"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.550045em"><span style="top:-.7499750000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x23A0;</span></span></span><span style="top:-1.9049850000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-2.5049950000000005em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-3.1050050000000002em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-3.705015em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-4.305025em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-5.550045em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239E;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.050045em"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.9920539999999995em"><span></span></span></span></span></span></span></span></span></span></span></span> <span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mi>g</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>=</mo><mn>0</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mi>h</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mi>h</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>=</mo><mn>1</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mo>(</mo><mi>h</mi><msup><mi>L</mi><mi>i</mi></msup><mo>)</mo><mi>s</mi><mo>=</mo><mn>1</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle displaystyle="true"scriptlevel="0"><mrow><mrow></mrow><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mn>0</mn></msub></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mn>1</mn></msub></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mn>2</mn></msub></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mi>n</mi></msub></msup></mrow></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><mi>s</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle displaystyle="false"scriptlevel="0"><mn>1</mn></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned} &amp; g(L^i(s)) = 0 \quad &amp; \forall i: b_i = 1 \\ \implies&amp; h(L^i(s)) + 1 = 0 \quad &amp; \forall i: b_i = 1 \\ \implies&amp; h(L^i(s)) = 1 \quad &amp; \forall i: b_i = 1 \\ \implies&amp; (hL^i)s = 1 \quad &amp; \forall i: b_i = 1 \\ \implies&amp; \left(\begin{matrix} hL^{i_0} \\ hL^{i_1} \\ hL^{i_2} \\ \vdots \\ hL^{i_n} \\ \end{matrix}\right) s = \left(\begin{matrix} 1 \\ 1 \\ 1 \\ \vdots \\ 1 \\ \end{matrix}\right) \\ \end{aligned}</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:13.098656em;vertical-align:-6.299327999999999em"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:6.799328000000001em"><span style="top:-11.504664000000002em"><span class="pstrut"style="height:5.58em"></span><span class="mord"></span></span><span style="top:-9.97em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">&#x27F9;</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span></span><span style="top:-8.435336000000001em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">&#x27F9;</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span></span><span style="top:-6.900672000000001em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">&#x27F9;</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span></span><span style="top:-2.660672000000001em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">&#x27F9;</span><span class="mspace"style="margin-right:.2777777777777778em"></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:6.299327999999999em"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:6.799328000000001em"><span style="top:-11.504664000000002em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mord mathit"style="margin-right:.03588em">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8746639999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">0</span><span class="mspace"style="margin-right:1em"></span></span></span><span style="top:-9.97em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8746639999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace"style="margin-right:.2222222222222222em"></span><span class="mord">1</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">0</span><span class="mspace"style="margin-right:1em"></span></span></span><span style="top:-8.435336000000001em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8746639999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span><span class="mspace"style="margin-right:1em"></span></span></span><span style="top:-6.900672000000001em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.8746639999999999em"><span style="top:-3.113em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathit">s</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span><span class="mspace"style="margin-right:1em"></span></span></span><span style="top:-2.660672000000001em"><span class="pstrut"style="height:5.58em"></span><span class="mord"><span class="mord"></span><span class="mspace"style="margin-right:.16666666666666666em"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.550045em"><span style="top:-.7499750000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239D;</span></span></span><span style="top:-1.9049850000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-2.5049950000000005em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-3.1050050000000002em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-3.705015em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-4.305025em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-5.550045em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239B;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.050045em"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.427500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.824664em"><span style="top:-3.063em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31731428571428577em"><span style="top:-2.357em;margin-left:0;margin-right:.07142857142857144em"><span class="pstrut"style="height:2.5em"></span><span class="mtight sizing reset-size3 size1"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.143em"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-5.2275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.824664em"><span style="top:-3.063em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31731428571428577em"><span style="top:-2.357em;margin-left:0;margin-right:.07142857142857144em"><span class="pstrut"style="height:2.5em"></span><span class="mtight sizing reset-size3 size1"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.143em"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-4.0275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.824664em"><span style="top:-3.063em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31731428571428577em"><span style="top:-2.357em;margin-left:0;margin-right:.07142857142857144em"><span class="pstrut"style="height:2.5em"></span><span class="mtight sizing reset-size3 size1"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.143em"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-2.1675000000000004em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule"style="border-right-width:0;border-top-width:1.5em;bottom:0"></span></span></span></span><span style="top:-.9675em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:.824664em"><span style="top:-3.063em;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.16454285714285719em"><span style="top:-2.357em;margin-left:0;margin-right:.07142857142857144em"><span class="pstrut"style="height:2.5em"></span><span class="mtight sizing reset-size3 size1"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.143em"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.08em"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.550045em"><span style="top:-.7499750000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x23A0;</span></span></span><span style="top:-1.9049850000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-2.5049950000000005em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-3.1050050000000002em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-3.705015em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-4.305025em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-5.550045em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239E;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.050045em"><span></span></span></span></span></span></span></span><span class="mspace"style="margin-right:.16666666666666666em"></span><span class="mord mathit">s</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.550045em"><span style="top:-.7499750000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239D;</span></span></span><span style="top:-1.9049850000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-2.5049950000000005em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-3.1050050000000002em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-3.705015em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-4.305025em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239C;</span></span></span><span style="top:-5.550045em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239B;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.050045em"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.5800000000000005em"><span style="top:-6.427500000000001em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-5.2275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-4.0275em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.1675000000000004em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule"style="border-right-width:0;border-top-width:1.5em;bottom:0"></span></span></span></span><span style="top:-.9675em"><span class="pstrut"style="height:3.6875em"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.08em"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:3.550045em"><span style="top:-.7499750000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x23A0;</span></span></span><span style="top:-1.9049850000000004em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-2.5049950000000005em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-3.1050050000000002em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-3.705015em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-4.305025em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239F;</span></span></span><span style="top:-5.550045em"><span class="pstrut"style="height:3.1550000000000002em"></span><span class="delim-size4 delimsizinginner"><span>&#x239E;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:3.050045em"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:6.299327999999999em"><span></span></span></span></span></span><span class="arraycolsep"style="width:1em"></span><span class="col-align-r"><span class="vlist-t"><span class="vlist-r"><span class="vlist"style="height:6.799328000000001em"><span style="top:-8.924664em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span></span></span><span style="top:-7.390000000000001em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span></span></span><span style="top:-5.855336000000001em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span></span></span><span style="top:-4.320672000000001em"><span class="pstrut"style="height:3em"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">:</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut"style="height:2.7em"></span><span class="mtight sizing reset-size6 size3"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist"style="height:.15em"><span></span></span></span></span></span></span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace"style="margin-right:.2777777777777778em"></span><span class="mord">1</span></span></span></span></span></span></span></span></span></span></span></span></span></p><p><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/Hack.lu/crypto/lfsr/_files/solve.sage"target="_blank">Solving</a> for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html"aria-hidden="true"><span class="base"><span class="strut"style="height:.43056em;vertical-align:0"></span><span class="mord mathit">s</span></span></span></span> yields 4 solutions:</p><pre class="language-"><code>[+] Generated 293 equations
+</code></pre>
+<p>Now we have a great linear annihilator.</p>
+<p>For more about annihilator, algebraic immunity, and algebraic attack on LFSR,
+see <a href="https://pdfs.semanticscholar.org/a787/7b314149d4c70f9c53f60967c20683f6625a.pdf" target="_blank">this awesome slide</a>.</p>
+<p>To solve the system of equations,
+we can express the LFSR in <a href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register#Matrix_forms" target="_blank">matrix form</a>,
+apply our annihilator <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathit" style="margin-right:0.03588em;">g</span></span></span></span> on the matrix,
+and solve for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit">s</span></span></span></span>, formally:
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>Let&#xA0;</mtext><mi>h</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mi>x</mi><mn>0</mn></msup><mo>+</mo><msup><mi>x</mi><mn>64</mn></msup><mo>+</mo><msup><mi>x</mi><mn>96</mn></msup><mo>+</mo><msup><mi>x</mi><mn>128</mn></msup><mo>+</mo><msup><mi>x</mi><mn>192</mn></msup><mo>+</mo><msup><mi>x</mi><mn>255</mn></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>L</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>&#x22F1;</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>c</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>c</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>c</mi><mn>2</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>&#x22EF;</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>c</mi><mi>n</mi></msub></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\text{Let}\ 
+    h &amp;= x^{0} + x^{64} + x^{96} + x^{128} + x^{192} + x^{255}\\
+    L &amp;= \left(\begin{matrix}
+      0      &amp; 1      &amp; 0      &amp; \cdots &amp; 0   \\
+      0      &amp; 0      &amp; 1      &amp; \cdots &amp; 0   \\
+      \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp;     \\
+      0      &amp; 0      &amp; 0      &amp; \cdots &amp; 1   \\
+      c_0    &amp; c_1    &amp; c_2    &amp; \cdots &amp; c_n \\
+    \end{matrix}\right) \\
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:8.484107999999999em;vertical-align:-3.9920539999999995em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.4920539999999995em;"><span style="top:-9.207946em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord text"><span class="mord">Let</span></span><span class="mspace">&#xA0;</span><span class="mord mathit">h</span></span></span><span style="top:-4.9679459999999995em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord mathit">L</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.9920539999999995em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:4.4920539999999995em;"><span style="top:-9.207946em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">6</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">2</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">5</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span><span style="top:-4.9679459999999995em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.550045em;"><span style="top:-0.7499750000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239D;</span></span></span><span style="top:-1.9049850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-3.1050050000000002em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-3.705015em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-4.305025em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-5.550045em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239B;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.050045em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.427500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-5.2275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.3675em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-2.167500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-0.9675000000000009em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.079999999999999em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.427500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-5.2275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.3675em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-2.167500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-0.9675000000000009em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.079999999999999em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.427500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-5.2275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-3.3675em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-2.167500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-0.9675000000000009em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.079999999999999em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.240000000000001em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span><span style="top:-5.04em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span><span style="top:-3.18em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">&#x22F1;</span></span></span><span style="top:-1.9800000000000009em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span><span style="top:-0.7800000000000009em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">&#x22EF;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.079999999999999em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.240000000000001em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-5.04em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.18em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"></span></span><span style="top:-1.9800000000000009em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-0.7800000000000009em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.079999999999999em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.550045em;"><span style="top:-0.7499750000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x23A0;</span></span></span><span style="top:-1.9049850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-3.1050050000000002em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-3.705015em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-4.305025em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-5.550045em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239E;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.050045em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.9920539999999995em;"><span></span></span></span></span></span></span></span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>g</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>=</mo><mn>0</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>h</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>h</mi><mo>(</mo><msup><mi>L</mi><mi>i</mi></msup><mo>(</mo><mi>s</mi><mo>)</mo><mo>)</mo><mo>=</mo><mn>1</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>(</mo><mi>h</mi><msup><mi>L</mi><mi>i</mi></msup><mo>)</mo><mi>s</mi><mo>=</mo><mn>1</mn><mspace width="1em"></mspace></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">&#x2200;</mi><mi>i</mi><mo>:</mo><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>&#x205F;&#x200A;</mtext><mo>&#x27F9;</mo><mtext>&#x205F;&#x200A;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mn>0</mn></msub></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mn>1</mn></msub></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mn>2</mn></msub></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>h</mi><msup><mi>L</mi><msub><mi>i</mi><mi>n</mi></msub></msup></mrow></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><mi>s</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">&#x22EE;</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp;
+    g(L^i(s)) = 0 \quad &amp; \forall i: b_i = 1 \\
+\implies&amp;
+    h(L^i(s)) + 1 = 0 \quad &amp; \forall i: b_i = 1 \\
+\implies&amp;
+    h(L^i(s)) = 1 \quad &amp; \forall i: b_i = 1 \\
+\implies&amp;
+    (hL^i)s = 1 \quad &amp; \forall i: b_i = 1 \\
+\implies&amp;
+    \left(\begin{matrix}
+      hL^{i_0} \\
+      hL^{i_1} \\
+      hL^{i_2} \\
+      \vdots \\
+      hL^{i_n} \\
+    \end{matrix}\right) s 
+    =
+    \left(\begin{matrix}
+      1 \\
+      1 \\
+      1 \\
+      \vdots \\
+      1 \\
+    \end{matrix}\right)
+    \\
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:13.098656em;vertical-align:-6.299327999999999em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:6.799328000000001em;"><span style="top:-11.504664000000002em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"></span></span><span style="top:-9.97em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x27F9;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span><span style="top:-8.435336000000001em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x27F9;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span><span style="top:-6.900672000000001em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x27F9;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span><span style="top:-2.660672000000001em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x27F9;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:6.299327999999999em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:6.799328000000001em;"><span style="top:-11.504664000000002em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8746639999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:1em;"></span></span></span><span style="top:-9.97em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8746639999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:1em;"></span></span></span><span style="top:-8.435336000000001em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8746639999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:1em;"></span></span></span><span style="top:-6.900672000000001em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8746639999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathit">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:1em;"></span></span></span><span style="top:-2.660672000000001em;"><span class="pstrut" style="height:5.58em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.550045em;"><span style="top:-0.7499750000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239D;</span></span></span><span style="top:-1.9049850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-3.1050050000000002em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-3.705015em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-4.305025em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-5.550045em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239B;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.050045em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.427500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-5.2275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-4.0275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-2.1675000000000004em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-0.9675em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">L</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.08em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.550045em;"><span style="top:-0.7499750000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x23A0;</span></span></span><span style="top:-1.9049850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-3.1050050000000002em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-3.705015em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-4.305025em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-5.550045em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239E;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.050045em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.550045em;"><span style="top:-0.7499750000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239D;</span></span></span><span style="top:-1.9049850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-3.1050050000000002em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-3.705015em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-4.305025em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-5.550045em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239B;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.050045em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.5800000000000005em;"><span style="top:-6.427500000000001em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-5.2275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-4.0275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.1675000000000004em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">&#x22EE;</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-0.9675em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.08em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.550045em;"><span style="top:-0.7499750000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x23A0;</span></span></span><span style="top:-1.9049850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-3.1050050000000002em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-3.705015em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-4.305025em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-5.550045em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>&#x239E;</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:3.050045em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:6.299327999999999em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-r"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:6.799328000000001em;"><span style="top:-8.924664em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span><span style="top:-7.390000000000001em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span><span style="top:-5.855336000000001em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span><span style="top:-4.320672000000001em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">&#x2200;</span><span class="mord mathit">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><a href="https://github.com/sasdf/ctf/blob/master/writeup/2018/Hack.lu/crypto/lfsr/_files/solve.sage" target="_blank">Solving</a> for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit">s</span></span></span></span> yields 4 solutions:</p>
+<pre class="language-"><code>[+] Generated 293 equations
 [+] Solution 0: &apos;)A\x17U\xaf\x9d\x18\xbcn[\xed\x8aj\x00\xbc\xd4\xb39\xe1ef\xe7~/\xaa\xf2\xd7\x9e\x99\xdf\xc6j&apos;
 [+] Solution 1: &apos;s\xf0Z\xea\x07\xa2\xc5H\xba\x1c*\xa5\x82_X\xf2\x1c\xfe\xd5\xb3\x11A%\xf0\x92\x0c\x8c\xbawa\x83w&apos;
 [+] Solution 2: &apos;&lt;\xdd,\xd8\xd3l\xa9\xa6\xe7s\xaap\xabn\xb4N\x9c\x95k\x97\x19\xc82\xb7\t\x92:P\xdd\xfad`&apos;
 [+] Solution 3: &apos;flag{StR34m_C1Ph3R_Annih1lat3D!}&apos;
-</code></pre></section></div></div></div><a href="../relation/"class="navigation navigation-prev"aria-label="Previous page: crypto - Relations"><i class="fa fa-angle-left"></i> </a><a href="task.html"class="navigation navigation-next"aria-label="Next page: task description"><i class="fa fa-angle-right"></i></a></div><script>var gitbook=gitbook||[];gitbook.push(function(){gitbook.page.hasChanged({page:{name:"LFSR StreamCipher",category:"crypto",points:500,solves:3,title:"crypto - LFSR StreamCipher",level:"5.4.3",depth:2,next:{title:"task description",level:"5.4.3.1",depth:3,path:"writeup/2018/Hack.lu/crypto/lfsr/task.md",ref:"writeup/2018/Hack.lu/crypto/lfsr/task.md",articles:[]},previous:{title:"crypto - Relations",level:"5.4.2",depth:2,path:"writeup/2018/Hack.lu/crypto/relation/README.md",ref:"writeup/2018/Hack.lu/crypto/relation/README.md",articles:[]},dir:"ltr"},config:{gitbook:"*",theme:"default",variables:{},plugins:["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],pluginsConfig:{prism:{css:["prismjs/themes/prism-tomorrow.css"],lang:{C:"c","C++":"cpp",asm:"nasm"}},disqus:{useIdentifier:!1,shortName:"sasdfwriteup"},search:{maxIndexSize:1e6},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!1,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},lunr:{maxIndexSize:1e6,ignoreSpecialCharacters:!1},katex:{},fontsettings:{theme:"white",family:"sans",size:2},sharing:{facebook:!0,twitter:!0,google:!1,weibo:!1,instapaper:!1,vk:!1,all:["facebook","google","twitter","weibo","instapaper"]},"theme-default":{styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"},showLevel:!1},"writeup-utils":{filePrefix:"https://github.com/sasdf/ctf/blob/master",repoPrefix:"https://github.com/sasdf/ctf/blob/master",rawPrefix:"https://raw.githubusercontent.com/sasdf/ctf/master"}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},styles:{website:"styles/website.css",pdf:"styles/pdf.css",epub:"styles/epub.css",mobi:"styles/mobi.css",ebook:"styles/ebook.css",print:"styles/print.css"}},file:{path:"writeup/2018/Hack.lu/crypto/lfsr/README.md",mtime:"2020-08-30T20:59:08.317Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2020-09-25T17:26:22.339Z"},basePath:"../../../../..",book:{language:""}})})</script></div><script src="../../../../../gitbook/gitbook.js"></script><script src="../../../../../gitbook/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script><script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script><script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script><script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script></body></html>
+</code></pre>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../relation/" class="navigation navigation-prev " aria-label="Previous page: crypto - Relations">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="task.html" class="navigation navigation-next " aria-label="Next page: task description">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"name":"LFSR StreamCipher","category":"crypto","points":500,"solves":3,"title":"crypto - LFSR StreamCipher","level":"5.4.3","depth":2,"next":{"title":"task description","level":"5.4.3.1","depth":3,"path":"writeup/2018/Hack.lu/crypto/lfsr/task.md","ref":"writeup/2018/Hack.lu/crypto/lfsr/task.md","articles":[]},"previous":{"title":"crypto - Relations","level":"5.4.2","depth":2,"path":"writeup/2018/Hack.lu/crypto/relation/README.md","ref":"writeup/2018/Hack.lu/crypto/relation/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex@git://github.com/sasdf/plugin-katex.git","disqus","prism","-highlight","html-minifier","writeup-utils@git://github.com/sasdf/gitbook-plugin-writeup-utils.git"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"C":"c","C++":"cpp","asm":"nasm"}},"disqus":{"useIdentifier":false,"shortName":"sasdfwriteup"},"search":{"maxIndexSize":1000000},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":false,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":false,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":false,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"writeup-utils":{"filePrefix":"https://github.com/sasdf/ctf/blob/master","repoPrefix":"https://github.com/sasdf/ctf/blob/master","rawPrefix":"https://raw.githubusercontent.com/sasdf/ctf/master"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"writeup/2018/Hack.lu/crypto/lfsr/README.md","mtime":"2021-11-23T11:07:12.587Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-25T02:42:39.634Z"},"basePath":"../../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
