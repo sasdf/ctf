@@ -63,7 +63,7 @@ Hmm, it provides nanosecond measurements :/
 One main disadvantage of Prometheus is that the metrics are global.
 Players will affect each other,
 but don't think we will see a lot of players poking the server at the same time.
-![dlog]([_files/dlog.png])
+![(Img: metrics)]({_files/dlog.png})
 Seems we only have 6 players poke our server ;)
 
 
