@@ -21,9 +21,9 @@ The difficulty of this year's crypto challenges would be slightly easier than be
 2. I'm out of idea :(
 
 This year we've covered three sub-categories:
-* Easy: PRNG - 1337 pins (5 solves)
-* Medium: Side-channel - dlog (2 solves)
-* Hard: Hash collision - trinity (0 solves)
+* Easy: PRNG - [1337 pins](crypto/1337pins/README.md) (5 solves)
+* Medium: Side-channel - [dlog](crypto/dlog/README.md) (2 solves)
+* Hard: Hash collision - [trinity](crypto/trinity/README.md) (0 solves)
 
 The topics are slightly overlapped with our 2019 CTF,
 which has PRNG and side-channel challenges too.
